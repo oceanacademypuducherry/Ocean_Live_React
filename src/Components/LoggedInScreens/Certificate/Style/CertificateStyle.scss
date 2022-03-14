@@ -1,0 +1,93 @@
+@import "../../../Scss/ScssMixins.scss";
+
+$textColor: rgb(92, 90, 90);
+
+.certificate {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 100px 30px 0px 30px;
+  color: $textColor;
+
+  .certificate-Back-Btn {
+    @include flex(start, center, row, nowrap);
+    margin: 20px 0px;
+    width: 160px;
+    font-size: 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(0, 65, 168);
+    }
+
+    .certificate-Back-Icon {
+      font-size: 40px;
+    }
+  }
+
+  .certificate-Card-Row {
+    @include flex(start, center, row, wrap);
+    gap: 50px;
+    padding: 40px;
+    .certificate-Card {
+      height: 210px;
+      width: 300px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.144);
+      @include flex(center, center, column, nowrap);
+      transition: all 0.5s;
+
+      &:hover .certificate-Card-Name {
+        color: rgb(0, 91, 144);
+        font-weight: 500;
+      }
+
+      &:hover {
+        transform: scale(1.08);
+      }
+
+      .certificate-Card-Image {
+        margin-top: auto;
+        position: relative;
+        height: 70%;
+        width: 90%;
+        background-color: whitesmoke;
+        border-radius: 5px;
+        cursor: pointer;
+        @include flex(center, center, column, nowrap);
+        .certificate-Card-Icons {
+          font-size: 50px;
+          display: none;
+          color: white;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transition: all 0.5s;
+        }
+
+        &:hover:before {
+          background-color: rgba(0, 0, 0, 0.514);
+        }
+
+        &:hover .certificate-Card-Icons {
+          display: block;
+          z-index: 1;
+        }
+      }
+      .certificate-Card-Name {
+        margin-top: auto;
+        height: 20%;
+        width: 90%;
+        font-size: large;
+        @include flex(center, center, column, nowrap);
+        transition: all 0.2s;
+        // font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        //   sans-serif;
+      }
+    }
+  }
+}

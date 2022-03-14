@@ -1,0 +1,39 @@
+// lg screen keyframes
+
+@keyframes circle-two-lg {
+  0% {
+    @include box(200, 200, rgba(128, 128, 128, 0.034));
+  }
+  100% {
+    @include box(500, 500, rgba(128, 128, 128, 0.048));
+  }
+}
+
+@keyframes circle-one-lg {
+  0% {
+    @include box(0, 0, rgba(0, 225, 255, 0.527));
+  }
+  100% {
+    @include box(550, 550, rgba(128, 128, 128, 0.034));
+  }
+}
+
+// md screen keyframes
+
+@keyframes circle-two-md {
+  0% {
+    @include box(100, 100, rgba(128, 128, 128, 0.034));
+  }
+  100% {
+    @include box(400, 400, rgba(128, 128, 128, 0.048));
+  }
+}
+
+@keyframes circle-one-md {
+  0% {
+    @include box(0, 0, rgba(0, 225, 255, 0.746));
+  }
+  100% {
+    @include box(600, 600, rgba(128, 128, 128, 0.034));
+  }
+}

@@ -1,0 +1,21 @@
+@media only screen and (max-width: 850px) {
+  .offlineDialog {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+
+    .card {
+      height: 100%;
+      width: 100%;
+      background-color: aliceblue;
+      @include flex(center, center, column, nowrap);
+      .row {
+        // background-color: antiquewhite;
+        @include flex(center, center, column, nowrap);
+        > img {
+          display: none;
+        }
+      }
+    }
+  }
+}

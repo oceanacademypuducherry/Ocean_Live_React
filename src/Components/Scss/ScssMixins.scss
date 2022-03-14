@@ -1,0 +1,13 @@
+@mixin flex($justify-content, $align-items, $flex-direction, $flex-wrap) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin box($height: 0, $width: 0, $background-color: transparent) {
+  height: $height + px;
+  width: $width + px;
+  background-color: $background-color;
+}

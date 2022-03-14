@@ -1,0 +1,46 @@
+.studentPlacement {
+  background-color: rgba(251, 251, 251, 0.712);
+  /* height: 500px; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.studentPlacement > h1 {
+  color: rgb(0, 174, 255);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.studentPlacement > p {
+  max-width: 700px;
+  text-align: center;
+  color: rgb(92, 90, 90);
+}
+
+.studentPlacement > .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.studentPlacement > .row > img {
+  margin: 20px;
+  width: 120px;
+}
+
+@media only screen and (max-width: 600px) {
+  .studentPlacement > h1 {
+    font-size: large;
+    font-weight: 500;
+  }
+
+  .studentPlacement > .row > img {
+    width: 60px;
+    margin: 10px;
+  }
+}

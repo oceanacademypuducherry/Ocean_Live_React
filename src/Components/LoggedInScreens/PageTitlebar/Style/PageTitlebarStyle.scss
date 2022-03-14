@@ -1,0 +1,21 @@
+@import "../../../Scss//ScssMixins.scss";
+
+.PageTitlebar {
+  position: fixed;
+  background-color: whitesmoke;
+  box-shadow: 2px 2px 10px 1px rgba(0, 195, 255, 0.294);
+  color: rgb(0, 133, 250);
+  width: calc(100% - 300px);
+  height: 60px;
+  margin-top: 100px;
+  top: 0%;
+  @include flex(center, center, row, nowrap);
+  font-size: larger;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 1100px) {
+  .PageTitlebar {
+    width: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+@import "../../../Scss/ScssMixins.scss";
+
+%dashboarDesign {
+  z-index: -1;
+  left: 0%;
+  position: absolute;
+  box-sizing: border-box;
+  margin-left: 300px;
+  margin-top: 100px;
+  width: calc(100% - 300px);
+  gap: 10px;
+  flex-basis: 200px;
+}
+
+.dashboardRow {
+  width: 100%;
+  background-color: whitesmoke;
+  @include flex(space-between, center, row, nowrap);
+  position: relative;
+
+  .courseSidebarMain {
+    background-color: rgb(1, 103, 146);
+  }
+
+  .courseCardMainRow {
+    @extend %dashboarDesign;
+    // @include flex(center, start, column, wrap);
+  }
+
+  .zoomScheduleMainRow {
+    @extend %dashboarDesign;
+    // @include flex(start, start, column, wrap);
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  %dashboarDesign {
+    width: 100%;
+    margin-left: 0px;
+  }
+}

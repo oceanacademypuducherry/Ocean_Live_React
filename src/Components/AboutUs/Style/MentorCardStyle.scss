@@ -1,0 +1,129 @@
+@import "../../Scss/ScssMixins.scss";
+
+.mentors {
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1800px;
+  padding: 30px 30px 50px;
+
+  h2 {
+    font-weight: 500;
+    text-align: center;
+    color: rgb(0, 174, 255);
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .static {
+      perspective: 1000px;
+
+      &:hover > .card {
+        transform: rotateY(-180deg);
+      }
+
+      > .card {
+        height: 300px;
+        width: 260px;
+        background-color: white;
+        box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.185);
+        margin: 30px;
+        position: relative;
+        @include flex(space-between, center, column, nowrap);
+        align-items: center;
+        box-sizing: border-box;
+        transition: all 1s;
+        transform-style: preserve-3d;
+        border-radius: 10px;
+
+        .front {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          background-color: white;
+          z-index: 1;
+          backface-visibility: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 10px;
+          > .background-Image {
+            height: 75%;
+            width: 100%;
+            background-color: whitesmoke;
+            overflow: hidden;
+            background-size: cover;
+            z-index: 1;
+            box-shadow: 2px 2px 30px 1px rgba(0, 162, 255, 0.295);
+            box-sizing: border-box;
+            border: 5px solid rgb(0, 88, 146);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+          }
+
+          .details {
+            height: 25%;
+            width: 100%;
+            background-color: rgb(0, 102, 170);
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 2px 2px 20px 1px rgb(111, 112, 112);
+            > p {
+              margin: 4px 0px;
+
+              &:nth-of-type(1) {
+                font-size: 20px;
+                font-weight: 400;
+                color: white;
+              }
+
+              &:nth-of-type(2) {
+                font-size: 12px;
+                color: aliceblue;
+              }
+            }
+          }
+        }
+
+        .back {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          background-color: rgb(0, 88, 146);
+          transform: rotateY(180deg);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          padding: 10px;
+          box-sizing: border-box;
+          border-radius: 10px;
+
+          .card-Icons {
+            color: aliceblue;
+            font-size: 30px;
+            border: 2px solid transparent;
+            padding: 15px;
+            border-radius: 50%;
+            transition: all 1s;
+            margin: 0%;
+
+            &:hover {
+              border: 2px solid rgb(255, 255, 255);
+              transform: scale(1.2);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

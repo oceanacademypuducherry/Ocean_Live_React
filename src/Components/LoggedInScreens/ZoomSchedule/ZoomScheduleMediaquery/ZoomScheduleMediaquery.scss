@@ -1,0 +1,42 @@
+@media only screen and (max-width: 600px) {
+  .zoomSchedule {
+    .zoomSchedule-username {
+      margin-right: 12px;
+      margin-left: 12px;
+    }
+    .zoomSchedule-Card {
+      @include flex(space-between, center, column, nowrap);
+      // background-color: aqua;
+      height: auto;
+
+      .zoomSchedule-Card-Left {
+        width: 90%;
+        @include flex(center, center, row, nowrap);
+        p {
+          &:nth-of-type(2) {
+            font-size: medium;
+            margin: 0px 0px 0px auto;
+          }
+        }
+      }
+
+      .zoomSchedule-Card-Right-Row {
+        @include flex(center, center, column, nowrap);
+        .zoomSchedule-Card-Right-Div1 {
+          margin: auto;
+          padding: 10px;
+          text-align: center;
+        }
+        .zoomSchedule-Card-Right-Div2 {
+          width: 100%;
+          color: aliceblue;
+          background-color: rgba(0, 128, 0, 0.781);
+          @include flex(center, center, row, nowrap);
+          .zoomSchedule-Card-Right-Div2-icons {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+}

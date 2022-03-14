@@ -1,0 +1,209 @@
+@import "../../Scss//ScssMixins.scss";
+
+.contactUs {
+  /* height: 800px; */
+  width: 100%;
+  background-color: whitesmoke;
+  color: rgb(92, 90, 90);
+}
+
+/* division parent */
+
+.contactUs > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* division left */
+
+.contactUs > div > .div-left {
+  /* height: 800px; */
+  max-width: 700px;
+  /* background-color: blanchedalmond; */
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* iframe map */
+.contactUs > div > .div-left > iframe {
+  border: 0px;
+  max-width: 600px;
+  height: 400px;
+  margin-top: 20px;
+}
+
+/* division left content */
+
+.contactUs > div > .div-left {
+  margin-right: 200px;
+}
+
+.contactUs > div > .div-left > p {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+}
+
+.contactUs > div > .div-left > p > span {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* division right content textfields */
+
+.contactUs > div > .div-right > .textfield {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactUs > div > .div-right > .textfield > p > span {
+  color: red;
+}
+
+.contactUs > div > .div-right > .textfield > input {
+  background-color: rgba(255, 255, 255, 0.568);
+  height: 40px;
+  max-width: 500px;
+  font-size: 15px;
+  font-family: "Ubuntu", sans-serif;
+  border-color: rgba(0, 0, 0, 0.349);
+  border-width: 1px;
+  border-radius: 5px;
+  padding-left: 20px;
+  font-weight: 100;
+}
+
+.contactUs > div > .div-right > .textfield > input:focus {
+  outline: rgb(0, 174, 255);
+  border-color: rgb(0, 174, 255);
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.144);
+}
+
+/* Chrome, Safari, Edge, Opera */
+.contactUs > div > .div-right > .textfield > input::-webkit-outer-spin-button,
+.contactUs > div > .div-right > .textfield > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.contactUs > div > .div-right > .textfield > input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* division left content icons  */
+
+.contactUs > div > .div-left > p > span > .contactUs-icons {
+  color: rgb(0, 174, 255);
+  margin: 0%;
+  font-size: 30px;
+}
+
+/* division right */
+
+.contactUs > div > .div-right {
+  /* height: 800px; */
+  max-width: 700px;
+  /* background-color: antiquewhite; */
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contactUs > div > .div-right > h3 {
+  color: rgb(0, 174, 255);
+}
+
+.contactUs > div > .div-right > p {
+  max-width: 500px;
+}
+
+/* textfield */
+
+/* form button */
+
+.contactUs > div > .div-right > .form-btn {
+  height: 50px;
+  width: 120px;
+  background-color: rgb(1, 144, 210);
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.card {
+  margin: 30px 0px;
+  p {
+    color: rgb(0, 93, 155);
+    margin: 0%;
+  }
+  .calc {
+    padding: 8px;
+    height: 55px;
+    width: 250px;
+    background-color: rgba(128, 128, 128, 0.068);
+
+    @include flex(space-between, center, row, nowrap);
+
+    .box1 {
+      height: 35px;
+      width: 50px;
+      background-color: rgba(0, 68, 146, 0.884);
+      color: white;
+      border-radius: 5px;
+      @include flex(center, center, row, nowrap);
+    }
+
+    .box2 {
+      height: 35px;
+      width: 50px;
+      background-color: rgba(0, 68, 146, 0.884);
+      color: white;
+      border-radius: 5px;
+      @include flex(center, center, row, nowrap);
+    }
+
+    p {
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    input {
+      height: 35px;
+      width: 50px;
+      border: 1px solid grey;
+      color: white;
+      border-radius: 5px;
+      @include flex(center, center, row, nowrap);
+    }
+  }
+}
+
+/* responsive */
+
+@media only screen and (max-width: 1400px) {
+  /* .contactUs > div > .div-left > p > span > .contactUs-icons {
+    display: block;
+    background-color: aqua;
+    color: black;
+  } */
+  .contactUs > div > .div-left {
+    margin: 30px 50px 0px 50px;
+    /* background-color: aqua; */
+  }
+
+  .contactUs > div > .div-left > iframe {
+    height: 300px;
+  }
+}

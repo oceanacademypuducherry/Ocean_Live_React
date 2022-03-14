@@ -1,0 +1,45 @@
+@import "../../../Scss/ScssMixins.scss";
+
+.myCourse {
+  margin-top: 60px;
+  width: 100%;
+  @include flex(center, center, row, wrap);
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 15px;
+  .myCourseCard {
+    background-color: white;
+    border-radius: 10px;
+    width: 280px;
+    margin: 25px;
+    box-shadow: 2px 2px 30px 1px rgba(0, 0, 0, 0.233);
+    @include flex(start, center, column, nowrap);
+
+    div {
+      &:nth-of-type(1) {
+        border-radius: 10px;
+        background-color: rgb(0, 133, 250);
+        background-size: cover;
+        height: 150px;
+        width: 100%;
+      }
+    }
+
+    .myCourse-content {
+      margin: 0px 10px;
+    }
+
+    .myCourse-Btn {
+      cursor: pointer;
+      height: 40px;
+      width: calc(100% - 30px);
+      margin: 10px 10px 15px 10px;
+      border-radius: 5px;
+      border: 1px solid rgb(0, 174, 255);
+      color: rgb(0, 174, 255);
+      // background-color: aliceblue;
+      @include flex(center, center, row, nowrap);
+      text-decoration: none;
+    }
+  }
+}

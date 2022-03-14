@@ -1,0 +1,307 @@
+.OnlineViewDetail {
+  margin-top: 100px;
+  /* height: 100vh; */
+  /* background-color: whitesmoke; */
+}
+
+/* background color appbar css open */
+
+.viewDetails-topbar {
+  color: aliceblue;
+  padding: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: rgb(0, 70, 105);
+  display: flex;
+  justify-content: center;
+}
+
+/* background color appbar css close */
+
+/* TOPBAR CONTENT BACK BTN CSS OPEN */
+
+.topbar-Content-Back-Btn {
+  height: 40px;
+  width: 200px;
+  display: flex;
+  font-weight: 300;
+  color: aliceblue;
+  font-size: larger;
+  align-items: center;
+  cursor: pointer;
+}
+
+.topbar-Content-Back-Btn > span {
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 35px;
+}
+
+.topbar-Content-Back-Btn:hover {
+  color: rgb(62, 178, 255);
+}
+
+/* TOPBAR CONTENT BACK BTN CSS CLOSE */
+
+.topbar-Content {
+  margin: 0px 80px 0px 0px;
+}
+
+.viewDetails-center {
+  display: flex;
+  justify-content: center;
+}
+
+.onlineView-maxWidth {
+  width: 1600px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* TOPBAR-CONTENT-ROW CSS OPEN */
+
+.topbar-Content > .topbar-Content-Row {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.topbar-Content > .topbar-Content-Row > p {
+  display: flex;
+  align-items: center;
+  font-size: medium;
+}
+
+.topbar-Content > .topbar-Content-Row > p > span {
+  margin-right: 10px;
+  display: flex;
+}
+
+/* TOPBAR-CONTENT-ROW CSS CLOSE */
+
+/* CARD CSS OPEN */
+
+.topbar-Card {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  max-width: 400px;
+  background-color: aliceblue;
+  box-shadow: 2px 2px 30px 1px rgba(14, 171, 243, 0.198);
+  color: black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.topbar-Card-image {
+  height: 200px;
+  width: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.topbar-Card-date-row {
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topbar-Card-date-col,
+.topbar-Card-price-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 140px;
+  /* background-color: aqua; */
+}
+
+.topbar-Card-price-col {
+  font-size: x-large;
+  font-weight: 600;
+  color: rgb(0, 100, 149);
+}
+
+.topbar-Card-date-col > p {
+  color: rgb(92, 90, 90);
+  margin: 5px 0px;
+  display: flex;
+  font-size: large;
+  display: flex;
+}
+
+.topbar-Card-date-col > p > span {
+  margin-right: 10px;
+  color: rgb(0, 100, 149);
+  font-size: larger;
+}
+
+.topbar-Card-price-date-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  border: 2px solid rgb(0, 174, 255);
+  color: rgb(0, 174, 255);
+  font-weight: 500;
+  font-size: large;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* CARD CSS CLOSE */
+
+/* VIEWDETAILS-TOPBAR  MEDIAQUERY */
+
+@media only screen and (max-width: 1200px) {
+  .topbar-Card {
+    position: relative;
+    flex-wrap: wrap-reverse;
+  }
+
+  .onlineView-maxWidth {
+    justify-content: center;
+  }
+
+  .topbar-Content-Back-Btn {
+    display: none;
+  }
+
+  .topbar-Content {
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 500px;
+  }
+
+  .topbar-Content > h1 {
+    font-size: x-large;
+  }
+
+  .onlineView-maxWidth {
+    justify-content: start;
+    max-width: 450px;
+  }
+
+  .viewDetails-topbar {
+    padding-top: 80px;
+  }
+}
+
+/* MOBILE VIEWDETAILS-TOPBAR  MEDIAQUERY */
+
+@media only screen and (max-width: 600px) {
+  .viewDetails-topbar {
+    position: relative;
+    top: -20px;
+  }
+
+  .topbar-Card-image {
+    width: 300px;
+    height: 155px;
+  }
+
+  .topbar-Card-date-col > p {
+    font-size: medium;
+  }
+
+  .topbar-Content {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .onlineView-maxWidth {
+    justify-content: center;
+  }
+}
+
+/* VIEWDETAILS CONTENT CSS OPEN*/
+
+.viewDetails-contents {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.viewDetails-contents > h2:nth-of-type(2) {
+  text-align: center;
+}
+
+.viewDetails-maxwidth {
+  /* background-color: antiquewhite; */
+  width: 1600px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* max-width: 800px; */
+}
+
+.viewDetails-Details {
+  display: flex;
+  flex-direction: column;
+  /* padding: 10px;
+  box-sizing: border-box; */
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.viewDetails-Details:hover {
+  background-color: rgba(0, 134, 251, 0.308);
+}
+
+.viewDetails-Details-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.viewDetails-Details-row-content > p {
+  display: block;
+  transition: display 2s;
+  margin: 0%;
+  padding: 8px 10px;
+  background-color: rgb(233, 241, 250);
+}
+
+.viewDetails-Details-row > p:nth-child(1),
+.viewDetails-Details-row > p:nth-child(2) {
+  margin: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.viewDetails-Details > p:nth-child(2) {
+  /* display: none; */
+}
+
+.course-details {
+  /* background-color: antiquewhite; */
+  max-width: 800px;
+  margin-right: 500px;
+}
+
+/* VIEWDETAILS CONTENT CSS CLOSE*/
+
+/* MOBILE VIEWDETAILS-CONTENT  MEDIAQUERY */
+
+@media only screen and (max-width: 1200px) {
+  .viewDetails-maxwidth {
+    align-items: center;
+  }
+  .course-details {
+    margin-right: 0px;
+    text-align: justify;
+    /* background-color: antiquewhite; */
+  }
+
+  .viewDetails-contents {
+    padding-top: 8px;
+  }
+}

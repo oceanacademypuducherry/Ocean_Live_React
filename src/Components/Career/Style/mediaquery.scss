@@ -1,0 +1,106 @@
+@import "../../Scss/ScssMixins.scss";
+
+@media only screen and (max-width: 1600px) {
+  .career {
+    .career-row {
+      #career-div-right {
+        width: 500px;
+        // display: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .career {
+    .career-row {
+      #career-div-right {
+        width: 100px;
+        display: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .career {
+    .career-row {
+      width: 100% !important;
+      .career-div-left {
+        width: 100% !important;
+        > p:nth-of-type(1) {
+          font-size: 20px !important;
+        }
+        > h1 {
+          font-size: 50px !important;
+        }
+
+        &::after {
+          width: 0px !important;
+        }
+
+        &::before {
+          animation: none !important;
+        }
+        &::after {
+          animation: none !important;
+        }
+      }
+      #career-div-right {
+        display: none;
+      }
+    }
+
+    .left-box {
+      display: none;
+      @include box(130, 150, $boxColor);
+      position: fixed;
+      bottom: -10%;
+      left: -2%;
+      transform: rotate(45deg);
+    }
+    .fixed {
+      display: none !important;
+      position: fixed;
+      bottom: -13%;
+      right: -2%;
+      width: 150px;
+      height: 200px;
+      // background-color: antiquewhite;
+      .right-sm {
+        @include box(100, 100, rgba(50, 178, 238, 0.39));
+        box-shadow: 2px 2px 20px 1px transparent !important;
+        position: absolute;
+        top: 50px;
+        right: 0px !important;
+        transform: rotate(45deg);
+        z-index: 1;
+      }
+      .right-lg {
+        @include box(100, 100, rgba(0, 174, 255, 0.226));
+        position: absolute;
+        right: -40px;
+        bottom: 50px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+@keyframes circle-two-sm {
+  0% {
+    @include box(100, 100, rgba(128, 128, 128, 0.034));
+  }
+  100% {
+    @include box(400, 400, rgba(128, 128, 128, 0.048));
+  }
+}
+
+@keyframes circle-one-sm {
+  0% {
+    @include box(0, 0, rgba(0, 225, 255, 0.746));
+  }
+  100% {
+    @include box(600, 600, rgba(128, 128, 128, 0.034));
+  }
+}

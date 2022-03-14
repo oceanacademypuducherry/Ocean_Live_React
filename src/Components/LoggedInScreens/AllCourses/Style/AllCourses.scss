@@ -1,0 +1,156 @@
+.allCourses {
+  height: 100%;
+  margin-top: 80px;
+  width: 100%;
+  /* background-color: aliceblue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(92, 90, 90);
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  justify-content: center;
+}
+
+/* card design */
+
+.allCourses > .onlineCourses-card {
+  /* height: 400px; */
+  max-width: 360px;
+  background-color: white;
+  border-radius: 15px;
+  margin: 50px;
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.13);
+  /* padding: 100px; */
+}
+
+/* img */
+
+.allCourses > .onlineCourses-card > div:nth-of-type(1) {
+  display: flex;
+  justify-content: center;
+  height: 177px;
+  width: 330px;
+  background-color: rgb(0, 174, 255);
+  background-image: url("../../../Image/courses/nodejs.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+}
+
+/* course details  */
+
+.allCourses > .onlineCourses-card > .onlineCourses-content {
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.allCourses
+  > .onlineCourses-card
+  > .onlineCourses-content
+  > div:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* background-color: aqua; */
+}
+
+.allCourses > .onlineCourses-card > .onlineCourses-content > p {
+  font-size: 18px;
+  margin: 10px 0px;
+  font-weight: 400;
+}
+
+.allCourses
+  > .onlineCourses-card
+  > .onlineCourses-content
+  > div:nth-of-type(1)
+  > p
+  > span
+  > .online-icons {
+  font-size: 30px;
+  color: rgb(54, 105, 148);
+  margin-right: 3px;
+}
+
+.allCourses
+  > .onlineCourses-card
+  > .onlineCourses-content
+  > div:nth-of-type(1)
+  > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* btn */
+
+.allCourses > .onlineCourses-card > .onlineCourses-View-Btn {
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 174, 255);
+  font-weight: 500;
+  border: 1px solid rgb(0, 174, 255);
+  border-style: inset;
+  cursor: pointer;
+  position: relative;
+  margin: 0px auto 15px auto;
+  text-decoration: none;
+}
+
+.allCourses > .onlineCourses-card > .onlineCourses-View-Btn > div {
+  position: absolute;
+  /* width: 100%; */
+  height: 100%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  transition: all 2s;
+}
+
+/* btn hover */
+
+/* .onlineCourses > .onlineCourses-card > .onlineCourses-View-Btn:hover div {
+    width: 100%;
+    background-color: whitesmoke;
+  } */
+
+/* mediaquery card mobile responsive */
+
+@media only screen and (max-width: 600px) {
+  .allCourses {
+    margin-top: 80px;
+  }
+
+  .allCourses > .onlineCourses-card > div:nth-of-type(1) {
+    height: 160px;
+    width: 298px;
+  }
+
+  .allCourses > .onlineCourses-card > .onlineCourses-content > p {
+    /* background-color: aqua; */
+    font-size: medium;
+  }
+
+  .allCourses
+    > .onlineCourses-card
+    > .onlineCourses-content
+    > div:nth-of-type(1)
+    > p {
+    /* background-color: aqua; */
+    font-size: small;
+  }
+
+  .allCourses
+    > .onlineCourses-card
+    > .onlineCourses-content
+    > div:nth-of-type(1)
+    > p
+    > span
+    > .online-icons {
+    font-size: large;
+  }
+}

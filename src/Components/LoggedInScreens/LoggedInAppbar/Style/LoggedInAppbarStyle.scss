@@ -1,0 +1,120 @@
+@import "../../../Scss/ScssMixins.scss";
+@import "DropdownStyle.scss";
+@import "NotificationDropdown.scss";
+@import "LoggedInAppbarMediaquery.scss";
+$theme: rgb(1, 145, 211);
+$white: white;
+
+%text-Decoration {
+  color: $theme;
+  text-decoration: none;
+  @include flex(center, center, row, nowrap);
+  border-radius: 6px;
+}
+
+.loggedInAppbar {
+  height: 100px;
+  width: 100%;
+  padding: 0px 30px;
+  box-sizing: border-box;
+  background-color: $theme;
+  position: fixed;
+  top: 0%;
+  box-shadow: 2px 2px 30px 1px rgba(0, 162, 255, 0.424);
+  z-index: 99;
+  @include flex(space-between, center, row, nowrap);
+  .appbarLeft {
+    width: 320px;
+  }
+
+  .appbarRight {
+    // background-color: aliceblue;
+    width: 600px;
+    height: 100%;
+    @include flex(space-between, center, row, nowrap);
+
+    .route:nth-of-type(1),
+    .route:nth-of-type(2) {
+      @extend %text-Decoration;
+      height: 50px;
+      width: 120px;
+      background-color: aliceblue;
+    }
+
+    #mainNotification {
+      position: relative;
+      // background-color: aliceblue;
+      height: 100%;
+      width: 100px;
+
+      &:hover + .spreadCircle {
+        transform: scale(100);
+      }
+
+      .notification-Icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: aliceblue;
+        font-size: 40px;
+        // background-color: red;
+        border-radius: 50%;
+        z-index: 1;
+
+        &:hover + .spreadCircle {
+          transform: scale(100);
+        }
+      }
+    }
+
+    > .spreadCircle {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+      height: 50px;
+      width: 50px;
+      transition: all 1s;
+      background-color: rgba(0, 0, 0, 0.041);
+      backdrop-filter: blur(0.1px);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    #loggedInAppbar-Profile {
+      // background-color: antiquewhite;
+      height: 100%;
+      width: 100px;
+      cursor: pointer;
+      @include flex(center, center, row, nowrap);
+      position: relative;
+
+      &:hover .loggedInAppbar-Dropdown {
+        display: block;
+        height: 500px;
+      }
+
+      .loggedInAppbar-Profile-Circle {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: rgb(0, 15, 98);
+        color: aliceblue;
+        box-shadow: 2px 2px 10px 1px rgba(245, 245, 245, 0.205);
+        @include flex(center, center, row, nowrap);
+        @extend %text-Decoration;
+      }
+    }
+  }
+
+  .loggedIn-Appbar-Menu {
+    cursor: pointer;
+    color: aliceblue;
+    background-color: transparent;
+    display: none;
+    .loggedIn-Appbar-Menu-icon {
+      font-size: 30px;
+    }
+  }
+}

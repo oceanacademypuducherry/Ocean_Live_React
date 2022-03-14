@@ -1,0 +1,129 @@
+.footer {
+  background-color: rgb(2, 71, 122);
+  /* height: 500px; */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.maxWidth {
+  max-width: 1800px;
+}
+
+.mainCol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.footer > .maxWidth > .mainCol > .col:nth-child(1) {
+  /* background-color: aliceblue; */
+  color: aliceblue;
+  /* height: 350px; */
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: start;
+  margin: 0px auto;
+  /* display: flex; */
+}
+
+.footer > .maxWidth > .mainCol > .col:nth-child(2),
+.footer > .maxWidth > .mainCol > .col:nth-child(3),
+.footer > .maxWidth > .mainCol > .col:nth-child(4) {
+  /* background-color: aliceblue; */
+  color: aliceblue;
+  /* height: 350px; */
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  margin: 10px 50px;
+  /* display: flex; */
+}
+
+.mainCol > .col > p {
+  font-weight: 300;
+}
+
+#textfield {
+  margin: 30px 0px;
+  height: 50px;
+  width: 180px;
+  background-color: rgb(2, 70, 123);
+  color: aliceblue;
+  outline: none;
+  border-color: aliceblue;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+#textfield::placeholder {
+  color: aliceblue;
+  font-family: "Poppins", sans-serif;
+  /* padding-left: 10px;
+    box-sizing: border-box; */
+}
+
+.mainCol > .col:nth-child(1) {
+  text-align: start;
+
+  /* background-color: antiquewhite; */
+}
+
+/* .footer > .col:nth-child(3) > h4 {
+    text-align: center;
+}
+
+.footer > .col:nth-child(4) > h4 {
+    text-align: center;
+} */
+
+.iconbar {
+  background-color: rgb(0, 51, 85);
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subBtn {
+  margin: 32px 20px 32px 0px;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 120px;
+  background-color: whitesmoke;
+  color: rgb(0, 174, 255);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons {
+  margin: 10px 20px 10px 20px;
+  font-size: 25px;
+  color: aliceblue;
+  cursor: pointer;
+  transition: all;
+  /* background-color: aqua; */
+}
+
+.icons:hover {
+  fill: black;
+}

@@ -1,0 +1,51 @@
+.clients {
+  background-color: rgba(128, 128, 128, 0.034);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.clients > .row > img {
+  width: 120px;
+}
+
+.clients > h1 {
+  color: rgb(0, 174, 255);
+  font-weight: 400;
+}
+
+.clients > p {
+  max-width: 500px;
+  text-align: center;
+  color: rgb(92, 90, 90);
+}
+
+.clients > .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.clients > .row > img {
+  margin: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .clients > h1 {
+    font-size: large;
+    font-weight: 500;
+  }
+
+  .clients > p {
+    margin: 10px;
+  }
+
+  .clients > .row > img {
+    width: 50px;
+    margin: 10px;
+  }
+}

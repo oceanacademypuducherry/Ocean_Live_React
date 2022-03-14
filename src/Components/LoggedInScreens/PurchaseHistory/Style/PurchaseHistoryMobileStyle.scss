@@ -1,0 +1,65 @@
+@import "../../../Scss/ScssMixins.scss";
+
+.mobile-purchaseHistory {
+  display: none;
+  color: rgb(92, 90, 90);
+  // height: 100vh;
+  width: 100%;
+  background-color: white;
+  margin-top: 100px;
+  padding: 15px;
+  box-sizing: border-box;
+
+  .mobile-card {
+    &::selection {
+      background-color: transparent;
+    }
+    // height: 140px;
+    width: 100%;
+    padding: 10px;
+    background-color: aliceblue;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    @include flex(space-between, center, row, nowrap);
+    .row {
+      @include flex(center, center, row, nowrap);
+      margin: 0px 10px;
+      > img {
+        margin-right: 5px;
+      }
+    }
+
+    .icon-main {
+      margin: 0px 20px;
+      .icon {
+        font-size: 35px;
+        color: rgba(0, 0, 0, 0.562);
+      }
+    }
+  }
+
+  .content {
+    background-color: rgb(251, 250, 250);
+    border-bottom: 2px solid rgba(3, 138, 200, 0.836);
+    margin-bottom: 40px;
+    display: none;
+    .row {
+      margin: 0px 20px;
+      @include flex(space-between, center, row, nowrap);
+      .col {
+        > h5 {
+          color: rgba(3, 138, 200, 0.836);
+          font-weight: 600;
+        }
+        > p {
+          font-size: medium;
+        }
+        .icon {
+          font-size: 30px;
+          color: green;
+        }
+      }
+    }
+  }
+}

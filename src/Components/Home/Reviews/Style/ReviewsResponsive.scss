@@ -1,0 +1,23 @@
+@media only screen and (max-width: 1100px) {
+  .reviews-Row {
+    height: auto !important;
+    width: 100% !important;
+    margin: 30px auto;
+    // overflow: hidden;
+    .reviews-Card {
+      height: auto !important;
+      padding: 10px;
+      margin: 20px auto !important;
+      flex-direction: column !important;
+      //   max-width: 600px !important;
+
+      .image {
+        height: 100px !important;
+        width: 100px !important;
+        position: static !important;
+        border-radius: 50% !important;
+        border: 3px solid rgba(0, 55, 126, 0.52);
+      }
+    }
+  }
+}

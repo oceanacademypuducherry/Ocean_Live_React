@@ -1,0 +1,41 @@
+@media only screen and (max-width: 600px) {
+  .login {
+    height: 100vh;
+    .login-Card-Top {
+      margin: auto;
+      height: 370px;
+      width: 90%;
+      .login-Card-Top-Textfield {
+        flex-direction: column;
+        > input {
+          width: 70%;
+          margin: 15px auto;
+          &:nth-of-type(1) {
+            background-color: rgba(0, 57, 95, 0.664);
+            color: aliceblue;
+            text-align: center;
+          }
+
+          &:nth-of-type(2) {
+            width: 70%;
+            border: 1px solid white;
+            color: aliceblue;
+            background-color: transparent;
+          }
+        }
+      }
+
+      .login-Card-Top-nextBtn {
+        width: 70%;
+      }
+
+      > p {
+        display: none;
+      }
+    }
+
+    .login-Card-Bottom {
+      display: none;
+    }
+  }
+}

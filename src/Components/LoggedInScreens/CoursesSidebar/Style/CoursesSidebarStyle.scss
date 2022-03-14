@@ -1,0 +1,38 @@
+@import "../../../Scss//ScssMixins.scss";
+@import "CourseSidebarMediaquery.scss";
+$white: white;
+
+%text-Decoration {
+  color: $white;
+  text-decoration: none;
+  @include flex(center, center, row, nowrap);
+  border-radius: 6px;
+  margin: 10px 20px;
+  font-size: 20px;
+}
+
+.CoursesSidebar {
+  color: $white;
+  height: 100vh;
+  position: fixed;
+  top: 100px;
+  width: 300px;
+  background-color: rgb(1, 103, 146);
+
+  h2 {
+    text-align: center;
+  }
+
+  div {
+    &:nth-of-type(1) {
+      @include flex(start, start, column, nowrap);
+
+      .route {
+        @extend %text-Decoration;
+        &:hover {
+          color: aqua;
+        }
+      }
+    }
+  }
+}

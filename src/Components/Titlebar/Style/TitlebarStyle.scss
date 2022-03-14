@@ -1,0 +1,74 @@
+.titlebar {
+  overflow: hidden;
+  margin-top: 100px;
+  height: 300px;
+  width: 100%;
+  background-color: rgb(3, 78, 114);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  position: relative;
+
+  h1 {
+    font-weight: 300;
+  }
+
+  #greenCircle-Left {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 65px;
+  }
+
+  #greenCircle-Right {
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    width: 65px;
+  }
+  #orangeCircle-Left {
+    position: absolute;
+    top: 120px;
+    left: 70px;
+    width: 65px;
+  }
+
+  #orangeCircle-Right {
+    position: absolute;
+    top: 120px;
+    right: 80px;
+    width: 65px;
+  }
+  #outlineCircle-Left {
+    position: absolute;
+    top: 185px;
+    left: 160px;
+    width: 90px;
+    transform: rotate(-40deg);
+  }
+
+  #outlineCircle-Right {
+    position: absolute;
+    top: 185px;
+    right: 165px;
+    width: 90px;
+    transform: rotate(-40deg);
+  }
+
+  #greenV {
+    position: absolute;
+    right: 0;
+    width: 50px;
+    transform: rotate(160deg);
+  }
+  #pinkV {
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    width: 50px;
+    transform: rotate(165deg);
+  }
+}
+
+@import "./TitlebarResponsive.scss";

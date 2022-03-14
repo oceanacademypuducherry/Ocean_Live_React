@@ -1,0 +1,44 @@
+@import "../../../Scss/ScssMixins.scss";
+
+.myCoursesMoreInfo {
+  padding-top: 100px;
+
+  .myCourse-Topbar {
+    color: white;
+    background-color: rgb(0, 70, 105);
+    padding: 50px;
+    @include flex(center, start, row, nowrap);
+
+    .maxWidth {
+      width: 1600px;
+
+      .main-icon {
+        width: 160px;
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(0, 174, 255);
+        }
+        @include flex(start, center, row, nowrap);
+        .icon {
+          font-size: 40px;
+        }
+      }
+
+      > h1 {
+        font-variant: small-caps;
+      }
+      .myCourse-Third-Row {
+        max-width: 270px;
+        @include flex(space-between, center, row, nowrap);
+        p {
+          @include flex(space-between, center, row, nowrap);
+          span {
+            @include flex(center, center, row, nowrap);
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

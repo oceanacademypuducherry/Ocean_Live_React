@@ -1,0 +1,42 @@
+@media only screen and (max-width: 1800px) {
+  .left-content {
+    max-width: 800px;
+    > p {
+      font-size: 15px !important;
+    }
+  }
+  .right-content {
+    > img {
+      width: 460px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .content {
+    padding: 0% !important;
+    flex-wrap: wrap;
+    .left-content {
+      margin: 0px 30px !important;
+      > h2 {
+        font-size: 28px;
+        font-variant-caps: all-petite-caps;
+        text-align: center;
+        font-weight: 500;
+      }
+      > p {
+        max-width: 850px;
+        text-align: justify;
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .right-content {
+    > img {
+      width: 250px !important;
+    }
+  }
+}

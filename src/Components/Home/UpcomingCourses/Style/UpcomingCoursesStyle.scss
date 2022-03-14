@@ -1,0 +1,65 @@
+@import "../../../Scss/ScssMixins.scss";
+
+%icon {
+  .icon {
+    font-size: 35px;
+    cursor: pointer;
+  }
+}
+
+.upcomingCourses {
+  // height: 300px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  @include flex(start, center, column, nowrap);
+
+  > h1 {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: rgb(0, 174, 255);
+    font-weight: 300;
+  }
+
+  > p {
+    text-align: center;
+    max-width: 500px;
+    color: rgb(92, 90, 90);
+    font-weight: 300;
+  }
+
+  .row {
+    @include flex(center, center, row, nowrap);
+    .leftIcon {
+      @extend %icon;
+    }
+
+    .rightIcon {
+      @extend %icon;
+    }
+
+    .slider {
+      margin: 50px auto;
+      // background-color: aliceblue;
+      overflow: hidden;
+      @include flex(space-between, center, row, nowrap);
+      > img {
+        max-width: 300px;
+        margin: 80px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .upcomingCourses > h1 {
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+    box-shadow: 2px 2px 20px 1px white;
+  }
+
+  .upcomingCourses > p {
+    padding: 0px 15px;
+    box-sizing: border-box;
+  }
+}

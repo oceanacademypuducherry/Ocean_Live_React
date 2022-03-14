@@ -1,0 +1,127 @@
+@import "../../Scss/ScssMixins.scss";
+@import "./Keyframes.scss";
+
+$white: white;
+$blue: rgb(0, 174, 255);
+$boxColor: rgba(0, 174, 255, 0.383);
+$fontColor: rgb(92, 90, 90);
+
+.career {
+  background-color: $white;
+  color: $fontColor;
+  width: 100%;
+  @include flex(center, center, row, nowrap);
+  .career-row {
+    height: 100vh;
+    width: 1800px;
+    @include flex(space-around, center, row, wrap-reverse);
+    .career-div-left {
+      width: 600px;
+      z-index: 1;
+      position: relative;
+      // background-color: aliceblue;
+      @include flex(center, center, column, nowrap);
+      &:before {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        animation: circle-two-lg;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        animation-direction: alternate-reverse;
+        transition: all 1s;
+        z-index: -1;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        @include box(550, 550, rgba(128, 128, 128, 0.034));
+        border-radius: 50%;
+        animation: circle-one-lg 2s;
+        animation-direction: alternate;
+        box-shadow: 2px 2px 20px 1px rgba(0, 255, 255, 0.116);
+        z-index: -1;
+      }
+
+      p {
+        &:nth-of-type(1) {
+          margin: 5px 0px;
+          font-size: x-large;
+        }
+        &:nth-of-type(2) {
+          margin: 5px 0px;
+        }
+      }
+      h1 {
+        &:nth-of-type(1) {
+          letter-spacing: 3px;
+          margin: 0px 0px;
+          font-size: 70px;
+          color: rgb(22, 74, 140);
+        }
+      }
+      div {
+        input {
+          float: left;
+          padding-left: 10px;
+          box-sizing: border-box;
+          height: 40px;
+          width: 200px;
+          &:focus {
+            border-color: aqua;
+          }
+        }
+
+        .btn {
+          @include flex(center, center, column, nowrap);
+          float: right;
+          height: 40px;
+          width: 100px;
+          background-color: $blue;
+          color: $white;
+          cursor: pointer;
+        }
+      }
+    }
+    #career-div-right {
+      margin: 10px;
+      width: 650px;
+      @include flex(center, center, column, nowrap);
+    }
+  }
+  .left-box {
+    @include box(200, 200, $boxColor);
+    position: fixed;
+    bottom: -13%;
+    left: -2%;
+    transform: rotate(45deg);
+  }
+  .fixed {
+    position: fixed;
+    bottom: -13%;
+    right: -2%;
+    width: 300px;
+    height: 200px;
+    // background-color: antiquewhite;
+    .right-sm {
+      @include box(200, 200, rgba(50, 178, 238, 0.39));
+      box-shadow: 2px 2px 20px 1px rgb(31, 148, 202);
+      position: absolute;
+      top: 0%;
+      left: 6%;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .right-lg {
+      @include box(200, 200, rgba(0, 174, 255, 0.226));
+      position: absolute;
+      right: -20%;
+      bottom: 25%;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+@import "./mediaquery.scss";

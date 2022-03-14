@@ -1,0 +1,40 @@
+@import "../../Scss/ScssMixins.scss";
+@import "./MentorCardStyle.scss";
+
+.about {
+  .content {
+    padding: 50px;
+    max-width: 1800px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+
+    .left-content {
+      margin: 0px 50px;
+
+      > h2 {
+        color: rgb(0, 162, 255);
+      }
+
+      > p {
+        max-width: 850px;
+        text-align: justify;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+    }
+
+    .right-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 50px;
+
+      > img {
+        width: 620px;
+      }
+    }
+  }
+}
+
+@import "AboutUsResponsiveStyle.scss";

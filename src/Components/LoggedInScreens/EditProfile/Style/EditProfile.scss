@@ -1,0 +1,120 @@
+@import "../../../Scss/ScssMixins.scss";
+$theme: rgb(12, 138, 235);
+$fontColor: rgb(92, 90, 90);
+
+%text-title-decoration {
+  font-size: 20px;
+  color: rgb(92, 90, 90);
+}
+
+.editProfile {
+  // height: 800px;
+  width: 100%;
+  padding: 100px 0px 0px 0px;
+  margin: 0px auto;
+  box-sizing: border-box;
+
+  .editProfile-Back-Btn {
+    @include flex(start, center, row, nowrap);
+    margin: 20px 0px 0px 20px;
+    width: 160px;
+    font-size: 20px;
+    color: $theme;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(0, 65, 168);
+    }
+
+    .notification-back-icon {
+      font-size: 40px;
+    }
+  }
+
+  .editProfile-content {
+    margin: auto;
+    box-sizing: border-box;
+    padding: 50px;
+    max-width: 1250px;
+
+    .editProfile-division1 {
+      @include flex(start, start, row, wrap);
+      gap: 50px;
+
+      .profile-circle {
+        height: 120px;
+        width: 120px;
+        background-color: aliceblue;
+        box-shadow: 2px 2px 10px 1px rgba(0, 247, 255, 0.185);
+        border-radius: 50%;
+      }
+
+      .editProfile-card {
+        height: 130px;
+        width: 130px;
+        background-color: $theme;
+        border-radius: 10px;
+        @include flex(center, center, Column, nowrap);
+        padding: 10px;
+        box-sizing: border-box;
+        color: white;
+        p {
+          font-size: 18px;
+          text-align: center;
+          margin: 0%;
+        }
+
+        h1 {
+          margin: 0%;
+        }
+      }
+    }
+
+    .editProfile-division2 {
+      //   background-color: aqua;
+      @include flex(start, start, row, wrap);
+      gap: 50px;
+      .editProfile-textField {
+        height: 90px;
+        color: $theme;
+        // background-color: antiquewhite;
+        margin: 0px;
+        @include flex(space-between, start, Column, nowrap);
+
+        input {
+          margin-top: 10px;
+          height: 55px;
+          width: 250px;
+          outline: none;
+          border: none;
+          background-color: whitesmoke;
+          border-radius: 5px;
+          padding-left: 15px;
+          box-sizing: border-box;
+          transition: all 0.2s;
+          font-size: medium;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
+          font-weight: lighter;
+          color: $fontColor;
+          &:hover {
+            box-shadow: 2px 2px 20px 1px rgba(1, 168, 245, 0.246);
+          }
+        }
+
+        label {
+          font-size: large;
+        }
+      }
+    }
+
+    .editProfile-Update-Btn {
+      height: 50px;
+      width: 120px;
+      background-color: $theme;
+      border-radius: 10px;
+      color: aliceblue;
+      @include flex(center, center, row, nowrap);
+    }
+  }
+}
