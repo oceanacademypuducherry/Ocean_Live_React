@@ -3,7 +3,7 @@ import { Footer } from "../../Footer/Footer";
 import { Appbar } from "../../Appbar/Appbar";
 import { SideNavbar } from "../../SideNavbar/SideNavbar";
 import { closeSideNavbar } from "../../Functions/SidebarFunction";
-import "./Style/OnlineCourses.css";
+import "./Style/OnlineCourses.scss";
 import { MdLockClock } from "react-icons/md";
 // import { ImCalendar } from "react-icons/im";
 import { FaRegCalendarAlt } from "react-icons/fa";

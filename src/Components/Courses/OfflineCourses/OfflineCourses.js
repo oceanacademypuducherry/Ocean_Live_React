@@ -26,7 +26,7 @@ export function OfflineCourses() {
     <>
       <Appbar />
       <SideNavbar />
-      {/* <OfflineDialog /> */}
+      <OfflineDialog />
       {/* <DialogOtp /> */}
       <h1 className="offlineCourses-title">Offline Courses</h1>
       <div className="offlineCourses" onClick={closeSideNavbar}>

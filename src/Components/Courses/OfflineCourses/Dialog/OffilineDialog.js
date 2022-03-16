@@ -24,8 +24,14 @@ export function OfflineDialog(props) {
             <input type="text" placeholder="Email" />
             <br /> <br />
             <div className="btn">
-              <BiMailSend className="icon" />
-              Send to Mail
+              <div className="left"></div>
+              <div className="right"></div>
+              <div className="top"></div>
+              <div className="bottom"></div>
+              <div className="btnContent">
+                <BiMailSend className="icon" />
+                <p>Send to Mail</p>
+              </div>
             </div>
           </div>
         </div>

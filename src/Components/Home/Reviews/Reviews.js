@@ -9,7 +9,6 @@ export function Reviews() {
     let doc = document;
     let reviewsCard = doc.querySelectorAll(".reviews-Card");
     let dots = doc.querySelectorAll(".dot");
-    console.log(dots);
 
     let timer = setInterval(() => {
       num++;
@@ -26,20 +25,13 @@ export function Reviews() {
   let controller = (num, reviewsCard, dots) => {
     for (let i = 0; i < reviewsCard.length; i++) {
       if (num === i) {
-        // reviewsCard[i].style.right = "0%";
         reviewsCard[i].style.display = "flex";
         dots[i].style.backgroundColor = "rgb(0, 72, 100)";
       } else {
-        // reviewsCard[i].style.right = "100%";
         reviewsCard[i].style.display = "none";
         dots[i].style.backgroundColor = "transparent";
       }
     }
-  };
-
-  let dotOnClick = (e) => {
-    // let doc = document;
-    console.log(e.target.id, "events----");
   };
 
   return (
@@ -70,11 +62,11 @@ export function Reviews() {
         })}
       </div>
       <div className="reviews-Dots">
-        <div className="dot" id="0" onClick={dotOnClick.bind(this)}></div>
-        <div className="dot" id="1" onClick={dotOnClick.bind(this)}></div>
-        <div className="dot" id="2" onClick={dotOnClick.bind(this)}></div>
-        <div className="dot" id="3" onClick={dotOnClick.bind(this)}></div>
-        <div className="dot" id="4" onClick={dotOnClick.bind(this)}></div>
+        <div className="dot" id="0"></div>
+        <div className="dot" id="1"></div>
+        <div className="dot" id="2"></div>
+        <div className="dot" id="3"></div>
+        <div className="dot" id="4"></div>
       </div>
     </div>
   );

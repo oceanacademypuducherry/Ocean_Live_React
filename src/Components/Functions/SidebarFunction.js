@@ -26,5 +26,4 @@ export const closeSideNavbar = () => {
     "2px 2px 20px 0px rgba(0, 0, 0, 0)";
   img.style.visibility = "hidden";
   routeContent.style.display = "none";
-  console.log("xfhgjhfd");
 };

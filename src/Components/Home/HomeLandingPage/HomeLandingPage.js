@@ -21,7 +21,7 @@ export function HomeLandingPage() {
       <div className="HomeLandingPage" onClick={closeSideNavbar}>
         <CoverImage />
         <Journey />
-        {/* <UpcomingCourses /> */}
+        <UpcomingCourses />
         <StudentPlacement />
         <Reviews />
         <Clients />
