@@ -1,29 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./Style/UpcomingCoursesStyle.scss";
 import Angular from "../../Image/courses/Angular.png";
-import CPlus from "../../Image/courses/C++.png";
 import DataScience from "../../Image/courses/Data science.png";
+import C from "../../Image/courses/C.png";
+import Fullstack from "../../Image/courses/Fullstack developer.png";
+import Javascript from "../../Image/courses/Javascript.png";
+import NodeJs from "../../Image/courses/nodejs.png";
+import CPlus from "../../Image/courses/C++.png";
+import Frontend from "../../Image/courses/Front_end_developer.png";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { BsArrowRightCircle } from "react-icons/bs";
 
 export function UpcomingCourses() {
-  const [count, setCount] = useState(0);
   const leftScroll = () => {
-    let cards = document.querySelectorAll(".slider > .slide");
+    let cards = document.querySelector(".slider");
+    cards.scrollBy(-1240, 0);
+  };
 
-    if (count < cards.length - 1) {
-      setCount(count + 1);
-      console.log(count + 1, "count");
-      cards[count + 1].scrollIntoView({
-        behavior: "smooth",
-      });
-    } else {
-      setCount(0);
-      console.log(0);
-      cards[0].scrollIntoView({
-        behavior: "smooth",
-      });
-    }
+  const rightScroll = () => {
+    let cards = document.querySelector(".slider");
+    cards.scrollBy(1240, 0);
   };
   return (
     <div className="upcomingCourses">
@@ -33,6 +29,7 @@ export function UpcomingCourses() {
         their career. Our students have grabbed placed in various firms and
         MNCs.
       </p>
+
       <div className="row">
         <div className="leftIcon" onClick={leftScroll}>
           <BsArrowLeftCircle className="icon" />
@@ -42,37 +39,7 @@ export function UpcomingCourses() {
             <div className="card">
               <div
                 className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
+                style={{ backgroundImage: `url(${Frontend})` }}
               ></div>
               <div className="content">
                 <p>Angular</p>
@@ -90,37 +57,7 @@ export function UpcomingCourses() {
             <div className="card">
               <div
                 className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
+                style={{ backgroundImage: `url(${CPlus})` }}
               ></div>
               <div className="content">
                 <p>Angular</p>
@@ -138,7 +75,7 @@ export function UpcomingCourses() {
             <div className="card">
               <div
                 className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
+                style={{ backgroundImage: `url(${C})` }}
               ></div>
               <div className="content">
                 <p>Angular</p>
@@ -150,6 +87,63 @@ export function UpcomingCourses() {
               </div>
               <div className="btn">Get More Details</div>
             </div>
+          </div>
+
+          <div id="slide4" className="slide">
+            <div className="card">
+              <div
+                className="img"
+                style={{ backgroundImage: `url(${Javascript})` }}
+              ></div>
+              <div className="content">
+                <p>Angular</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
+                  necessitatibus minus voluptas ipsum.
+                </p>
+              </div>
+              <div className="btn">Get More Details</div>
+            </div>
+          </div>
+
+          <div id="slide5" className="slide">
+            <div className="card">
+              <div
+                className="img"
+                style={{ backgroundImage: `url(${Javascript})` }}
+              ></div>
+              <div className="content">
+                <p>Angular</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
+                  necessitatibus minus voluptas ipsum.
+                </p>
+              </div>
+              <div className="btn">Get More Details</div>
+            </div>
+          </div>
+
+          <div id="slide6" className="slide">
+            <div className="card">
+              <div
+                className="img"
+                style={{ backgroundImage: `url(${NodeJs})` }}
+              ></div>
+              <div className="content">
+                <p>Angular</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
+                  necessitatibus minus voluptas ipsum.
+                </p>
+              </div>
+              <div className="btn">Get More Details</div>
+            </div>
+          </div>
+
+          <div id="slide7" className="slide">
             <div className="card">
               <div
                 className="img"
@@ -165,6 +159,9 @@ export function UpcomingCourses() {
               </div>
               <div className="btn">Get More Details</div>
             </div>
+          </div>
+
+          <div id="slide7" className="slide">
             <div className="card">
               <div
                 className="img"
@@ -182,9 +179,125 @@ export function UpcomingCourses() {
             </div>
           </div>
         </div>
-        <div className="rightIcon">
+        <div className="rightIcon" onClick={rightScroll}>
           <BsArrowRightCircle className="icon" />
         </div>
+      </div>
+
+      <div className="mobile-Slider">
+        <div className="mobile-Slides">
+          <div className="card">
+            <div
+              className="img"
+              style={{ backgroundImage: `url(${Frontend})` }}
+            ></div>
+            <div className="content">
+              <p>Angular</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
+                minus voluptas ipsum.
+              </p>
+            </div>
+            <div className="btn">Get More Details</div>
+          </div>
+        </div>
+
+        <div className="mobile-Slides">
+          <div className="card">
+            <div
+              className="img"
+              style={{ backgroundImage: `url(${Frontend})` }}
+            ></div>
+            <div className="content">
+              <p>Angular</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
+                minus voluptas ipsum.
+              </p>
+            </div>
+            <div className="btn">Get More Details</div>
+          </div>
+        </div>
+
+        <div className="mobile-Slides">
+          <div className="card">
+            <div
+              className="img"
+              style={{ backgroundImage: `url(${Frontend})` }}
+            ></div>
+            <div className="content">
+              <p>Angular</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
+                minus voluptas ipsum.
+              </p>
+            </div>
+            <div className="btn">Get More Details</div>
+          </div>
+        </div>
+
+        <div className="mobile-Slides">
+          <div className="card">
+            <div
+              className="img"
+              style={{ backgroundImage: `url(${Frontend})` }}
+            ></div>
+            <div className="content">
+              <p>Angular</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
+                minus voluptas ipsum.
+              </p>
+            </div>
+            <div className="btn">Get More Details</div>
+          </div>
+        </div>
+
+        <div className="mobile-Slides">
+          <div className="card">
+            <div
+              className="img"
+              style={{ backgroundImage: `url(${Frontend})` }}
+            ></div>
+            <div className="content">
+              <p>Angular</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
+                minus voluptas ipsum.
+              </p>
+            </div>
+            <div className="btn">Get More Details</div>
+          </div>
+        </div>
+
+        <div className="mobile-Slides">
+          <div className="card">
+            <div
+              className="img"
+              style={{ backgroundImage: `url(${Frontend})` }}
+            ></div>
+            <div className="content">
+              <p>Angular</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
+                minus voluptas ipsum.
+              </p>
+            </div>
+            <div className="btn">Get More Details</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mobile-Row">
+        <BsArrowLeftCircle className="leftIcon" />
+
+        <BsArrowRightCircle className="rightIcon" />
       </div>
     </div>
   );

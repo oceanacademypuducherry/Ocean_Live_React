@@ -1,15 +1,24 @@
 @import "../../../Scss/ScssMixins.scss";
+@import "./UpcomingCoursesDesktopCardStyle.scss";
+@import "./UpcomingCoursesMobileCardStyle.scss";
 
 %icon {
   .icon {
     font-size: 35px;
     cursor: pointer;
+    height: 50px;
+    width: 50px;
+    transition: all 0.5s;
     margin: 40px;
+
+    &:hover {
+      color: rgb(0, 162, 255);
+    }
   }
 }
 
 .upcomingCourses {
-  // height: 300px;
+  overflow: hidden;
   width: 100%;
   background-color: rgb(255, 255, 255);
   @include flex(start, center, column, nowrap);
@@ -39,75 +48,73 @@
     }
 
     .slider {
+      scroll-behavior: smooth;
       height: 500px;
-      width: 1200px;
-      margin: 50px auto;
-      background-color: aliceblue;
+      max-width: 1240px;
+      margin: 20px auto;
       overflow-y: hidden;
       overflow-x: scroll;
       @include flex(space-between, center, row, nowrap);
       position: relative;
+
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+      }
+
       .slide {
         @include flex(space-between, center, row, nowrap);
         height: 100%;
         width: 100%;
-        // background-color: aqua;
-        .card {
-          margin: 0px 20px;
-          color: grey;
-          width: 360px;
-          // height: 500px;
-          background-color: white;
-          box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.103);
-          transition: all 1s;
-          > .img {
-            width: 100%;
-            height: 180px;
-            background-size: cover;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-          }
-
-          > .content {
-            p {
-              padding: 10px 10px;
-              &:nth-of-type(1) {
-                background-color: aliceblue;
-              }
-              &:nth-of-type(2) {
-                margin: 10px 0px;
-                color: rgb(92, 90, 90);
-                max-lines: 5;
-                text-overflow: ellipsis;
-              }
-            }
-          }
-
-          > .btn {
-            @include flex(center, center, column, nowrap);
-            height: 50px;
-            width: 100%;
-            background-color: rgb(2, 117, 170);
-            color: aliceblue;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-          }
-        }
+        @extend %desktopCard;
       }
+    }
+  }
+
+  .mobile-Slider {
+    display: none;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    // background-color: aqua;
+    padding: 15px 0px;
+
+    &::-webkit-scrollbar:horizontal {
+      height: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      border: 10px solid rgb(0, 204, 255);
+      /* should match background, can't be transparent */
+      background-color: rgba(0, 234, 255, 0.5);
+    }
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+
+    .mobile-Slides {
+      width: 100%;
+      background-color: aliceblue;
+      @extend %mobileCard;
+    }
+  }
+
+  .mobile-Row {
+    display: none;
+    width: 100%;
+    height: 50px;
+
+    .leftIcon {
+      font-size: 40px;
+      margin: auto 20px auto auto;
+    }
+
+    .rightIcon {
+      font-size: 40px;
+      margin: auto auto auto 20px;
     }
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .upcomingCourses > h1 {
-    text-align: center;
-    font-size: larger;
-    font-weight: 500;
-    box-shadow: 2px 2px 20px 1px white;
-  }
-
-  .upcomingCourses > p {
-    padding: 0px 15px;
-    box-sizing: border-box;
-  }
-}
+@import "./ResponsiveUpcomingCourses.scss";

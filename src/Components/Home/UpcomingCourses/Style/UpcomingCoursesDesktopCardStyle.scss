@@ -1,0 +1,53 @@
+%desktopCard {
+  .card {
+    margin: 0px 20px;
+    color: grey;
+    max-width: 350px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.103);
+    transition: all 0.12s, border 0.6s;
+
+    &:hover {
+      border: 1px solid rgb(0, 219, 248);
+      transform: scale(1.03);
+    }
+
+    > .img {
+      width: 100%;
+      height: 180px;
+      background-size: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    > .content {
+      p {
+        padding: 10px 10px;
+
+        &:nth-of-type(1) {
+          background-color: aliceblue;
+        }
+        &:nth-of-type(2) {
+          width: 350px;
+          margin: 10px 0px;
+          color: rgb(92, 90, 90);
+          max-lines: 5;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    > .btn {
+      @include flex(center, center, column, nowrap);
+      height: 50px;
+      width: 100%;
+      background-color: rgb(2, 117, 170);
+      color: aliceblue;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+}

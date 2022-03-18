@@ -1,0 +1,122 @@
+%icon {
+  .icon {
+    font-size: 35px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    margin: 40px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .upcomingCourses {
+    // background-color: antiquewhite;
+    .row {
+      .leftIcon {
+        position: relative;
+        left: 60px;
+        // display: none;
+      }
+      .rightIcon {
+        position: relative;
+        right: 60px;
+        // display: none;
+      }
+      .slider {
+        transform: scale(0.9);
+        margin: 0%;
+      }
+
+      .mobile-leftIcon {
+        display: block !important;
+        height: 100px;
+        width: 100px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .upcomingCourses {
+    // background-color: aqua;
+
+    .row {
+      .leftIcon {
+        display: none;
+      }
+      .rightIcon {
+        display: none;
+      }
+      .slider {
+        transform: scale(0.9);
+      }
+    }
+    .mobile-Row {
+      @include flex(center, center, row, nowrap);
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .upcomingCourses {
+    // background-color: aquamarine;
+    .row {
+      .slider {
+        transform: scale(0.75);
+      }
+    }
+    .mobile-Row {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .upcomingCourses {
+    // background-color: burlywood;
+    .row {
+      .slider {
+        display: none;
+      }
+    }
+    .mobile-Slider {
+      display: flex !important;
+    }
+  }
+}
+
+// @media only screen and (max-width: 1100px) {
+//   .slider {
+//     background-color: antiquewhite;
+//     transform: scale(0.7);
+//     width: 100%;
+//   }
+// }
+
+// @media only screen and (max-width: 1000px) {
+//   .slider {
+//     background-color: aquamarine !important;
+//     max-width: 100% !important;
+//     // left: 20%;
+//     width: 100% !important;
+//     .slide {
+//       .card {
+//         // width: 100% !important;
+//       }
+//     }
+//   }
+// }
+
+@media only screen and (max-width: 600px) {
+  .upcomingCourses > h1 {
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+    box-shadow: 2px 2px 20px 1px white;
+  }
+
+  .upcomingCourses > p {
+    padding: 0px 15px;
+    box-sizing: border-box;
+  }
+}
