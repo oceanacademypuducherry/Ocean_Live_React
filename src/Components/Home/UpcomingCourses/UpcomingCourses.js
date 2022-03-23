@@ -10,8 +10,15 @@ import CPlus from "../../Image/courses/C++.png";
 import Frontend from "../../Image/courses/Front_end_developer.png";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { BsArrowRightCircle } from "react-icons/bs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export function UpcomingCourses() {
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
+  }, []);
   const leftScroll = () => {
     let cards = document.querySelector(".slider");
     cards.scrollBy(-1240, 0);
@@ -35,7 +42,15 @@ export function UpcomingCourses() {
           <BsArrowLeftCircle className="icon" />
         </div>
         <div className="slider">
-          <div id="slide1" className="slide">
+          <div
+            id="slide1"
+            className="slide"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+          >
             <div className="card">
               <div
                 className="img"
@@ -53,7 +68,15 @@ export function UpcomingCourses() {
             </div>
           </div>
 
-          <div id="slide2" className="slide">
+          <div
+            id="slide2"
+            className="slide"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+          >
             <div className="card">
               <div
                 className="img"
@@ -71,7 +94,15 @@ export function UpcomingCourses() {
             </div>
           </div>
 
-          <div id="slide3" className="slide">
+          <div
+            id="slide3"
+            className="slide"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+          >
             <div className="card">
               <div
                 className="img"
@@ -89,7 +120,15 @@ export function UpcomingCourses() {
             </div>
           </div>
 
-          <div id="slide4" className="slide">
+          <div
+            id="slide4"
+            className="slide"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+          >
             <div className="card">
               <div
                 className="img"
@@ -107,7 +146,15 @@ export function UpcomingCourses() {
             </div>
           </div>
 
-          <div id="slide5" className="slide">
+          <div
+            id="slide5"
+            className="slide"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+          >
             <div className="card">
               <div
                 className="img"
@@ -125,7 +172,15 @@ export function UpcomingCourses() {
             </div>
           </div>
 
-          <div id="slide6" className="slide">
+          <div
+            id="slide6"
+            className="slide"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+          >
             <div className="card">
               <div
                 className="img"
@@ -143,7 +198,15 @@ export function UpcomingCourses() {
             </div>
           </div>
 
-          <div id="slide7" className="slide">
+          <div
+            id="slide7"
+            className="slide"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+          >
             <div className="card">
               <div
                 className="img"
@@ -161,7 +224,15 @@ export function UpcomingCourses() {
             </div>
           </div>
 
-          <div id="slide7" className="slide">
+          <div
+            id="slide7"
+            className="slide"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+          >
             <div className="card">
               <div
                 className="img"
@@ -185,7 +256,14 @@ export function UpcomingCourses() {
       </div>
 
       <div className="mobile-Slider">
-        <div className="mobile-Slides">
+        <div
+          className="mobile-Slides"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-offset="100"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="500"
+        >
           <div className="card">
             <div
               className="img"
@@ -203,7 +281,14 @@ export function UpcomingCourses() {
           </div>
         </div>
 
-        <div className="mobile-Slides">
+        <div
+          className="mobile-Slides"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-offset="100"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="500"
+        >
           <div className="card">
             <div
               className="img"
@@ -221,7 +306,14 @@ export function UpcomingCourses() {
           </div>
         </div>
 
-        <div className="mobile-Slides">
+        <div
+          className="mobile-Slides"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-offset="100"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="500"
+        >
           <div className="card">
             <div
               className="img"
@@ -239,7 +331,14 @@ export function UpcomingCourses() {
           </div>
         </div>
 
-        <div className="mobile-Slides">
+        <div
+          className="mobile-Slides"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-offset="100"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="500"
+        >
           <div className="card">
             <div
               className="img"
@@ -257,7 +356,14 @@ export function UpcomingCourses() {
           </div>
         </div>
 
-        <div className="mobile-Slides">
+        <div
+          className="mobile-Slides"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-offset="100"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="500"
+        >
           <div className="card">
             <div
               className="img"
@@ -275,7 +381,14 @@ export function UpcomingCourses() {
           </div>
         </div>
 
-        <div className="mobile-Slides">
+        <div
+          className="mobile-Slides"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-offset="100"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="500"
+        >
           <div className="card">
             <div
               className="img"

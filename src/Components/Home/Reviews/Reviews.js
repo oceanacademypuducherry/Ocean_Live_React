@@ -2,9 +2,14 @@ import React, { useEffect } from "react";
 import { reviews } from "./StudentsData";
 import "./Style/ReviewsStyle.scss";
 import Quotes from "./quote-icon.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export function Reviews() {
   useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
     let num = 0;
     let doc = document;
     let reviewsCard = doc.querySelectorAll(".reviews-Card");
@@ -38,7 +43,14 @@ export function Reviews() {
     <div className="reviews">
       <p>What our</p>
       <h1>Students are Saying</h1>
-      <div className="reviews-Row">
+      <div
+        className="reviews-Row"
+        data-aos="zoom-in-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-offset="100"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="500"
+      >
         {reviews.map((data, index) => {
           return (
             <div className="reviews-Card" key={index}>

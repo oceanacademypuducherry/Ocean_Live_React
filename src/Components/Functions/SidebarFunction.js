@@ -4,7 +4,7 @@ export const openSideNavbar = () => {
   const routeContent = doc.querySelector(".sideNavbar > div:nth-child(2)");
   doc.querySelector(".sideNavbar").style.width = "230px";
   doc.querySelector(".sideNavbar").style.boxShadow =
-    "2px 2px 20px 100000px rgba(0, 0, 0, 0.600)";
+    "2px 2px 20px 100000px rgba(0, 0, 0, 0.486)";
 
   doc.querySelector(".sideNavbar > div:nth-child(1) > img").style.visibility =
     "visible";

@@ -1,0 +1,14 @@
+$circleValue: 60px;
+$positionValue: 20px;
+
+.floatingActionButton {
+  height: $circleValue;
+  width: $circleValue;
+  position: fixed;
+  bottom: $positionValue;
+  right: $positionValue;
+  background-color: rgb(0, 136, 255);
+  box-shadow: 2px 2px 60px 1px rgba(0, 0, 0, 0.329);
+  border-radius: 50%;
+  z-index: 99;
+}

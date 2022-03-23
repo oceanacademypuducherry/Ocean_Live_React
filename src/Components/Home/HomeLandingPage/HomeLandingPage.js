@@ -2,6 +2,7 @@ import React from "react";
 import { closeSideNavbar } from "../../Functions/SidebarFunction";
 import "./Style/HomeLandingPage.scss";
 import { SideNavbar } from "../../SideNavbar/SideNavbar";
+import { FloatingActionButton } from "../../FloatingActionButton/FloatingActionButton";
 import { Appbar } from "../../Appbar/Appbar";
 import { CoverImage } from "../CoverImage/CoverImage";
 import { Journey } from "../Journey/Journey";
@@ -18,6 +19,8 @@ export function HomeLandingPage() {
     <>
       <Appbar />
       <SideNavbar />
+      <FloatingActionButton />
+
       <div className="HomeLandingPage" onClick={closeSideNavbar}>
         <CoverImage />
         <Journey />

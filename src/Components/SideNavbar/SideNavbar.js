@@ -1,5 +1,6 @@
 import React from "react";
 import { closeSideNavbar } from "../Functions/SidebarFunction";
+import { isSelect } from "../Functions/MobileRouteDomActiveFunc";
 import { HiOutlineStatusOnline } from "react-icons/hi";
 import { MdOutlineOfflinePin } from "react-icons/md";
 import "./Style/SideNavbar.scss";
@@ -10,7 +11,7 @@ import { GrServices, GrContact, GrAchievement } from "react-icons/gr";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { BsJournalBookmark } from "react-icons/bs";
 import { AiOutlineLogin } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export function SideNavbar(props) {
   const openDropdown = () => {
@@ -32,23 +33,31 @@ export function SideNavbar(props) {
       <div>
         <div>
           <GoHome className="sidenav-icons" />
-          <Link to="/" onClick={props.closeSideNavbar}>
+          <NavLink style={isSelect} to="/" onClick={props.closeSideNavbar}>
             HOME
-          </Link>
+          </NavLink>
         </div>
 
         <div>
           <GoInfo className="sidenav-icons" />
-          <Link to="/aboutus" onClick={props.closeSideNavbar}>
+          <NavLink
+            style={isSelect}
+            to="/aboutus"
+            onClick={props.closeSideNavbar}
+          >
             ABOUT US
-          </Link>
+          </NavLink>
         </div>
 
         <div>
           <GrServices className="sidenav-icons" />
-          <Link to="/services" onClick={props.closeSideNavbar}>
+          <NavLink
+            style={isSelect}
+            to="/services"
+            onClick={props.closeSideNavbar}
+          >
             SERVICES
-          </Link>
+          </NavLink>
         </div>
 
         <div id="mainCourses" onClick={openDropdown}>
@@ -59,36 +68,46 @@ export function SideNavbar(props) {
           <span>&#x25BC;</span>
         </div>
 
-        <Link id="course" to="/onlinecourses">
+        <NavLink style={isSelect} id="course" to="/onlinecourses">
           <span>
             <HiOutlineStatusOnline />
           </span>
           <span>Online Courses</span>
-        </Link>
-        <Link id="course" to="/offlinecourses">
+        </NavLink>
+        <NavLink style={isSelect} id="course" to="/offlinecourses">
           <span>
             <MdOutlineOfflinePin />
           </span>
           <span>Offline Courses</span>
-        </Link>
+        </NavLink>
 
         <div>
           <GrContact className="sidenav-icons" />
-          <Link to="/contactus" onClick={props.closeSideNavbar}>
+          <NavLink
+            style={isSelect}
+            to="/contactus"
+            onClick={props.closeSideNavbar}
+          >
             CONTACT US
-          </Link>
+          </NavLink>
         </div>
 
         <div>
           <GrAchievement className="sidenav-icons" />
-          <Link to="/career" onClick={props.closeSideNavbar}>
+          <NavLink
+            style={isSelect}
+            to="/career"
+            onClick={props.closeSideNavbar}
+          >
             CAREER
-          </Link>
+          </NavLink>
         </div>
 
         <div onClick={props.closeSideNavbar}>
           <AiOutlineLogin className="sidenav-icons" />
-          <Link to="/login">LOGIN</Link>
+          <NavLink style={isSelect} to="/login">
+            LOGIN
+          </NavLink>
         </div>
         <div className="sidebar-close">
           <IoIosCloseCircleOutline

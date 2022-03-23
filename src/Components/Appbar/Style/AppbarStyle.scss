@@ -1,5 +1,10 @@
-@import "../../Scss/placeholder.scss";
 @import "../../Scss/ScssMixins.scss";
+
+%decoration-none {
+  text-decoration: none;
+  list-style-type: none;
+  color: rgba(0, 0, 0, 0.747);
+}
 
 .appbar {
   background-color: rgba(245, 245, 245, 0.938);
@@ -29,7 +34,7 @@
 .routingPortion {
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
 }
 
@@ -41,8 +46,12 @@
   position: relative;
   cursor: pointer;
   height: 100%;
+  border-bottom: 5px solid transparent;
+  transition: all 0.2s;
+
   &:hover {
-    color: black;
+    color: rgba(6, 176, 255, 0.993) !important;
+    // border-bottom: 5px inset rgba(0, 247, 255, 0.993) !important;
   }
 
   &:hover div:nth-of-type(1) {
@@ -93,7 +102,7 @@
       transition: all 0.2s;
       &:hover {
         background-color: rgb(0, 59, 110);
-        color: aliceblue;
+        color: aliceblue !important;
       }
     }
   }

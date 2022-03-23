@@ -1,27 +1,33 @@
 import React from "react";
 import { openSideNavbar } from "../Functions/SidebarFunction";
+import { isSelect } from "../Functions/RouterDomActiveFunction";
 import "./Style/AppbarStyle.scss";
 import Logo from "../Image/logo.svg";
 import { IoMenuOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
-export function Appbar(props) {
+export function Appbar() {
   return (
     <div className="appbar">
       <div className="logoPortion">
         <img src={Logo} alt="" />
       </div>
       <div className="routingPortion">
-        <Link className="textDecoration" to="/">
+        <NavLink style={isSelect} className="textDecoration" to="/">
           Home
-        </Link>
-        <Link className="textDecoration" to="/aboutus">
+        </NavLink>
+        <NavLink style={isSelect} className="textDecoration" to="/aboutus">
           About Us
-        </Link>
-        <Link className="textDecoration" to="/services">
+        </NavLink>
+        <NavLink style={isSelect} className="textDecoration" to="/services">
           Services
-        </Link>
-        <div id="courses" className="textDecoration" to="/onlinecourses">
+        </NavLink>
+        <div
+          // style={isSelect}
+          id="courses"
+          className="textDecoration"
+          // to="/onlinecourses"
+        >
           Courses <span>&nbsp; &#x25BC;</span>
           <div>
             <Link className="dropDownItem" to="/onlinecourses">
@@ -32,15 +38,15 @@ export function Appbar(props) {
             </Link>
           </div>
         </div>
-        <Link className="textDecoration" to="/contactus">
+        <NavLink style={isSelect} className="textDecoration" to="/contactus">
           Contact Us
-        </Link>
-        <Link className="textDecoration" to="/career">
+        </NavLink>
+        <NavLink style={isSelect} className="textDecoration" to="/career">
           Career
-        </Link>
-        <div className="loginBtn center">
+        </NavLink>
+        <Link to="/login" className="loginBtn center">
           <span>Login</span>
-        </div>
+        </Link>
       </div>
       <div className="menuBtn" onClick={openSideNavbar}>
         <IoMenuOutline
