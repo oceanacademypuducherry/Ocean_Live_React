@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { Appbar } from "../Appbar/Appbar";
 import { SideNavbar } from "../SideNavbar/SideNavbar";
 import { IoIosArrowBack } from "react-icons/io";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import "./Style/LoginOTPStyle.scss";
 import OTPInput, { ResendOTP } from "otp-input-react";
 
 export function LoginOTP() {
   const navigate = useNavigate();
   const [OTP, setOTP] = useState("");
+  const [eyeVisible, setEyeVisible] = useState(true);
 
   function verifyOTP(e) {
     if (OTP.length === 6) {
@@ -26,7 +28,7 @@ export function LoginOTP() {
         .catch((error) => {
           // User couldn't sign in (bad verification code?)
           // ...
-          console.log("invalid");
+          console.log(error, "-----error");
         });
     } else {
     }
@@ -39,8 +41,15 @@ export function LoginOTP() {
 
       <div className="loginOTP">
         <div className="loginOTP-Card-Top">
-          <h1>Enter Your OTP</h1>
-          {JSON.stringify(OTP)}
+          <h1>
+            Enter Your OTP{" "}
+            {eyeVisible === true ? (
+              <span>&#128578;</span>
+            ) : (
+              <span>&#128580;</span>
+            )}{" "}
+          </h1>
+
           <div className="loginOTP-Card-Top-Textfield">
             <OTPInput
               value={OTP}
@@ -49,8 +58,16 @@ export function LoginOTP() {
               OTPLength={6}
               otpType="number"
               disabled={false}
-              secure
+              secure={eyeVisible}
             />
+          </div>
+          <div
+            className="eye"
+            onClick={() => {
+              eyeVisible === true ? setEyeVisible(false) : setEyeVisible(true);
+            }}
+          >
+            {eyeVisible === true ? <BsFillEyeFill /> : <BsFillEyeSlashFill />}
           </div>
           <div
             className={

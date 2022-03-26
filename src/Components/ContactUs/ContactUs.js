@@ -1,5 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import "./Style/ContactUsStyle.scss";
+import CryptoJS from "crypto-js";
 import { closeSideNavbar } from "../Functions/SidebarFunction";
 import { Titlebar } from "../Titlebar/Titlebar";
 import { Appbar } from "../Appbar/Appbar";
@@ -10,6 +11,58 @@ import { GoLocation } from "react-icons/go";
 import { Footer } from "../Footer/Footer";
 
 export function ContactUs() {
+  const [form, setform] = useState({
+    enquiryFor: "",
+    fullName: "",
+    mobileNumber: "",
+    email: "",
+    query: "",
+  });
+
+  const submitForm = () => {
+    //random generator//
+    let math = Math.floor(Math.random() * 100000000);
+
+    console.log(math, "random");
+
+    ///Encryption with math secret key(random)///
+    var ciphertext = CryptoJS.AES.encrypt(
+      JSON.stringify(form),
+      math.toString()
+    ).toString();
+
+    console.log(ciphertext, "encrypt----");
+
+    // Decrypt
+    var bytes = CryptoJS.AES.decrypt(ciphertext, math.toString());
+
+    console.log(bytes, "bytes");
+
+    var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+
+    console.log(decryptedData, "decrypt--------");
+    //reset
+    reset();
+  };
+
+  const onChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    console.log(name);
+    console.log(value);
+    setform({ ...form, [name]: value });
+  };
+
+  const reset = () => {
+    setform({
+      email: "",
+      enquiryFor: "",
+      fullName: "",
+      mobileNumber: "",
+      query: "",
+    });
+  };
+
   return (
     <>
       <Appbar />
@@ -55,25 +108,40 @@ export function ContactUs() {
               <p>
                 This Enquiry is for <span>*</span>
               </p>
-              <input type="text" placeholder="Enter your Enquiry" />
+              <input
+                type="text"
+                placeholder="Enter your Enquiry"
+                name="enquiryFor"
+                onChange={onChange}
+                value={form.enquiryFor}
+              />
             </div>
 
             <div className="textfield">
               <p>
                 Full Name <span>*</span>
               </p>
-              <input type="text" placeholder="Enter Your Full Name" />
+              <input
+                type="text"
+                placeholder="Enter Your Full Name"
+                name="fullName"
+                onChange={onChange}
+                value={form.fullName}
+              />
             </div>
 
             <div className="textfield">
               <p>
-                Phone Number <span>*</span>
+                Mobile Number <span>*</span>
               </p>
               <input
                 type="number"
                 max="0"
                 min="0"
                 placeholder="Enter Your Phone Number"
+                name="mobileNumber"
+                onChange={onChange}
+                value={form.mobileNumber}
               />
             </div>
 
@@ -81,14 +149,26 @@ export function ContactUs() {
               <p>
                 E-mail <span>*</span>
               </p>
-              <input type="text" placeholder="Enter Your E-mail" />
+              <input
+                type="text"
+                placeholder="Enter Your E-mail"
+                name="email"
+                onChange={onChange}
+                value={form.email}
+              />
             </div>
 
             <div className="textfield">
               <p>
                 Query <span>*</span>
               </p>
-              <input type="text" placeholder="Enter Your Query" />
+              <input
+                type="text"
+                placeholder="Enter Your Query"
+                name="query"
+                onChange={onChange}
+                value={form.query}
+              />
             </div>
 
             <div className="card">
@@ -103,7 +183,9 @@ export function ContactUs() {
               </div>
             </div>
 
-            <div className="form-btn">Submit</div>
+            <div className="form-btn" onClick={submitForm}>
+              Submit
+            </div>
           </div>
         </div>
       </div>

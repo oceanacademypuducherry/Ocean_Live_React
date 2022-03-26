@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Style/LoginStyle.scss";
 import "react-phone-number-input/style.css";
 import { countryCode } from "../CountryCode/CountryCode";
@@ -10,9 +10,7 @@ import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 
 export function Login() {
   const navigate = useNavigate();
-  const defaultCountryCode = "+91";
-  const [phoneNumber, setphoneNumber] = useState();
-  const [code, setCode] = useState();
+  const [phoneNumber, setphoneNumber] = useState("");
 
   const generateRecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
@@ -22,6 +20,12 @@ export function Login() {
         callback: (response) => {
           // reCAPTCHA solved, allow signInWithPhoneNumber.
           // onSignInSubmit();
+          console.log(response, "-----------responss");
+        },
+        "expired-callback": (response) => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          // ...
+          console.log(response, "expired-callback-----");
         },
       },
       authentication
@@ -37,7 +41,7 @@ export function Login() {
 
     await signInWithPhoneNumber(
       authentication,
-      `${code}${phoneNumber}`,
+      `${code} ${phoneNumber}`,
       appVerifier
     )
       .then((confirmationResult) => {
@@ -45,7 +49,13 @@ export function Login() {
         navigate("/loginotp");
       })
       .catch((error) => {
+        window.location.reload();
+
+        console.log(window.recaptchaVerifier, "----window.recaptchaVerifier");
+
         console.log(error, "error by firebase");
+
+        // const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
       });
   };
 
@@ -64,14 +74,15 @@ export function Login() {
           <h1>Welcome Back !</h1>
           {/* {JSON.stringify(document.querySelector("#countryCode").value)} */}
           <div className="login-Card-Top-Textfield">
+            <div id="recaptcha-container"></div>
             <select name="cars" id="cars" className="country-Dropdown">
               {countryCode.map((data, index) => {
                 return (
                   <option
                     key={index}
-                    value={data.dial_code}
-                    onChange={setCode}
                     id="countryCode"
+                    // defaultValue="+91 IN"
+                    value={data.dial_code}
                   >
                     {`${data.dial_code}  ${data.code}`}
                   </option>
@@ -99,7 +110,7 @@ export function Login() {
             Or&nbsp; <Link to=""> click here </Link>&nbsp; to visit website
           </p>
         </div>
-        <div id="recaptcha-container"></div>
+
         <div className="triangles">
           <div></div>
           <div></div>
