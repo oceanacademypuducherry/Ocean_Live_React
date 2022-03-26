@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 export function WhatsNewAtOcean() {
   useEffect(() => {
     AOS.init({
-      duration: 500,
+      duration: 1000,
     });
   }, []);
 
@@ -23,7 +23,7 @@ export function WhatsNewAtOcean() {
       <p
         data-aos="fade-left"
         data-aos-offset="100"
-        data-aos-easing="ease-in-sine"
+        // data-aos-easing="ease-in-sine"
       >
         We release a new platform innovation every month to stay on the leading
         edge of human transformation. Here's what's coming up next for
@@ -34,14 +34,14 @@ export function WhatsNewAtOcean() {
           <h1
             data-aos="fade-right"
             data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
+            // data-aos-easing="ease-in-sine"
           >
             Ocean Academy Launches Its Own Private Social Network for Learners
           </h1>
           <p
             data-aos="fade-right"
             data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
+            // data-aos-easing="ease-in-sine"
           >
             Coming soon: our human to human matching engine will be able to
             introduce you to potential friends, partners and even dates with

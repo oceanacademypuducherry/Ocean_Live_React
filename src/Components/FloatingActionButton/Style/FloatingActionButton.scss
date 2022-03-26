@@ -1,14 +1,23 @@
+@import "../../Scss//ScssMixins.scss";
+
 $circleValue: 60px;
 $positionValue: 20px;
 
 .floatingActionButton {
+  @include flex(center, center, row, nowrap);
   height: $circleValue;
   width: $circleValue;
   position: fixed;
   bottom: $positionValue;
   right: $positionValue;
   background-color: rgb(0, 136, 255);
-  box-shadow: 2px 2px 60px 1px rgba(0, 0, 0, 0.329);
+  box-shadow: 2px 2px 80px 1px rgb(0, 0, 0);
   border-radius: 50%;
   z-index: 99;
+  text-decoration: none;
+
+  .icon {
+    font-size: larger;
+    color: aliceblue;
+  }
 }

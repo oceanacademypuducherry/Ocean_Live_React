@@ -7,7 +7,7 @@ import "./Style/OnlineCourses.scss";
 import { MdLockClock } from "react-icons/md";
 // import { ImCalendar } from "react-icons/im";
 import { FaRegCalendarAlt } from "react-icons/fa";
-import { PageTitlebar } from "../../LoggedInScreens/PageTitlebar/PageTitlebar";
+// import { PageTitlebar } from "../../LoggedInScreens/PageTitlebar/PageTitlebar";
 import { Link } from "react-router-dom";
 import axios from "../../../index";
 

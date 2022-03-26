@@ -15,7 +15,7 @@ export function ContactUs() {
   const [robot, setRobot] = useState({
     randomA: 0,
     randomB: 0,
-    sumValue: 0,
+    sumValue: "",
   });
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export function ContactUs() {
       form.email !== "" &&
       form.query !== ""
     ) {
-      if (robot.sumValue === robot.randomA + robot.randomB) {
+      if (parseInt(robot.sumValue) === robot.randomA + robot.randomB) {
         ///Encryption with math secret key///
         var data = cryptoJS.AES.encrypt(
           JSON.stringify(form),
@@ -61,6 +61,11 @@ export function ContactUs() {
         reset();
       } else {
         console.log("wrong calculation");
+        setRobot({
+          randomA: Math.floor(Math.random() * 10),
+          randomB: Math.floor(Math.random() * 10),
+          sumValue: "",
+        });
       }
     } else {
       console.log("fill values");
@@ -70,8 +75,8 @@ export function ContactUs() {
   const onChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    if (name === "sum") {
-      // setRobot(...robot, {sumValue: e.target.value})
+    if (name === "sum" && value.length < 3) {
+      setRobot({ ...robot, sumValue: e.target.value });
       console.log(value);
     } else {
       setform({ ...form, [name]: value });
@@ -85,6 +90,11 @@ export function ContactUs() {
       fullName: "",
       mobileNumber: "",
       query: "",
+    });
+    setRobot({
+      randomA: Math.floor(Math.random() * 10),
+      randomB: Math.floor(Math.random() * 10),
+      sumValue: "",
     });
   };
 

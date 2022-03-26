@@ -1,32 +1,35 @@
 import React, { useEffect, useState } from "react";
 import "./Style/UpcomingCoursesStyle.scss";
-import Angular from "../../Image/courses/Angular.png";
-import DataScience from "../../Image/courses/Data science.png";
-import C from "../../Image/courses/C.png";
-import Fullstack from "../../Image/courses/Fullstack developer.png";
-import Javascript from "../../Image/courses/Javascript.png";
-import NodeJs from "../../Image/courses/nodejs.png";
-import CPlus from "../../Image/courses/C++.png";
-import Frontend from "../../Image/courses/Front_end_developer.png";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { BsArrowRightCircle } from "react-icons/bs";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "../../../index";
 
 export function UpcomingCourses() {
+  const [allCourse, setAllCourse] = useState([]);
   useEffect(() => {
     AOS.init({
       duration: 2000,
     });
+    axios
+      .get("course/")
+      .then((res) => {
+        setAllCourse(res.data);
+        console.log(res.data, "---courses data");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
   const leftScroll = () => {
     let cards = document.querySelector(".slider");
-    cards.scrollBy(-1240, 0);
+    cards.scrollBy(-1200, 0);
   };
 
   const rightScroll = () => {
     let cards = document.querySelector(".slider");
-    cards.scrollBy(1240, 0);
+    cards.scrollBy(1200, 0);
   };
   return (
     <div className="upcomingCourses">
@@ -42,213 +45,32 @@ export function UpcomingCourses() {
           <BsArrowLeftCircle className="icon" />
         </div>
         <div className="slider">
-          <div
-            id="slide1"
-            className="slide"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
-          >
-            <div className="card">
+          {allCourse.map((data, index) => {
+            return (
               <div
-                className="img"
-                style={{ backgroundImage: `url(${Frontend})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
+                // id="slide1"
+                className="slide"
+                data-aos="zoom-in-up"
+                data-aos-anchor-placement="top-bottom"
+                data-aos-offset="100"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="500"
+                key={index}
+              >
+                <div className="card">
+                  <div
+                    className="img"
+                    style={{ backgroundImage: `url(${data.courseImage})` }}
+                  ></div>
+                  <div className="content">
+                    <p>{data.courseName}</p>
+                    <p>{data.description}</p>
+                  </div>
+                  <div className="btn">Get More Details</div>
+                </div>
               </div>
-              <div className="btn">Get More Details</div>
-            </div>
-          </div>
-
-          <div
-            id="slide2"
-            className="slide"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
-          >
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${CPlus})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-          </div>
-
-          <div
-            id="slide3"
-            className="slide"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
-          >
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${C})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-          </div>
-
-          <div
-            id="slide4"
-            className="slide"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
-          >
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${Javascript})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-          </div>
-
-          <div
-            id="slide5"
-            className="slide"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
-          >
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${Javascript})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-          </div>
-
-          <div
-            id="slide6"
-            className="slide"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
-          >
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${NodeJs})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-          </div>
-
-          <div
-            id="slide7"
-            className="slide"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
-          >
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-          </div>
-
-          <div
-            id="slide7"
-            className="slide"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-offset="100"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
-          >
-            <div className="card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${Angular})` }}
-              ></div>
-              <div className="content">
-                <p>Angular</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque eaque aliquam nobis, qui, blanditiis voluptate
-                  necessitatibus minus voluptas ipsum.
-                </p>
-              </div>
-              <div className="btn">Get More Details</div>
-            </div>
-          </div>
+            );
+          })}
         </div>
         <div className="rightIcon" onClick={rightScroll}>
           <BsArrowRightCircle className="icon" />
@@ -256,155 +78,31 @@ export function UpcomingCourses() {
       </div>
 
       <div className="mobile-Slider">
-        <div
-          className="mobile-Slides"
-          data-aos="zoom-in-up"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-offset="100"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="500"
-        >
-          <div className="card">
+        {allCourse.map((data, index) => {
+          return (
             <div
-              className="img"
-              style={{ backgroundImage: `url(${Frontend})` }}
-            ></div>
-            <div className="content">
-              <p>Angular</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
-                minus voluptas ipsum.
-              </p>
+              key={index}
+              className="mobile-Slides"
+              data-aos="zoom-in-up"
+              data-aos-anchor-placement="top-bottom"
+              data-aos-offset="100"
+              data-aos-easing="ease-in-sine"
+              data-aos-duration="500"
+            >
+              <div className="card">
+                <div
+                  className="img"
+                  style={{ backgroundImage: `url(${data.courseImage})` }}
+                ></div>
+                <div className="content">
+                  <p>{data.courseName}</p>
+                  <p>{data.description}</p>
+                </div>
+                <div className="btn">Get More Details</div>
+              </div>
             </div>
-            <div className="btn">Get More Details</div>
-          </div>
-        </div>
-
-        <div
-          className="mobile-Slides"
-          data-aos="zoom-in-up"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-offset="100"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="500"
-        >
-          <div className="card">
-            <div
-              className="img"
-              style={{ backgroundImage: `url(${Frontend})` }}
-            ></div>
-            <div className="content">
-              <p>Angular</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
-                minus voluptas ipsum.
-              </p>
-            </div>
-            <div className="btn">Get More Details</div>
-          </div>
-        </div>
-
-        <div
-          className="mobile-Slides"
-          data-aos="zoom-in-up"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-offset="100"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="500"
-        >
-          <div className="card">
-            <div
-              className="img"
-              style={{ backgroundImage: `url(${Frontend})` }}
-            ></div>
-            <div className="content">
-              <p>Angular</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
-                minus voluptas ipsum.
-              </p>
-            </div>
-            <div className="btn">Get More Details</div>
-          </div>
-        </div>
-
-        <div
-          className="mobile-Slides"
-          data-aos="zoom-in-up"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-offset="100"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="500"
-        >
-          <div className="card">
-            <div
-              className="img"
-              style={{ backgroundImage: `url(${Frontend})` }}
-            ></div>
-            <div className="content">
-              <p>Angular</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
-                minus voluptas ipsum.
-              </p>
-            </div>
-            <div className="btn">Get More Details</div>
-          </div>
-        </div>
-
-        <div
-          className="mobile-Slides"
-          data-aos="zoom-in-up"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-offset="100"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="500"
-        >
-          <div className="card">
-            <div
-              className="img"
-              style={{ backgroundImage: `url(${Frontend})` }}
-            ></div>
-            <div className="content">
-              <p>Angular</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
-                minus voluptas ipsum.
-              </p>
-            </div>
-            <div className="btn">Get More Details</div>
-          </div>
-        </div>
-
-        <div
-          className="mobile-Slides"
-          data-aos="zoom-in-up"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-offset="100"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="500"
-        >
-          <div className="card">
-            <div
-              className="img"
-              style={{ backgroundImage: `url(${Frontend})` }}
-            ></div>
-            <div className="content">
-              <p>Angular</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                eaque aliquam nobis, qui, blanditiis voluptate necessitatibus
-                minus voluptas ipsum.
-              </p>
-            </div>
-            <div className="btn">Get More Details</div>
-          </div>
-        </div>
+          );
+        })}
       </div>
 
       <div className="mobile-Row">

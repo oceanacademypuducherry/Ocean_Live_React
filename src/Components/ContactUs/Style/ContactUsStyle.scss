@@ -138,6 +138,20 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    background-color: rgb(0, 124, 182);
+    transform: scale(0.99);
+  }
+
+  &::selection {
+    background-color: transparent;
+  }
 }
 
 .card {
@@ -183,9 +197,19 @@
       height: 35px;
       width: 50px;
       border: 1px solid grey;
-      color: white;
+      color: rgb(92, 90, 90);
+      padding-left: 15px;
+      box-sizing: border-box;
       border-radius: 5px;
       @include flex(center, center, row, nowrap);
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      &:focus {
+        outline-color: rgb(0, 174, 255);
+      }
     }
   }
 }
