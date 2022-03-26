@@ -32,7 +32,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/onlinecourses" element={<OnlineCourses />} />
         <Route
-          path="/onlinecourses/viewdetails"
+          path="/onlinecourses/viewdetails/:courseId/"
           element={<OnlineViewDetail />}
         />
         <Route path="/offlinecourses" element={<OfflineCourses />} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Style/AboutStyle.scss";
 import { SideNavbar } from "../SideNavbar/SideNavbar";
 import { closeSideNavbar } from "../Functions/SidebarFunction";
@@ -14,7 +14,6 @@ import Thamizharasan from "../Image/Mentor/Thamizharasan.jpg";
 import Ijass from "../Image/Mentor/Ijass.jpg";
 import Manisha from "../Image/Mentor/Manisha.jpg";
 // import Jaya from "../Image/Mentor/Jayalatha.jpg";
-
 import { FiFacebook } from "react-icons/fi";
 import {
   AiOutlineGooglePlus,
@@ -22,7 +21,20 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 
+import axios from "../../index";
+
 export function AboutUs() {
+  const [allMentors, setAllMentors] = useState([]);
+  useEffect(() => {
+    axios
+      .get("/mentor/")
+      .then((res) => {
+        setAllMentors(res.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
   return (
     <>
       <SideNavbar />
@@ -64,6 +76,36 @@ export function AboutUs() {
         <div className="mentors">
           <h2>MEET OUR MENTOR</h2>
           <div className="row">
+            {allMentors.map((mentor, index) => {
+              return (
+                <div key={index} className="static">
+                  <div className="card">
+                    <div className="front">
+                      <div
+                        className="background-Image"
+                        style={{
+                          backgroundImage: `url(${mentor.profilePicture})`,
+                        }}
+                      ></div>
+                      <div className="details">
+                        <p>{mentor.mentorName}</p>
+                        <p>{mentor.designation}</p>
+                      </div>
+                    </div>
+                    <div className="back">
+                      <FiFacebook className="card-Icons" />
+
+                      <AiOutlineGooglePlus className="card-Icons" />
+
+                      <AiFillLinkedin className="card-Icons" />
+
+                      <AiOutlineTwitter className="card-Icons" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+            {/* 
             <div className="static">
               <div className="card">
                 <div className="front">
@@ -230,7 +272,7 @@ export function AboutUs() {
                   <AiOutlineTwitter className="card-Icons" />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

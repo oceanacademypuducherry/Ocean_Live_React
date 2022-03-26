@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Style/OnlineViewDetailStyle.css";
 import { Appbar } from "../../Appbar/Appbar";
 import { SideNavbar } from "../../SideNavbar/SideNavbar";
@@ -13,8 +13,15 @@ import { RiTimerFlashLine } from "react-icons/ri";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { BiCaretDownCircle } from "react-icons/bi";
 import Flutter from "../../Image/courses/Flutter.png";
+// thamizh added file
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "../../../index";
 
 export function OnlineViewDetail() {
+  const [courseInfo, setCourseInfo] = useState({});
+  const param = useParams();
+  const navigate = useNavigate();
+
   const closeContent = () => {
     let doc = document;
     let p = doc.querySelectorAll(".viewDetails-Details-row-content > p");
@@ -23,6 +30,18 @@ export function OnlineViewDetail() {
       console.log((i.style.display = "none"));
     }
   };
+
+  useEffect(() => {
+    axios
+      .get("course/" + param.courseId)
+      .then((res) => {
+        console.log(res.data);
+        setCourseInfo(res.data);
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }, []);
   return (
     <>
       <Appbar />
@@ -38,8 +57,10 @@ export function OnlineViewDetail() {
                 Online Course
               </div>
               <br />
-              <h1>Python Certificate Development Course</h1>
-              <p>Tutor Name : Thamizharasan</p>
+              <h1>{courseInfo.courseName} Certificate Development Course</h1>
+              <p>
+                <s>Tutor Name : Thamizharasan</s>
+              </p>
               <div className="topbar-Content-Row">
                 <p>
                   <span>
@@ -57,7 +78,7 @@ export function OnlineViewDetail() {
             </div>
             <div className="topbar-Card">
               <div
-                style={{ backgroundImage: `url(${Flutter})` }}
+                style={{ backgroundImage: `url(${courseInfo.courseImage})` }}
                 className="topbar-Card-image"
               ></div>
               <div className="topbar-Card-price-date">
@@ -79,12 +100,17 @@ export function OnlineViewDetail() {
                       <span>
                         <RiTimerFlashLine />
                       </span>
-                      45 Hrs
+                      {courseInfo.duration} Hrs
                     </p>
                   </div>
-                  <div className="topbar-Card-price-col">$ 15000</div>
+                  <div className="topbar-Card-price-col">
+                    $ {courseInfo.price}
+                  </div>
                 </div>
-                <div className="topbar-Card-price-date-btn">Enroll Now</div>
+                <div className="topbar-Card-price-date-btn">
+                  {/*  */}
+                  Enroll Now
+                </div>
               </div>
             </div>
           </div>
@@ -95,12 +121,8 @@ export function OnlineViewDetail() {
             <div className="course-details">
               <h2>Course Details</h2>
               <p>
-                Python has been one of the flexible, premier and powerful
-                open-source languages that are easy to learn and implement. The
-                python training will primarily focus on understanding key
-                concepts, basic ideas of developing web application and
-                implementing lot of modules and packages to encourage modularity
-                of the code and helps to improve the application performance.
+                {courseInfo.description}
+                ...
               </p>
               <br />
               <h2>Table Of Content</h2>
