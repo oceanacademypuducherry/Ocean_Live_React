@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Style/ContactUsStyle.scss";
-import CryptoJS from "crypto-js";
+import cryptoJS from "crypto-js";
+import axios from "axios";
 import { closeSideNavbar } from "../Functions/SidebarFunction";
 import { Titlebar } from "../Titlebar/Titlebar";
 import { Appbar } from "../Appbar/Appbar";
@@ -19,30 +20,30 @@ export function ContactUs() {
     query: "",
   });
 
-  const submitForm = () => {
-    //random generator//
-    let math = Math.floor(Math.random() * 100000000);
+  const submitForm = async () => {
+    if (
+      form.enquiryFor !== "" &&
+      form.fullName !== "" &&
+      form.mobileNumber !== "" &&
+      form.email !== "" &&
+      form.query !== ""
+    ) {
+      ///Encryption with math secret key///
+      var data = cryptoJS.AES.encrypt(JSON.stringify(form), "#####").toString();
 
-    console.log(math, "random");
+      await axios
+        .post("http://localhost:8000/api/sendemail", { data })
+        .then((res) => {
+          // console.log(res);
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
 
-    ///Encryption with math secret key(random)///
-    var ciphertext = CryptoJS.AES.encrypt(
-      JSON.stringify(form),
-      math.toString()
-    ).toString();
-
-    console.log(ciphertext, "encrypt----");
-
-    // Decrypt
-    var bytes = CryptoJS.AES.decrypt(ciphertext, math.toString());
-
-    console.log(bytes, "bytes");
-
-    var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-
-    console.log(decryptedData, "decrypt--------");
-    //reset
-    reset();
+      //reset
+      reset();
+    }
   };
 
   const onChange = (e) => {
