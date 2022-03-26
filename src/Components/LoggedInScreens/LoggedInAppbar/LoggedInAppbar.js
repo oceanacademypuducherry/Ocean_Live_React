@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../Image/login_logo.svg";
 import OA from "../../Image/oa_logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Style/LoggedInAppbarStyle.scss";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { GrCertificate } from "react-icons/gr";
@@ -11,8 +11,27 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { GiBookshelf } from "react-icons/gi";
 import { FaBookReader } from "react-icons/fa";
 import { TiThMenuOutline } from "react-icons/ti";
+import axios from "../../../index";
 
 export function LoggedInAppbar() {
+  const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState({
+    occupation: "",
+    instOrOrg: "",
+    _id: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    dateOfBirth: "",
+    email: "",
+    companyOrSchool: "",
+    state: "",
+    country: "",
+    mobileNumber: "",
+    profilePicture: "",
+    skils: [],
+  });
+
   let menuOnClick = () => {
     let doc = document;
     let closeMenu = doc.querySelector(".mobileSidebar-CloseBtn");
@@ -32,8 +51,26 @@ export function LoggedInAppbar() {
     mobileSidebar.style.width = "250px";
   };
 
+  async function getUserData() {
+    const token = localStorage.getItem("token");
+    await axios
+      .post("user", { token: token })
+      .then((res) => {
+        setUserInfo(res.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        alert("You need to Login first");
+        navigate("/");
+      });
+  }
+  useEffect(() => {
+    getUserData();
+  }, []);
+
   return (
     <div className="loggedInAppbar">
+      {console.log(userInfo)}
       <div className="appbarLeft">
         <img src={Logo} alt="" />
       </div>
@@ -54,12 +91,12 @@ export function LoggedInAppbar() {
 
         <div id="loggedInAppbar-Profile">
           <div className="loggedInAppbar-Profile-Circle">
-            I
+            {userInfo.firstName.substring(0, 1)}
             <div className="loggedInAppbar-Dropdown">
               <div className="loggedInAppbar-Dropdown-Row">
                 <div className="loggedInAppbar-Dropdown-Left-Circle">I</div>
                 <div className="loggedInAppbar-Dropdown-Right">
-                  <p>Ijass</p>
+                  <p>{userInfo.firstName + userInfo.lastName}</p>
                   <p>jass07rtr@gmail.com</p>
                 </div>
               </div>
@@ -111,10 +148,7 @@ export function LoggedInAppbar() {
                   <FaShopify className="loggedInAppbar-Dropdown-Col-li-icons" />
                   <div className="text-decoration">Purchase History</div>
                 </Link>
-                <Link
-                  className="loggedInAppbar-Dropdown-Col-li"
-                  to="/dashboard/notification"
-                >
+                <Link className="loggedInAppbar-Dropdown-Col-li" to="/login">
                   <HiOutlineLogout className="loggedInAppbar-Dropdown-Col-li-icons" />
                   <div className="text-decoration">Logout</div>
                 </Link>

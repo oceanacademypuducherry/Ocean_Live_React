@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 // import { authentication } from "../Firebase/FirebaseConfig";
 // import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 
+import axios from "../../index";
+
 export function Login() {
   const navigate = useNavigate();
   const [phoneNumber, setphoneNumber] = useState("");
@@ -33,7 +35,6 @@ export function Login() {
   // };
 
   const requestOTP = async (e) => {
-    navigate("/dashboard/mycourses");
     // const code = document.querySelector(".country-Dropdown").value;
     // e.preventDefault();
     // console.log(document.querySelector(".country-Dropdown").value);
@@ -55,6 +56,26 @@ export function Login() {
     //     // const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
     //   });
   };
+
+  async function login() {
+    console.log(!isNaN(phoneNumber));
+    if (!isNaN(phoneNumber) && phoneNumber.length >= 10) {
+      await axios
+        .post("user/login", { mobileNumber: phoneNumber })
+        .then((res) => {
+          console.log(res.data.token);
+          localStorage.setItem("token", res.data.token);
+          navigate("/dashboard/mycourses");
+        })
+        .catch((error) => {
+          console.log(error.message);
+          // TODO:  user redux for pass the number
+          navigate("/register/" + phoneNumber);
+        });
+    } else {
+      alert("enter valid number");
+    }
+  }
 
   const onchangeInput = (e) => {
     console.log(e.target.value);
@@ -95,7 +116,7 @@ export function Login() {
               onChange={onchangeInput}
             />
           </div>
-          <div className="login-Card-Top-nextBtn" onClick={requestOTP}>
+          <div className="login-Card-Top-nextBtn" onClick={login}>
             Next
           </div>
           <p>
