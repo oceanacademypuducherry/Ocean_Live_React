@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 export function WhatsNewAtOcean() {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      // duration: 1000,
     });
   }, []);
 
@@ -15,14 +15,16 @@ export function WhatsNewAtOcean() {
     <div className="whatsNewAtOcean">
       <h1
         data-aos="fade-left"
-        data-aos-offset="100"
-        data-aos-easing="ease-in-sine"
+        data-aos-offset="200"
+        data-aos-duration="500"
+        // data-aos-easing="ease-in-sine"
       >
         What's New at Ocean Academy
       </h1>
       <p
         data-aos="fade-left"
-        data-aos-offset="100"
+        data-aos-offset="200"
+        data-aos-duration="500"
         // data-aos-easing="ease-in-sine"
       >
         We release a new platform innovation every month to stay on the leading
@@ -33,14 +35,16 @@ export function WhatsNewAtOcean() {
         <div className="col">
           <h1
             data-aos="fade-right"
-            data-aos-offset="100"
+            data-aos-offset="200"
+            data-aos-duration="500"
             // data-aos-easing="ease-in-sine"
           >
             Ocean Academy Launches Its Own Private Social Network for Learners
           </h1>
           <p
             data-aos="fade-right"
-            data-aos-offset="100"
+            data-aos-offset="200"
+            data-aos-duration="500"
             // data-aos-easing="ease-in-sine"
           >
             Coming soon: our human to human matching engine will be able to
@@ -50,7 +54,7 @@ export function WhatsNewAtOcean() {
         </div>
         <div
           data-aos="zoom-in-up"
-          data-aos-offset="100"
+          data-aos-offset="200"
           data-aos-easing="ease-in-sine"
           data-aos-duration="500"
           className="col"
