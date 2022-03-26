@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Style/ContactUsStyle.scss";
 import cryptoJS from "crypto-js";
 import axios from "axios";
@@ -12,6 +12,18 @@ import { GoLocation } from "react-icons/go";
 import { Footer } from "../Footer/Footer";
 
 export function ContactUs() {
+  const [robot, setRobot] = useState({
+    randomA: 0,
+    randomB: 0,
+    sumValue: 0,
+  });
+
+  useEffect(() => {
+    const a = Math.floor(Math.random() * 10);
+    const b = Math.floor(Math.random() * 10);
+    setRobot({ ...robot, randomA: a, randomB: b });
+  }, []);
+
   const [form, setform] = useState({
     enquiryFor: "",
     fullName: "",
@@ -28,30 +40,42 @@ export function ContactUs() {
       form.email !== "" &&
       form.query !== ""
     ) {
-      ///Encryption with math secret key///
-      var data = cryptoJS.AES.encrypt(JSON.stringify(form), "#####").toString();
+      if (robot.sumValue === robot.randomA + robot.randomB) {
+        ///Encryption with math secret key///
+        var data = cryptoJS.AES.encrypt(
+          JSON.stringify(form),
+          "#####"
+        ).toString();
 
-      await axios
-        .post("http://localhost:8000/api/sendemail", { data })
-        .then((res) => {
-          // console.log(res);
-          console.log(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        await axios
+          .post("http://localhost:8000/api/sendemail", { data })
+          .then((res) => {
+            // console.log(res);
+            console.log(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
 
-      //reset
-      reset();
+        //reset
+        reset();
+      } else {
+        console.log("wrong calculation");
+      }
+    } else {
+      console.log("fill values");
     }
   };
 
   const onChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name);
-    console.log(value);
-    setform({ ...form, [name]: value });
+    if (name === "sum") {
+      // setRobot(...robot, {sumValue: e.target.value})
+      console.log(value);
+    } else {
+      setform({ ...form, [name]: value });
+    }
   };
 
   const reset = () => {
@@ -176,11 +200,16 @@ export function ContactUs() {
               <p>I'm not Robot</p>
 
               <div className="calc">
-                <div className="box1">1</div>
+                <div className="box1">{robot.randomA}</div>
                 <p>+</p>
-                <div className="box2">2</div>
+                <div className="box2">{robot.randomB}</div>
                 <p>=</p>
-                <input type="number" />
+                <input
+                  type="number"
+                  name="sum"
+                  value={robot.sumValue}
+                  onChange={onChange}
+                />
               </div>
             </div>
 

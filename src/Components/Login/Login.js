@@ -5,58 +5,55 @@ import { countryCode } from "../CountryCode/CountryCode";
 import { Appbar } from "../Appbar/Appbar";
 import { SideNavbar } from "../SideNavbar/SideNavbar";
 import { Link, useNavigate } from "react-router-dom";
-import { authentication } from "../Firebase/FirebaseConfig";
-import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
+// import { authentication } from "../Firebase/FirebaseConfig";
+// import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 
 export function Login() {
   const navigate = useNavigate();
   const [phoneNumber, setphoneNumber] = useState("");
 
-  const generateRecaptcha = () => {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size: "invisible",
-        callback: (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          // onSignInSubmit();
-          console.log(response, "-----------responss");
-        },
-        "expired-callback": (response) => {
-          // Response expired. Ask user to solve reCAPTCHA again.
-          // ...
-          console.log(response, "expired-callback-----");
-        },
-      },
-      authentication
-    );
-  };
+  // const generateRecaptcha = () => {
+  //   window.recaptchaVerifier = new RecaptchaVerifier(
+  //     "recaptcha-container",
+  //     {
+  //       size: "invisible",
+  //       callback: (response) => {
+  //         // reCAPTCHA solved, allow signInWithPhoneNumber.
+  //         // onSignInSubmit();
+  //         console.log(response, "-----------responss");
+  //       },
+  //       "expired-callback": (response) => {
+  //         // Response expired. Ask user to solve reCAPTCHA again.
+  //         // ...
+  //         console.log(response, "expired-callback-----");
+  //       },
+  //     },
+  //     authentication
+  //   );
+  // };
 
   const requestOTP = async (e) => {
-    const code = document.querySelector(".country-Dropdown").value;
-    e.preventDefault();
-    console.log(document.querySelector(".country-Dropdown").value);
-    generateRecaptcha();
-    let appVerifier = window.recaptchaVerifier;
-
-    await signInWithPhoneNumber(
-      authentication,
-      `${code} ${phoneNumber}`,
-      appVerifier
-    )
-      .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
-        navigate("/loginotp");
-      })
-      .catch((error) => {
-        window.location.reload();
-
-        console.log(window.recaptchaVerifier, "----window.recaptchaVerifier");
-
-        console.log(error, "error by firebase");
-
-        // const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
-      });
+    navigate("/dashboard/mycourses");
+    // const code = document.querySelector(".country-Dropdown").value;
+    // e.preventDefault();
+    // console.log(document.querySelector(".country-Dropdown").value);
+    // generateRecaptcha();
+    // let appVerifier = window.recaptchaVerifier;
+    // await signInWithPhoneNumber(
+    //   authentication,
+    //   `${code} ${phoneNumber}`,
+    //   appVerifier
+    // )
+    //   .then((confirmationResult) => {
+    //     window.confirmationResult = confirmationResult;
+    //     navigate("/loginotp");
+    //   })
+    //   .catch((error) => {
+    //     window.location.reload();
+    //     console.log(window.recaptchaVerifier, "----window.recaptchaVerifier");
+    //     console.log(error, "error by firebase");
+    //     // const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
+    //   });
   };
 
   const onchangeInput = (e) => {
