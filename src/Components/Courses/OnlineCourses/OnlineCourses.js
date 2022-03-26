@@ -19,7 +19,6 @@ export function OnlineCourses() {
       .get("course/")
       .then((res) => {
         setAllCourse(res.data);
-        console.log(res.data);
       })
       .catch((error) => {
         console.log(error.message);
