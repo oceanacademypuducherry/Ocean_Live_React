@@ -39,7 +39,7 @@ function App() {
         <Route path="/career" element={<Career />} />
         <Route path="/login" element={<Login />} />
         <Route path="/loginotp" element={<LoginOTP />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register/:mobileNumber" element={<Register />} />
       </Routes>
 
       <Routes>
