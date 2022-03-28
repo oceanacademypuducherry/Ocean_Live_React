@@ -44,9 +44,9 @@ export function Appbar() {
         <NavLink style={isSelect} className="textDecoration" to="/career">
           Career
         </NavLink>
-        <Link to="/dashboard/mycourses/" className="loginBtn center">
+        {/* <Link to="/dashboard/mycourses/" className="loginBtn center">
           <span>Class Room</span>
-        </Link>
+        </Link> */}
         <Link to="/login" className="loginBtn center">
           <span>Login</span>
         </Link>

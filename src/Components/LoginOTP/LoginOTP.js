@@ -6,8 +6,12 @@ import { IoIosArrowBack } from "react-icons/io";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import "./Style/LoginOTPStyle.scss";
 import OTPInput, { ResendOTP } from "otp-input-react";
+import { useLocation } from "react-router-dom";
+import axios from "../../index";
 
 export function LoginOTP() {
+  const state = useLocation();
+  const phoneNumber = state.state.phoneNumber;
   const navigate = useNavigate();
   const [OTP, setOTP] = useState("");
   const [eyeVisible, setEyeVisible] = useState(true);
@@ -20,9 +24,8 @@ export function LoginOTP() {
         .then((result) => {
           // User signed in successfully.
           const user = result.user;
-
-          console.log(user, "// User signed in successfully.");
-          navigate("/dashboard/mycourses");
+          console.log(user, "/User signed in successfully.");
+          login();
           // ...
         })
         .catch((error) => {
@@ -31,6 +34,26 @@ export function LoginOTP() {
           console.log(error, "-----error");
         });
     } else {
+    }
+  }
+
+  async function login() {
+    console.log(!isNaN(phoneNumber));
+    if (!isNaN(phoneNumber) && phoneNumber.length >= 10) {
+      await axios
+        .post("user/login", { mobileNumber: phoneNumber })
+        .then((res) => {
+          console.log(res.data.token);
+          localStorage.setItem("token", res.data.token);
+          navigate("/dashboard/mycourses");
+        })
+        .catch((error) => {
+          console.log(error.message);
+          // TODO:  user redux for pass the number
+          navigate("/register/" + phoneNumber);
+        });
+    } else {
+      alert("enter valid number");
     }
   }
 
