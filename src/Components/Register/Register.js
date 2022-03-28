@@ -124,6 +124,15 @@ export function Register() {
               />
             </div>
             <div className="register-Card-Textfield">
+              <p>Country</p>
+              <input
+                type="text"
+                name="country"
+                value={userData.country}
+                onChange={onchangeHandler}
+              />
+            </div>
+            <div className="register-Card-Textfield">
               <p>State</p>
               <input
                 type="text"
