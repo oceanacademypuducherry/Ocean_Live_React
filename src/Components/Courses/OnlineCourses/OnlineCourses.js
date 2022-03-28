@@ -63,7 +63,7 @@ export function OnlineCourses() {
                 </div>
               </div>
               <Link
-                to={"viewdetails/" + course.courseId}
+                to={"/onlinecourses/viewdetails/" + course.courseId}
                 className="onlineCourses-View-Btn"
               >
                 <span>View Details</span>

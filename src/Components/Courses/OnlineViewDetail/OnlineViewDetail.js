@@ -21,6 +21,32 @@ export function OnlineViewDetail() {
   const [courseInfo, setCourseInfo] = useState({});
   const param = useParams();
   const navigate = useNavigate();
+  const [courseBuyingInfo, setCourseBuyingInfo] = useState({
+    batchTime: "9-10",
+    batchType: "week-days",
+    query: "",
+    token: localStorage.getItem("token"),
+  });
+  function onchangeHandler(e) {
+    const { name, value } = e.target;
+    setCourseBuyingInfo({ ...courseBuyingInfo, [name]: value });
+  }
+  async function buyCourse() {
+    await axios
+      .post("purchased/" + param.courseId, courseBuyingInfo)
+      .then((res) => {
+        if (res.data.error) {
+          alert("You need to login first");
+          navigate("/login");
+        } else {
+          console.log(res.data);
+          navigate("/dashboard/mycourses");
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  }
 
   const closeContent = () => {
     let doc = document;
@@ -89,26 +115,55 @@ export function OnlineViewDetail() {
                         <AiOutlineClockCircle />
                       </span>
                       12:00 AM
+                      <select
+                        name="batchTime"
+                        value={courseBuyingInfo.batchTime}
+                        onChange={onchangeHandler}
+                      >
+                        <option value="9-10">9-10</option>
+                        <option value="10-11">10-11</option>
+                        <option value="11-12">11-12</option>
+                        <option value="1-2">1-2</option>
+                        <option value="2-3">2-3</option>
+                      </select>
                     </p>
                     <p>
                       <span>
                         <VscCalendar />
                       </span>
                       Nov 22
+                      <select
+                        name="batchType"
+                        value={courseBuyingInfo.batchType}
+                        onChange={onchangeHandler}
+                      >
+                        <option value="week-days">Week-Days</option>
+                        <option value="week-end">Week-End</option>
+                      </select>
                     </p>
                     <p>
                       <span>
                         <RiTimerFlashLine />
                       </span>
                       {courseInfo.duration} Hrs
+                      <textarea
+                        name="query"
+                        value={courseBuyingInfo.query}
+                        onChange={onchangeHandler}
+                      ></textarea>
                     </p>
                   </div>
                   <div className="topbar-Card-price-col">
                     $ {courseInfo.price}
                   </div>
                 </div>
-                <div className="topbar-Card-price-date-btn">
-                  {/*  */}
+                <div
+                  className="topbar-Card-price-date-btn"
+                  onClick={() => {
+                    console.log(courseBuyingInfo);
+                    buyCourse();
+                  }}
+                >
                   Enroll Now
                 </div>
               </div>

@@ -26,7 +26,7 @@ export function LoggedInLandingPage() {
       })
       .catch((error) => {
         console.log(error.message);
-        alert("You need to Login first");
+
         navigate("/");
       });
   }
@@ -35,7 +35,6 @@ export function LoggedInLandingPage() {
     let session = localStorage.getItem("token");
     getPurchasedCourse();
     if (session === null || session === "undefined") {
-      alert("You need to Login First");
       navigate("/login");
     }
   }, []);

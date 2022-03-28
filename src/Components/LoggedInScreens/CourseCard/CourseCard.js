@@ -22,7 +22,7 @@ export function MyCourseCard() {
       })
       .catch((error) => {
         console.log(error.message);
-        alert("You need to Login first");
+
         navigate("/");
       });
   }

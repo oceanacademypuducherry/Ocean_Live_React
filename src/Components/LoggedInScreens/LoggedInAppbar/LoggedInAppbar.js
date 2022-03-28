@@ -60,9 +60,13 @@ export function LoggedInAppbar() {
       })
       .catch((error) => {
         console.log(error.message);
-        alert("You need to Login first");
+
         navigate("/");
       });
+  }
+
+  function logout() {
+    localStorage.removeItem("token");
   }
   useEffect(() => {
     getUserData();
@@ -70,15 +74,20 @@ export function LoggedInAppbar() {
 
   return (
     <div className="loggedInAppbar">
-      {console.log(userInfo)}
-      <div className="appbarLeft">
+      <div
+        className="appbarLeft"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
         <img src={Logo} alt="" />
       </div>
       <div className="appbarRight">
-        <Link className="route" id="remove" to="mycourses">
+        <Link className="route" id="remove" to="/dashboard/mycourses">
           My Courses
         </Link>
-        <Link className="route" id="remove" to="allcourses">
+
+        <Link className="route" id="remove" to="/dashboard/allcourses">
           All Courses
         </Link>
 
@@ -97,7 +106,7 @@ export function LoggedInAppbar() {
                 <div className="loggedInAppbar-Dropdown-Left-Circle">I</div>
                 <div className="loggedInAppbar-Dropdown-Right">
                   <p>{userInfo.firstName + userInfo.lastName}</p>
-                  <p>jass07rtr@gmail.com</p>
+                  <p>{userInfo.email}</p>
                 </div>
               </div>
               <div className="loggedInAppbar-Dropdown-Col">
@@ -148,10 +157,12 @@ export function LoggedInAppbar() {
                   <FaShopify className="loggedInAppbar-Dropdown-Col-li-icons" />
                   <div className="text-decoration">Purchase History</div>
                 </Link>
-                <Link className="loggedInAppbar-Dropdown-Col-li" to="/login">
-                  <HiOutlineLogout className="loggedInAppbar-Dropdown-Col-li-icons" />
-                  <div className="text-decoration">Logout</div>
-                </Link>
+                <div style={{ width: "100%" }} onClick={logout}>
+                  <Link className="loggedInAppbar-Dropdown-Col-li" to="/login">
+                    <HiOutlineLogout className="loggedInAppbar-Dropdown-Col-li-icons" />
+                    <div className="text-decoration">Logout</div>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
