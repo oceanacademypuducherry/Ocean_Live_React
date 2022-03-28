@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Style/CourseViewDetails.scss";
 // import { OnlineViewDetail } from "../../Courses/OnlineViewDetail/OnlineViewDetail";
 import { LoggedInAppbar } from "../LoggedInAppbar/LoggedInAppbar";
@@ -12,8 +12,41 @@ import { RiTimerFlashLine } from "react-icons/ri";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { BiCaretDownCircle } from "react-icons/bi";
 import Flutter from "../../Image/courses/Flutter.png";
+//
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "../../../index";
 
 export function CourseViewDetails() {
+  const [courseInfo, setCourseInfo] = useState({});
+  const param = useParams();
+  const navigate = useNavigate();
+  const [courseBuyingInfo, setCourseBuyingInfo] = useState({
+    batchTime: "9-10",
+    batchType: "week-days",
+    query: "",
+    token: localStorage.getItem("token"),
+  });
+  function onchangeHandler(e) {
+    const { name, value } = e.target;
+    setCourseBuyingInfo({ ...courseBuyingInfo, [name]: value });
+  }
+  async function buyCourse() {
+    await axios
+      .post("purchased/" + param.courseId, courseBuyingInfo)
+      .then((res) => {
+        if (res.data.error) {
+          alert("You need to login first");
+          navigate("/login");
+        } else {
+          console.log(res.data);
+          navigate("/dashboard/mycourses");
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  }
+
   const closeContent = () => {
     let doc = document;
     let p = doc.querySelectorAll(".viewDetails-Details-row-content > p");
@@ -22,12 +55,24 @@ export function CourseViewDetails() {
       console.log((i.style.display = "none"));
     }
   };
+
+  useEffect(() => {
+    axios
+      .get("course/" + param.courseId)
+      .then((res) => {
+        console.log(res.data);
+        setCourseInfo(res.data);
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }, []);
   return (
     <>
       <LoggedInAppbar />
-      <div className="courseViewDetail">
+      <div className="OnlineViewDetail">
         <div className="viewDetails-topbar">
-          <div className="courseView-maxWidth">
+          <div className="onlineView-maxWidth">
             <div className="topbar-Content">
               <div className="topbar-Content-Back-Btn">
                 <span>
@@ -36,8 +81,10 @@ export function CourseViewDetails() {
                 Online Course
               </div>
               <br />
-              <h1>Python Certificate Development Course</h1>
-              <p>Tutor Name : Thamizharasan</p>
+              <h1>{courseInfo.courseName} Certificate Development Course</h1>
+              <p>
+                <s>Tutor Name : Thamizharasan</s>
+              </p>
               <div className="topbar-Content-Row">
                 <p>
                   <span>
@@ -55,7 +102,7 @@ export function CourseViewDetails() {
             </div>
             <div className="topbar-Card">
               <div
-                style={{ backgroundImage: `url(${Flutter})` }}
+                style={{ backgroundImage: `url(${courseInfo.courseImage})` }}
                 className="topbar-Card-image"
               ></div>
               <div className="topbar-Card-price-date">
@@ -66,23 +113,57 @@ export function CourseViewDetails() {
                         <AiOutlineClockCircle />
                       </span>
                       12:00 AM
+                      <select
+                        name="batchTime"
+                        value={courseBuyingInfo.batchTime}
+                        onChange={onchangeHandler}
+                      >
+                        <option value="9-10">9-10</option>
+                        <option value="10-11">10-11</option>
+                        <option value="11-12">11-12</option>
+                        <option value="1-2">1-2</option>
+                        <option value="2-3">2-3</option>
+                      </select>
                     </p>
                     <p>
                       <span>
                         <VscCalendar />
                       </span>
                       Nov 22
+                      <select
+                        name="batchType"
+                        value={courseBuyingInfo.batchType}
+                        onChange={onchangeHandler}
+                      >
+                        <option value="week-days">Week-Days</option>
+                        <option value="week-end">Week-End</option>
+                      </select>
                     </p>
                     <p>
                       <span>
                         <RiTimerFlashLine />
                       </span>
-                      45 Hrs
+                      {courseInfo.duration} Hrs
+                      <textarea
+                        name="query"
+                        value={courseBuyingInfo.query}
+                        onChange={onchangeHandler}
+                      ></textarea>
                     </p>
                   </div>
-                  <div className="topbar-Card-price-col">$ 15000</div>
+                  <div className="topbar-Card-price-col">
+                    $ {courseInfo.price}
+                  </div>
                 </div>
-                <div className="topbar-Card-price-date-btn">Enroll Now</div>
+                <div
+                  className="topbar-Card-price-date-btn"
+                  onClick={() => {
+                    console.log(courseBuyingInfo);
+                    buyCourse();
+                  }}
+                >
+                  Enroll Now
+                </div>
               </div>
             </div>
           </div>
@@ -93,12 +174,8 @@ export function CourseViewDetails() {
             <div className="course-details">
               <h2>Course Details</h2>
               <p>
-                Python has been one of the flexible, premier and powerful
-                open-source languages that are easy to learn and implement. The
-                python training will primarily focus on understanding key
-                concepts, basic ideas of developing web application and
-                implementing lot of modules and packages to encourage modularity
-                of the code and helps to improve the application performance.
+                {courseInfo.description}
+                ...
               </p>
               <br />
               <h2>Table Of Content</h2>

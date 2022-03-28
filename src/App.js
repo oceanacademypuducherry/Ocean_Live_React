@@ -45,13 +45,16 @@ function App() {
       <Routes>
         <Route path="/dashboard" element={<LoggedInLandingPage />}>
           <Route path="zoom" element={<ZoomSchedule />} />
-          {/* <Route path="allcourses" element={<AllCourses />} /> */}
-          <Route path="allcourses" element={<OnlineCourses />} />
-          <Route path="mycourses" element={<MyCourseCard />} />
+          <Route path="/dashboard/allcourses" element={<AllCourses />} />
+          {/* <Route path="/dashboard/allcourses" element={<OnlineCourses />} /> */}
+          <Route path="/dashboard/mycourses" element={<MyCourseCard />} />
         </Route>
         <Route path="/dashboard/notification" element={<Notification />} />
         <Route path="/dashboard/editprofile" element={<EditProfile />} />
-        <Route path="/dashboard/viewdetails" element={<CourseViewDetails />} />
+        <Route
+          path="/dashboard/viewdetails/:courseId"
+          element={<CourseViewDetails />}
+        />
         <Route
           path="/dashboard/mycoursemoreinfo"
           element={<MyCoursesMoreInfo />}
