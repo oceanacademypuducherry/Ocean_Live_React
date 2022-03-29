@@ -130,10 +130,10 @@ export function EditProfile() {
             <div className="editProfile-textField">
               <label htmlFor="">Gender</label>
               <select name="gender" onChange={onchangeHandler}>
-                <option selected={isMale} value="male">
+                <option selected={userData.gender === "male"} value="male">
                   Male
                 </option>
-                <option selected={isMale} value="female">
+                <option selected={userData.gender === "female"} value="female">
                   Female
                 </option>
               </select>
