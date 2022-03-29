@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./Style/CoverImageStyle.css";
+import "./Style/CoverImageStyle.scss";
 import CodingVideo from "../../Videos/coding.mp4";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -33,10 +33,18 @@ export function CoverImage() {
             <div className="enrollNowBtn">Enroll Now</div>
           </div>
           <div className="col">
-            <video controls>
-              <source src={CodingVideo} type="video/ogg" />
-              Your browser does not support the video tag.
-            </video>
+            <div className="bg-Color">
+              <video
+                controls={false}
+                className="video"
+                loop={true}
+                autoPlay={true}
+                muted={true}
+              >
+                <source src={CodingVideo} type="video/ogg" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
       </div>

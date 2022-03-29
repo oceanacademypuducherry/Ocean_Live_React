@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./Style/UpcomingCoursesStyle.scss";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { BsArrowRightCircle } from "react-icons/bs";
+import { OALoaders } from "../../Loaders/OALoader/OALoader";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "../../../index";
 
 export function UpcomingCourses() {
   const [allCourse, setAllCourse] = useState([]);
+  const [bool, setBool] = useState(true);
   useEffect(() => {
     AOS.init({
       duration: 2000,
@@ -16,6 +18,7 @@ export function UpcomingCourses() {
       .get("course/")
       .then((res) => {
         setAllCourse(res.data);
+        setBool(false);
         console.log(res.data, "---courses data");
       })
       .catch((error) => {
@@ -44,7 +47,13 @@ export function UpcomingCourses() {
         <div className="leftIcon" onClick={leftScroll}>
           <BsArrowLeftCircle className="icon" />
         </div>
+
         <div className="slider">
+          {bool === true && (
+            <section className="loading">
+              <OALoaders />
+            </section>
+          )}
           {allCourse.map((data, index) => {
             return (
               <div
@@ -78,6 +87,11 @@ export function UpcomingCourses() {
       </div>
 
       <div className="mobile-Slider">
+        {bool === true && (
+          <section className="loading">
+            <OALoaders />
+          </section>
+        )}
         {allCourse.map((data, index) => {
           return (
             <div

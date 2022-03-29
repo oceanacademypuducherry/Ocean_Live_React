@@ -1,0 +1,87 @@
+@import "../../../Scss/ScssMixins.scss";
+
+.coverImg {
+  background-color: aliceblue;
+  width: 100%;
+  background-image: url("../../../Image/cover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+
+  .bgClr {
+    background-color: rgba(0, 156, 204, 0.89);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .row {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      justify-content: space-between;
+      width: 1700px;
+      margin: 0px 80px;
+
+      .col {
+        > h1 {
+          color: white;
+          margin: 40px 0px;
+          font-size: 45px;
+          font-weight: 400;
+        }
+
+        > p {
+          color: aliceblue;
+          margin: 40px 0px;
+          font-size: 20px;
+          font-weight: 400;
+        }
+
+        &:nth-child(1) {
+          padding: 20px;
+          box-sizing: border-box;
+          margin: 30px auto 30px auto;
+          max-width: 800px;
+          box-sizing: border-box;
+
+          > .enrollNowBtn {
+            margin: 40px 0px;
+            height: 50px;
+            width: 160px;
+            background-color: aliceblue;
+            color: rgb(0, 174, 255);
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &:nth-child(2) {
+          margin: 0px auto 0px auto;
+          position: relative;
+          max-width: 600px;
+          @include flex(center, center, row, nowrap);
+          background-color: aliceblue;
+
+          .bg-Color {
+            background-color: aqua;
+            > video {
+              border-radius: 20px;
+              width: 100%;
+              position: relative;
+
+              &:hover {
+                background-color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@import "./ResponsiveStyle.scss";
