@@ -64,10 +64,10 @@
           position: relative;
           max-width: 600px;
           @include flex(center, center, row, nowrap);
-          background-color: aliceblue;
+          // background-color: aliceblue;
 
           .bg-Color {
-            background-color: aqua;
+            // background-color: aqua;
             > video {
               border-radius: 20px;
               width: 100%;
