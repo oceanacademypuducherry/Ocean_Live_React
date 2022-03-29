@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Style/MyCoursesMoreInfoStyle.scss";
 import { LoggedInAppbar } from "../LoggedInAppbar/LoggedInAppbar";
 import { AiOutlineClockCircle, AiOutlineVideoCamera } from "react-icons/ai";
@@ -8,8 +8,24 @@ import { RiTimerFlashLine } from "react-icons/ri";
 import { FiCornerDownLeft } from "react-icons/fi";
 import { BiCaretDownCircle } from "react-icons/bi";
 import Flutter from "../../Image/courses/Flutter.png";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "../../../index";
 
 export function MyCoursesMoreInfo() {
+  const [courseInfo, setCourseInfo] = useState({ syllabus: [] });
+  const param = useParams();
+
+  useEffect(() => {
+    axios
+      .get("course/" + param.courseId)
+      .then((res) => {
+        console.log(res.data);
+        setCourseInfo(res.data);
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }, []);
   return (
     <>
       <LoggedInAppbar />
@@ -22,7 +38,7 @@ export function MyCoursesMoreInfo() {
               Online Course
             </div>
             <br />
-            <h1>Python Certificate Development Course</h1>
+            <h1>{courseInfo.courseName} Certificate Development Course</h1>
             <p>Tutor Name : Thamizharasan</p>
             <div className="myCourse-Third-Row">
               <p>
@@ -47,14 +63,7 @@ export function MyCoursesMoreInfo() {
           <div className="viewDetails-maxwidth">
             <div className="course-details">
               <h2>Course Details</h2>
-              <p>
-                Python has been one of the flexible, premier and powerful
-                open-source languages that are easy to learn and implement. The
-                python training will primarily focus on understanding key
-                concepts, basic ideas of developing web application and
-                implementing lot of modules and packages to encourage modularity
-                of the code and helps to improve the application performance.
-              </p>
+              <p>{courseInfo.description}</p>
               <br />
               <h2>Table Of Content</h2>
               <div className="viewDetails-Details">
@@ -65,7 +74,10 @@ export function MyCoursesMoreInfo() {
                   </p>
                 </div>
                 <div className="viewDetails-Details-row-content">
-                  <p>History</p>
+                  {courseInfo.syllabus.map((topic, index) => {
+                    return <p key={index}>{topic}</p>;
+                  })}
+                  {/* <p>History</p>
                   <p>Installation</p>
                   <p>Routing</p>
                   <p>URL Building</p>
@@ -81,7 +93,7 @@ export function MyCoursesMoreInfo() {
                   <p>File uploading</p>
                   <p>DB Conectivity</p>
                   <p>Live Project</p>
-                  <p>Deployment</p>
+                  <p>Deployment</p> */}
                 </div>
               </div>
             </div>

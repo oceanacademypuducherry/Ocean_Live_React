@@ -18,7 +18,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "../../../index";
 
 export function OnlineViewDetail() {
-  const [courseInfo, setCourseInfo] = useState({});
+  const [courseInfo, setCourseInfo] = useState({ syllabus: [] });
   const param = useParams();
   const navigate = useNavigate();
   const [courseBuyingInfo, setCourseBuyingInfo] = useState({
@@ -189,7 +189,10 @@ export function OnlineViewDetail() {
                   </p>
                 </div>
                 <div className="viewDetails-Details-row-content">
-                  <p>History</p>
+                  {courseInfo.syllabus.map((topic, index) => {
+                    return <p key={index}>{topic}</p>;
+                  })}
+                  {/* <p>History</p>
                   <p>Installation</p>
                   <p>Routing</p>
                   <p>URL Building</p>
@@ -205,7 +208,7 @@ export function OnlineViewDetail() {
                   <p>File uploading</p>
                   <p>DB Conectivity</p>
                   <p>Live Project</p>
-                  <p>Deployment</p>
+                  <p>Deployment</p> */}
                 </div>
               </div>
             </div>

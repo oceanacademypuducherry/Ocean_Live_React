@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 export function EditProfile() {
   const navigate = useNavigate();
   const [isMale, setIsMale] = useState(true);
+  const [purchaseList, setPurchaseList] = useState([]);
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -45,8 +46,8 @@ export function EditProfile() {
         console.log(error.message);
       });
   }
-  useEffect(() => {
-    let sessionUser = localStorage.getItem("token");
+
+  function getUserData(sessionUser) {
     axios
       .post("user/", { token: sessionUser })
       .then((res) => {
@@ -64,6 +65,22 @@ export function EditProfile() {
       .catch((error) => {
         console.log(error.message);
       });
+  }
+
+  function getEnrolledList(sessionUser) {
+    axios
+      .post("purchased/", { token: sessionUser })
+      .then((res) => {
+        setPurchaseList(res.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+  useEffect(() => {
+    let sessionUser = localStorage.getItem("token");
+    getUserData(sessionUser);
+    getEnrolledList(sessionUser);
   }, []);
   return (
     <>
@@ -80,7 +97,7 @@ export function EditProfile() {
 
             <div className="editProfile-card">
               <p>Courses Enrolled</p>
-              <h1>0</h1>
+              <h1>{purchaseList.length}</h1>
             </div>
 
             <div className="editProfile-card">

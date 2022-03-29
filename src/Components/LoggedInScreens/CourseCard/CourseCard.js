@@ -45,7 +45,10 @@ export function MyCourseCard() {
                 <p>{course.course.courseName} Full Package Course</p>
               </div>
 
-              <Link to="/dashboard/mycoursemoreinfo" className="myCourse-Btn">
+              <Link
+                to={"/dashboard/mycoursemoreinfo/" + course.course.courseId}
+                className="myCourse-Btn"
+              >
                 More Info
               </Link>
             </div>

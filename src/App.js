@@ -56,7 +56,7 @@ function App() {
           element={<CourseViewDetails />}
         />
         <Route
-          path="/dashboard/mycoursemoreinfo"
+          path="/dashboard/mycoursemoreinfo/:courseId"
           element={<MyCoursesMoreInfo />}
         />
         <Route
