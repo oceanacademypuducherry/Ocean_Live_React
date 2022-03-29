@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap");
+@import "../../../Scss/ScssMixins.scss";
+
+.loading {
+  @include flex(center, center, row, nowrap);
+  height: 50vh;
+}
 
 .onlineCourses-title {
   margin: 130px 0px 0px 0px;

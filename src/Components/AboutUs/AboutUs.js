@@ -5,15 +5,8 @@ import { closeSideNavbar } from "../Functions/SidebarFunction";
 import { Titlebar } from "../Titlebar/Titlebar";
 import { Appbar } from "../Appbar/Appbar";
 import { Footer } from "../Footer/Footer";
+import { OALoaders } from "../Loaders/OALoader/OALoader";
 import Team from "../Image/team.png";
-import Karthik from "../Image/Mentor/Karthik.jpg";
-import Brindha from "../Image/Mentor/Brindha.jpg";
-import Vijay from "../Image/Mentor/Vijay.jpg";
-import Gomathi from "../Image/Mentor/Gomathi.jpg";
-import Thamizharasan from "../Image/Mentor/Thamizharasan.jpg";
-import Ijass from "../Image/Mentor/Ijass.jpg";
-import Manisha from "../Image/Mentor/Manisha.jpg";
-// import Jaya from "../Image/Mentor/Jayalatha.jpg";
 import { FiFacebook } from "react-icons/fi";
 import {
   AiOutlineGooglePlus,
@@ -25,11 +18,13 @@ import axios from "../../index";
 
 export function AboutUs() {
   const [allMentors, setAllMentors] = useState([]);
+  const [bool, setBool] = useState(true);
   useEffect(() => {
     axios
       .get("/mentor/")
       .then((res) => {
         setAllMentors(res.data);
+        setBool(false);
       })
       .catch((error) => {
         console.log(error.message);
@@ -75,6 +70,11 @@ export function AboutUs() {
 
         <div className="mentors">
           <h2>MEET OUR MENTOR</h2>
+          {bool === true && (
+            <section className="loading">
+              <OALoaders />
+            </section>
+          )}
           <div className="row">
             {allMentors.map((mentor, index) => {
               return (

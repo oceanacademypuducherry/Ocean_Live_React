@@ -57,6 +57,10 @@
       @include flex(space-between, center, row, nowrap);
       position: relative;
 
+      .loading {
+        width: 1200px;
+      }
+
       &::-webkit-scrollbar {
         -webkit-appearance: none;
       }
@@ -77,6 +81,10 @@
     overflow-x: scroll;
     // background-color: aqua;
     padding: 15px 0px;
+
+    .loading {
+      width: 100%;
+    }
 
     &::-webkit-scrollbar:horizontal {
       height: 2px;
