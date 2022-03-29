@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "./Style/CoverImageStyle.scss";
 import CodingVideo from "../../Videos/coding.mp4";
+import { AiFillPlayCircle } from "react-icons/ai";
+import { AiOutlinePauseCircle } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
 // import axios from "axios";
@@ -11,6 +13,10 @@ export function CoverImage() {
       // duration : "2s"
     });
   }, []);
+
+  const vedio = (e) => {
+    console.log(document.querySelector(".icon"));
+  };
 
   return (
     <div className="coverImg">
@@ -33,7 +39,11 @@ export function CoverImage() {
             <div className="enrollNowBtn">Enroll Now</div>
           </div>
           <div className="col">
-            <div className="bg-Color">
+            <div className="video">
+              <div className="bg-Color">
+                <AiFillPlayCircle className="icon" onClick={vedio} />
+                {/* <AiOutlinePauseCircle className="icon" /> */}
+              </div>
               <video
                 controls={false}
                 className="video"
