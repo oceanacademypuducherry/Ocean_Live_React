@@ -1,0 +1,36 @@
+@import "../../../Scss/ScssMixins.scss";
+
+$blue: rgb(0, 90, 143);
+$white: aliceblue;
+
+.webinarMentor {
+  padding: 30px 0px;
+  width: 100%;
+  @include flex(center, center, column, nowrap);
+
+  .heading {
+    margin: 0px;
+    color: $blue;
+    font-size: 40px;
+    font-variant-caps: all-petite-caps;
+  }
+
+  .row {
+    margin: 50px auto;
+    max-width: 1200px;
+    @include flex(center, start, row, nowrap);
+
+    p {
+      font-size: large;
+      max-width: 600px;
+      margin: 0px 30px;
+      text-align: justify;
+    }
+
+    .image {
+      height: auto;
+      background-color: aliceblue;
+      margin: 0px 30px;
+    }
+  }
+}

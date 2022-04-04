@@ -2,7 +2,7 @@ import React from "react";
 import "./Style/StudentPlacementStyle.css";
 import Amazon from "../../Image/company_images/amazon.png";
 import Capgenini from "../../Image/company_images/capgemini.png";
-import Cts from "../../Image/company_images/CTS.png";
+import Cognizant from "../../Image/company_images/cognizant.png";
 import Esale from "../../Image/company_images/esales.png";
 import Google from "../../Image/company_images/google.png";
 import Hcl from "../../Image/company_images/HCL.png";
@@ -21,11 +21,11 @@ export function StudentPlacement() {
         MNCs.
       </p>
       <div className="row">
+        <img src={Tcs} alt="" />
         <img src={Google} alt="" />
         <img src={Amazon} alt="" />
-        <img src={Tcs} alt="" />
         <img src={Capgenini} alt="" />
-        <img src={Cts} alt="" />
+        <img src={Cognizant} alt="" />
         <img src={Hcl} alt="" />
         <img src={Infosys} alt="" />
         <img src={Lenovo} alt="" />

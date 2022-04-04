@@ -8,14 +8,32 @@ import "aos/dist/aos.css";
 // import axios from "axios";
 
 export function CoverImage() {
+  // let video = document.querySelector("video");
   useEffect(() => {
+    document.querySelector("#play").style.display = "none";
     AOS.init({
       // duration : "2s"
     });
   }, []);
 
-  const vedio = (e) => {
-    console.log(document.querySelector(".icon"));
+  const play = (e) => {
+    let play = document.querySelector("#play");
+    let pause = document.querySelector("#pause");
+    let video = document.querySelector("video");
+
+    play.style.display = "none";
+    pause.style.display = "block";
+    video.play();
+  };
+
+  const pause = (e) => {
+    let play = document.querySelector("#play");
+    let pause = document.querySelector("#pause");
+    let video = document.querySelector("video");
+
+    play.style.display = "block";
+    pause.style.display = "none";
+    video.pause();
   };
 
   return (
@@ -41,8 +59,12 @@ export function CoverImage() {
           <div className="col">
             <div className="video">
               <div className="bg-Color">
-                <AiFillPlayCircle className="icon" onClick={vedio} />
-                {/* <AiOutlinePauseCircle className="icon" /> */}
+                <span id="play">
+                  <AiFillPlayCircle className="icon" onClick={play} />
+                </span>
+                <span id="pause">
+                  <AiOutlinePauseCircle className="icon" onClick={pause} />
+                </span>
               </div>
               <video
                 controls={false}

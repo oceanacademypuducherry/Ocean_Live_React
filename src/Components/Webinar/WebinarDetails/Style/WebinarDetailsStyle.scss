@@ -1,0 +1,68 @@
+@import "../../../Scss/ScssMixins.scss";
+
+.webinarDetails {
+  width: 100%;
+  @include flex(center, center, row, nowrap);
+
+  .maxWidth {
+    width: 1200px;
+    background-color: white;
+    @include flex(space-between, center, row, wrap);
+    // padding: 10px;
+    .details {
+      height: 100px;
+      //   background-color: antiquewhite;
+      @include flex(center, center, column, nowrap);
+      padding: 20px;
+
+      div {
+        @include flex(center, center, row, nowrap);
+        span {
+          @include flex(center, center, row, nowrap);
+          &:nth-child(1) {
+            margin: 0px 8px;
+            font-size: 30px;
+          }
+
+          &:nth-child(2) {
+            font-size: 30px;
+          }
+        }
+      }
+      p {
+        margin: 0%;
+        font-size: 20px;
+        font-variant-caps: all-petite-caps;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .webinarDetails {
+    .maxWidth {
+      @include flex(center, center, row, wrap);
+      .details {
+        background-color: rgb(0, 98, 130);
+        width: 100%;
+        margin: 2px 0px;
+        color: aliceblue;
+        div {
+          color: aliceblue;
+          span {
+            &:nth-child(1) {
+              font-size: 20px;
+            }
+
+            &:nth-child(2) {
+              font-size: 20px;
+            }
+            p {
+              color: aliceblue;
+            }
+          }
+        }
+      }
+    }
+  }
+}

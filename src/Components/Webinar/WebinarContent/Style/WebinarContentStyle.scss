@@ -1,0 +1,145 @@
+@import "../../../Scss/ScssMixins.scss";
+
+$blue: rgb(0, 90, 143);
+$white: aliceblue;
+
+.webinarContent {
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+
+  background-color: aliceblue;
+  @include flex(center, center, column, nowrap);
+
+  .heading {
+    font-size: 35px;
+    color: $blue;
+    margin: 20px 10px;
+    font-variant-caps: all-petite-caps;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  video {
+    max-width: 600px;
+    margin: 0px 50px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .learn {
+    font-size: 25px;
+    margin: 20px 50px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 18px;
+    list-style-type: decimal;
+    margin: 15px 0px;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .subTitle {
+    font-weight: 400;
+    list-style-type: none;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .circleMain {
+    position: absolute;
+    top: -12%;
+    left: -12%;
+
+    .circle {
+      position: relative;
+      height: 500px;
+      width: 500px;
+      background-color: rgba(255, 255, 255, 0);
+      border: 0.1px solid rgba(0, 208, 255, 0.92);
+      border-radius: 50%;
+      @include flex(center, center, row, nowrap);
+
+      &::before {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        height: 100%;
+        width: 100%;
+        background-image: conic-gradient(
+          rgb(0, 255, 251) 20deg,
+          transparent 160deg
+        );
+        animation: Rotate 4s infinite;
+      }
+
+      &::after {
+        content: "";
+        border-radius: 50%;
+        position: absolute;
+        height: 495px;
+        width: 495px;
+        background-color: $white;
+      }
+    }
+  }
+
+  .squareMain {
+    position: absolute;
+    right: -10%;
+    top: 65%;
+    z-index: 0;
+
+    .square {
+      height: 400px;
+      width: 400px;
+      border: 0.1px solid rgba(0, 208, 255, 0.92);
+      position: relative;
+      overflow: hidden;
+      @include flex(center, center, row, nowrap);
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        background-image: conic-gradient(
+          rgb(0, 255, 251) 20deg,
+          transparent 160deg
+        );
+        transition: all 1s;
+        transform: rotate(180deg);
+        transition: all 5s;
+        z-index: 0;
+        animation: Rotate 4s infinite;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 395px;
+        height: 395px;
+        background-color: $white;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+@keyframes Rotate {
+  to {
+    transform: rotate(0deg);
+  }
+
+  from {
+    transform: rotate(360deg);
+  }
+}

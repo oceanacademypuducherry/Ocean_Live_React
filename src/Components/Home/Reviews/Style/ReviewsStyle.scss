@@ -50,7 +50,7 @@
     overflow: hidden;
     @include flex(center, center, row, nowrap);
     width: 1000px;
-    background-color: rgba(255, 255, 255, 0.876);
+    // background-color: rgba(255, 255, 255, 0.876);
 
     .reviews-Card {
       transition: all 1s;
@@ -58,9 +58,10 @@
       height: 350px;
       max-width: 800px;
       @include flex(space-between, center, row, nowrap);
-      border-radius: 30px;
-      box-shadow: 2px 2px 30px 1px rgba(0, 162, 255, 0.11);
+      border-radius: 20px;
+      box-shadow: 2px 2px 80px 1px rgba(0, 0, 0, 0.055);
       position: relative;
+      background-color: rgba(240, 248, 255, 0.733) !important;
 
       .image {
         position: relative;
@@ -69,6 +70,7 @@
         height: 200px;
         background-size: cover;
         border-radius: 30px 5px 5px 5px;
+        // background-color: aqua !important;
         &::before {
           content: "";
           width: 100%;
@@ -93,10 +95,10 @@
             letter-spacing: 2;
           }
         }
-        .line {
-          width: 120px;
-          border: 1px solid aqua;
-        }
+        // .line {
+        //   width: 120px;
+        //   border: 1px solid aqua;
+        // }
       }
 
       &:nth-of-type(1) {
