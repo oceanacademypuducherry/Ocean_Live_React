@@ -2,7 +2,7 @@ import React from "react";
 import "./Style/WebinarDetailsStyle.scss";
 import { IoIosPeople } from "react-icons/io";
 import { BsClockHistory } from "react-icons/bs";
-import { GrCertificate } from "react-icons/gr";
+import { RiMedalLine } from "react-icons/ri";
 
 export function WebinarDetails() {
   return (
@@ -33,7 +33,7 @@ export function WebinarDetails() {
         <section className="details">
           <div>
             <span>
-              <GrCertificate />
+              <RiMedalLine />
             </span>
             <span>1000 +</span>
           </div>

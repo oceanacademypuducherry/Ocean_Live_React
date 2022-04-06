@@ -17,7 +17,7 @@ export function WebinarLanding() {
         <WebinarForm />
         <WebinarDetails />
         <WebinarContent />
-        {/* <WebinarMentor /> */}
+        <WebinarMentor />
       </section>
       <Footer />
     </>

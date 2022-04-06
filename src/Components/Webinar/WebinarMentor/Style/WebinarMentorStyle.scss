@@ -7,6 +7,7 @@ $white: aliceblue;
   padding: 30px 0px;
   width: 100%;
   @include flex(center, center, column, nowrap);
+  background-color: white;
 
   .heading {
     margin: 0px;
@@ -15,22 +16,26 @@ $white: aliceblue;
     font-variant-caps: all-petite-caps;
   }
 
-  .row {
-    margin: 50px auto;
-    max-width: 1200px;
-    @include flex(center, start, row, nowrap);
+  .webinarMentorRow {
+    margin: 10px auto;
+    // max-width: 1200px;
+    @include flex(center, center, row, wrap-reverse);
 
     p {
       font-size: large;
       max-width: 600px;
-      margin: 0px 30px;
+      margin: 0px 25px;
       text-align: justify;
     }
 
     .image {
-      height: auto;
       background-color: aliceblue;
-      margin: 0px 30px;
+      margin: 30px 30px;
+
+      > img {
+        height: auto;
+        width: 100%;
+      }
     }
   }
 }

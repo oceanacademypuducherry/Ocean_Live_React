@@ -5,10 +5,8 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { AiOutlinePauseCircle } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
-// import axios from "axios";
 
 export function CoverImage() {
-  // let video = document.querySelector("video");
   useEffect(() => {
     document.querySelector("#play").style.display = "none";
     AOS.init({

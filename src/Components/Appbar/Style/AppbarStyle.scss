@@ -193,6 +193,13 @@
     }
     .routingPortion {
       margin: auto;
+      #courses {
+        div {
+          &:nth-of-type(1) {
+            top: 45px;
+          }
+        }
+      }
     }
   }
 }

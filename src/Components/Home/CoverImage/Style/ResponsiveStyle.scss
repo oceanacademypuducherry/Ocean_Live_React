@@ -38,6 +38,12 @@
   }
 }
 
+@media only screen and (max-width: 1200px) {
+  .coverImg {
+    margin-top: 120px;
+  }
+}
+
 @media only screen and (max-width: 1126px) {
   .coverImg > .bgClr > .row > .col:nth-child(1) {
     margin: auto;
@@ -64,6 +70,9 @@
 }
 
 @media only screen and (max-width: 950px) {
+  .coverImg {
+    margin-top: 80px;
+  }
   .coverImg > .bgClr > .row {
     margin: 0%;
   }

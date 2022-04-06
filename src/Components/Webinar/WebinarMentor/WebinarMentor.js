@@ -7,19 +7,22 @@ export function WebinarMentor() {
     <section className="webinarMentor">
       <p className="heading">About Mentor</p>
 
-      <div className="row">
-        <p className="description">
+      <div className="webinarMentorRow">
+        <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
           dignissimos voluptate voluptatem possimus voluptates atque dicta
           aperiam accusantium eius, magnam deserunt optio blanditiis praesentium
           quis odit autem? Cum, qui numquam? Lorem ipsum, dolor sit amet
           consectetur adipisicing elit. Ad, quasi odio cupiditate laborum, velit
           quae quas possimus architecto eius tenetur ipsa nisi nemo ut fugit
-          nulla, et cumque dolorum ipsum!
+          nulla, et cumque dolorum ipsum! quis odit autem? Cum, qui numquam?
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, quasi
+          odio cupiditate laborum, velit quae quas possimus architecto eius
+          tenetur ipsa nisi nemo ut fugit nulla, et cumque dolorum ipsum.
         </p>
 
         <div className="image">
-          <img src={webinarImage} alt="" />
+          <img src={webinarImage} alt="Not Found" />
         </div>
       </div>
     </section>
