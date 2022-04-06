@@ -21,7 +21,7 @@ export function Reviews() {
         num = 0;
       }
       controller(num, reviewsCard, dots);
-    }, 10000);
+    }, 2000);
     return () => {
       clearInterval(timer);
     };
@@ -65,7 +65,7 @@ export function Reviews() {
                 <p>
                   <img width={40} src={Quotes} alt="" /> {data.studentReview}
                 </p>
-                <hr className="line" />
+                {/* <hr className="line" /> */}
                 <p>{data.name}</p>
                 <p>{data.designation}</p>
               </div>

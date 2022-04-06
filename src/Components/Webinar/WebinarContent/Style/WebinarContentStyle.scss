@@ -1,0 +1,170 @@
+@import "../../../Scss/ScssMixins.scss";
+
+$blue: rgb(0, 90, 143);
+$white: aliceblue;
+
+.webinarContent {
+  // overflow-x: hidden;
+  position: relative;
+  padding: 10px;
+
+  background-color: aliceblue;
+  @include flex(center, center, column, nowrap);
+
+  .heading {
+    font-size: 35px;
+    color: $blue;
+    margin: 20px 10px;
+    font-variant-caps: all-petite-caps;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .webinarRow {
+    margin: 30px 0px;
+    @include flex(center, start, row, nowrap);
+
+    .left {
+      position: sticky;
+      top: 100px;
+      z-index: 1;
+
+      video {
+        max-width: 600px;
+        margin: 0px 50px;
+        border-radius: 10px;
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    .right {
+      background-color: aliceblue;
+      z-index: 1;
+      .learn {
+        font-size: 25px;
+        margin: 20px 0px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .dropdown {
+        max-width: 500px;
+        margin: 20px 15px;
+        padding: 10px;
+        border-radius: 2px;
+        box-sizing: border-box;
+        cursor: pointer;
+        @include flex(center, start, column, nowrap);
+        border-bottom: 1px solid rgba(108, 181, 223, 0.561);
+
+        .dropdown-Row {
+          color: rgb(0, 61, 160);
+          width: 100%;
+          @include flex(space-between, center, row, nowrap);
+        }
+        .content {
+          display: none;
+          transition: all 1s;
+          margin: 10px 20px;
+
+          > li::marker {
+            color: rgb(0, 61, 160);
+          }
+        }
+      }
+    }
+  }
+
+  .circleMain {
+    position: absolute;
+    top: 28%;
+    left: 12%;
+
+    .circle {
+      position: relative;
+      height: 300px;
+      width: 300px;
+      background-color: rgba(255, 255, 255, 0);
+      border: 0.1px solid rgba(0, 208, 255, 0.92);
+      border-radius: 50%;
+      @include flex(center, center, row, nowrap);
+
+      &::before {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        height: 100%;
+        width: 100%;
+        background-image: conic-gradient(
+          rgb(0, 255, 251) 20deg,
+          transparent 160deg
+        );
+        animation: Rotate 4s infinite;
+      }
+
+      &::after {
+        content: "";
+        border-radius: 50%;
+        position: absolute;
+        height: 295px;
+        width: 295px;
+        background-color: $white;
+      }
+    }
+  }
+
+  .squareMain {
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    z-index: 0;
+
+    .square {
+      height: 300px;
+      width: 300px;
+      border: 0.1px solid rgba(0, 208, 255, 0.92);
+      position: relative;
+      overflow: hidden;
+      @include flex(center, center, row, nowrap);
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        background-image: conic-gradient(
+          rgb(0, 255, 251) 20deg,
+          transparent 160deg
+        );
+        transition: all 1s;
+        transform: rotate(180deg);
+        transition: all 5s;
+        z-index: 0;
+        animation: Rotate 4s infinite;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 295px;
+        height: 295px;
+        background-color: $white;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+@keyframes Rotate {
+  to {
+    transform: rotate(0deg);
+  }
+
+  from {
+    transform: rotate(360deg);
+  }
+}
+
+@import "./WebinarContentResposnive.scss";

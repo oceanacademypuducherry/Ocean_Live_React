@@ -20,6 +20,7 @@ import { MyCourseCard } from "./Components/LoggedInScreens/CourseCard/CourseCard
 import { AllCourses } from "./Components/LoggedInScreens/AllCourses/AllCourses";
 import { CourseViewDetails } from "./Components/LoggedInScreens/CourseViewDetails/CourseViewDetails";
 import { Certificate } from "./Components/LoggedInScreens/Certificate/Certificate";
+import { WebinarLanding } from "./Components/Webinar/WebinarLanding/WebinarLanding";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/loginotp" element={<LoginOTP />} />
         <Route path="/register/:mobileNumber" element={<Register />} />
+        <Route path="/webinar" element={<WebinarLanding />} />
       </Routes>
 
       <Routes>

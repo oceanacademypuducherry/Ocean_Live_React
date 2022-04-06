@@ -60,21 +60,46 @@
         }
 
         &:nth-child(2) {
-          margin: 0px auto 0px auto;
+          margin: 40px auto;
           position: relative;
           max-width: 600px;
           @include flex(center, center, row, nowrap);
           // background-color: aliceblue;
 
-          .bg-Color {
-            // background-color: aqua;
+          .video {
+            @include flex(center, center, row, nowrap);
+            z-index: 1;
+            position: relative;
+
+            &:hover .icon {
+              display: block !important;
+              color: rgba(240, 248, 255, 0.582);
+            }
+
+            &:hover .bg-Color {
+              background-color: rgba(0, 0, 0, 0.411);
+              backdrop-filter: blur(5);
+            }
+
             > video {
               border-radius: 20px;
               width: 100%;
               position: relative;
+            }
 
-              &:hover {
-                background-color: black;
+            .bg-Color {
+              border-radius: 20px;
+              height: 100%;
+              width: 100%;
+              background-color: rgba(0, 0, 0, 0);
+              transition: all 0.8s;
+              position: absolute;
+              z-index: 2;
+              @include flex(center, center, row, nowrap);
+
+              .icon {
+                display: none;
+                font-size: 80px;
               }
             }
           }

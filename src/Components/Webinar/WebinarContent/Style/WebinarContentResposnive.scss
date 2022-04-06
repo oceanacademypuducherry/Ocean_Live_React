@@ -1,0 +1,13 @@
+@media only screen and (max-width: 1200px) {
+  .webinarContent {
+    overflow: hidden;
+    .webinarRow {
+      background-color: aqual;
+      @include flex(center, center, row, wrap);
+      .left {
+        position: relative;
+        top: 0px;
+      }
+    }
+  }
+}

@@ -1,16 +1,38 @@
 import React, { useEffect } from "react";
 import "./Style/CoverImageStyle.scss";
 import CodingVideo from "../../Videos/coding.mp4";
+import { AiFillPlayCircle } from "react-icons/ai";
+import { AiOutlinePauseCircle } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
-// import axios from "axios";
 
 export function CoverImage() {
   useEffect(() => {
+    document.querySelector("#play").style.display = "none";
     AOS.init({
       // duration : "2s"
     });
   }, []);
+
+  const play = (e) => {
+    let play = document.querySelector("#play");
+    let pause = document.querySelector("#pause");
+    let video = document.querySelector("video");
+
+    play.style.display = "none";
+    pause.style.display = "block";
+    video.play();
+  };
+
+  const pause = (e) => {
+    let play = document.querySelector("#play");
+    let pause = document.querySelector("#pause");
+    let video = document.querySelector("video");
+
+    play.style.display = "block";
+    pause.style.display = "none";
+    video.pause();
+  };
 
   return (
     <div className="coverImg">
@@ -33,7 +55,15 @@ export function CoverImage() {
             <div className="enrollNowBtn">Enroll Now</div>
           </div>
           <div className="col">
-            <div className="bg-Color">
+            <div className="video">
+              <div className="bg-Color">
+                <span id="play">
+                  <AiFillPlayCircle className="icon" onClick={play} />
+                </span>
+                <span id="pause">
+                  <AiOutlinePauseCircle className="icon" onClick={pause} />
+                </span>
+              </div>
               <video
                 controls={false}
                 className="video"

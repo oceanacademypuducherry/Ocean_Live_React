@@ -1,0 +1,41 @@
+@import "../../../Scss/ScssMixins.scss";
+
+$blue: rgb(0, 90, 143);
+$white: aliceblue;
+
+.webinarMentor {
+  padding: 30px 0px;
+  width: 100%;
+  @include flex(center, center, column, nowrap);
+  background-color: white;
+
+  .heading {
+    margin: 0px;
+    color: $blue;
+    font-size: 40px;
+    font-variant-caps: all-petite-caps;
+  }
+
+  .webinarMentorRow {
+    margin: 10px auto;
+    // max-width: 1200px;
+    @include flex(center, center, row, wrap-reverse);
+
+    p {
+      font-size: large;
+      max-width: 600px;
+      margin: 0px 25px;
+      text-align: justify;
+    }
+
+    .image {
+      background-color: aliceblue;
+      margin: 30px 30px;
+
+      > img {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}

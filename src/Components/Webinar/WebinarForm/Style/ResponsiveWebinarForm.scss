@@ -1,0 +1,34 @@
+@media only screen and (max-width: 900px) {
+  .webinarForm {
+    // background-color: antiquewhite;
+    .title {
+      font-size: medium;
+    }
+
+    .subTitle {
+      font-size: medium;
+    }
+
+    .row {
+      .left {
+        margin: 10px 15px;
+      }
+      .right {
+        margin: 10px 15px;
+        .timer {
+          .time {
+            span {
+              font-size: x-large;
+            }
+          }
+
+          .day {
+            span {
+              font-size: large;
+            }
+          }
+        }
+      }
+    }
+  }
+}
