@@ -32,7 +32,6 @@ export function Register() {
     axios
       .post("user/create", userData)
       .then((res) => {
-        console.log(res.data);
         // navigate('/class_room')
         return res.data;
       })
@@ -40,7 +39,6 @@ export function Register() {
         await axios
           .post("user/login", { mobileNumber: res.mobileNumber })
           .then((res) => {
-            console.log(res.data.token);
             localStorage.setItem("token", res.data.token);
             navigate("/dashboard/mycourses");
           })

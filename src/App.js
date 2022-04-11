@@ -22,6 +22,7 @@ import { CourseViewDetails } from "./Components/LoggedInScreens/CourseViewDetail
 import { Certificate } from "./Components/LoggedInScreens/Certificate/Certificate";
 import { WebinarLanding } from "./Components/Webinar/WebinarLanding/WebinarLanding";
 import { Routes, Route } from "react-router-dom";
+import ZoomPage from "./Components/LoggedInScreens/ZoomSchedule/ZoomPage";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
             path="/dashboard/schedule/:courseId"
             element={<ZoomSchedule />}
           />
+          <Route path="/dashboard/zoompage" element={<ZoomPage />} />
           <Route path="/dashboard/allcourses" element={<AllCourses />} />
           {/* <Route path="/dashboard/allcourses" element={<OnlineCourses />} /> */}
           <Route path="/dashboard/mycourses" element={<MyCourseCard />} />

@@ -4,7 +4,7 @@ import "./Style/ZoomScheduleStyle.scss";
 import { PageTitlebar } from "./../PageTitlebar/PageTitlebar";
 import { TiTick, TiVideo } from "react-icons/ti";
 import axios from "../../../index";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function ZoomSchedule() {
   const mL = [
@@ -37,7 +37,25 @@ export function ZoomSchedule() {
   ];
   const [allSchedule, setAllSchedule] = useState([]);
   const param = useParams();
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
+
+  function isJoin(scheduleId) {
+    // make isJoin dynamicly
+    axios
+      .post("/schedule/isJoin/", {
+        token: token,
+        scheduleId: scheduleId,
+        isJoin: true,
+      })
+      .then((res) => {
+        console.log(res.data);
+        navigate("/dashboard/zoompage");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
 
   function getAllSchedule() {
     axios
@@ -90,7 +108,12 @@ export function ZoomSchedule() {
                   <p>Completed</p>
                 </div>
               ) : (
-                <div className="zoomSchedule-Card-Right-Div2">
+                <div
+                  className="zoomSchedule-Card-Right-Div2"
+                  onClick={() => {
+                    isJoin(schedule._id);
+                  }}
+                >
                   <TiVideo className="zoomSchedule-Card-Right-Div2-icons" />
                   <p>Join</p>
                 </div>

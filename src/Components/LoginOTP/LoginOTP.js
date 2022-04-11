@@ -116,8 +116,7 @@ export function LoginOTP() {
               to=""
               style={{ textDecoration: "none", color: "rgb(24,230,212)" }}
             >
-              {" "}
-              click here{" "}
+              click here
             </Link>
             &nbsp; to visit website
           </p>
