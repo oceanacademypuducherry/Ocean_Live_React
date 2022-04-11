@@ -3,7 +3,7 @@
 $blue: rgb(0, 90, 143);
 $white: aliceblue;
 
-.webinarContent {
+.webinar-Content {
   // overflow-x: hidden;
   position: relative;
   padding: 10px;
@@ -25,7 +25,7 @@ $white: aliceblue;
     margin: 30px 0px;
     @include flex(center, start, row, nowrap);
 
-    .left {
+    .webinarLeft {
       position: sticky;
       top: 100px;
       z-index: 1;
@@ -39,7 +39,7 @@ $white: aliceblue;
       }
     }
 
-    .right {
+    .webinarRight {
       background-color: aliceblue;
       z-index: 1;
       .learn {
@@ -49,8 +49,8 @@ $white: aliceblue;
         z-index: 1;
       }
 
-      .dropdown {
-        max-width: 500px;
+      .dropDown {
+        width: 500px;
         margin: 20px 15px;
         padding: 10px;
         border-radius: 2px;
@@ -59,10 +59,15 @@ $white: aliceblue;
         @include flex(center, start, column, nowrap);
         border-bottom: 1px solid rgba(108, 181, 223, 0.561);
 
-        .dropdown-Row {
+        .dropDown-Row {
           color: rgb(0, 61, 160);
           width: 100%;
           @include flex(space-between, center, row, nowrap);
+          span {
+            &:nth-child(1) {
+              margin-right: 100px;
+            }
+          }
         }
         .content {
           display: none;

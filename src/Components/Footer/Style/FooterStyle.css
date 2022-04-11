@@ -7,7 +7,7 @@
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .maxWidth {

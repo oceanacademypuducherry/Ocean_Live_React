@@ -6,7 +6,7 @@ export function WebinarForm() {
   return (
     <section className="webinarForm">
       <p className="title">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium cum
+        Lorem ipsum dolor sit amet consect adipisic elit. Praesentium cum
         voluptatum delectus aliquam
       </p>
       <p className="subTitle">

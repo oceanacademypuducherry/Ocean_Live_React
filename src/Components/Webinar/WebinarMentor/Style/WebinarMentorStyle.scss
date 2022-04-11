@@ -9,7 +9,7 @@ $white: aliceblue;
   @include flex(center, center, column, nowrap);
   background-color: white;
 
-  .heading {
+  .webinarHeading {
     margin: 0px;
     color: $blue;
     font-size: 40px;
@@ -28,7 +28,7 @@ $white: aliceblue;
       text-align: justify;
     }
 
-    .image {
+    .webinarImage {
       background-color: aliceblue;
       margin: 30px 30px;
 
@@ -39,3 +39,5 @@ $white: aliceblue;
     }
   }
 }
+
+@import "./WebinarMentorResponsive.scss";

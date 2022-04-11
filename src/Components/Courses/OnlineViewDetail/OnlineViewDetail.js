@@ -3,11 +3,7 @@ import "./Style/OnlineViewDetailStyle.css";
 import { Appbar } from "../../Appbar/Appbar";
 import { SideNavbar } from "../../SideNavbar/SideNavbar";
 import { closeSideNavbar } from "../../Functions/SidebarFunction";
-import {
-  AiOutlineClockCircle,
-  AiOutlineVideoCamera,
-  // AiOutlineClockCircle,
-} from "react-icons/ai";
+import { AiOutlineClockCircle, AiOutlineVideoCamera } from "react-icons/ai";
 import { VscCalendar } from "react-icons/vsc";
 import { RiTimerFlashLine } from "react-icons/ri";
 import { IoIosArrowRoundBack } from "react-icons/io";

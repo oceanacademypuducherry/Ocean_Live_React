@@ -13,7 +13,7 @@ export function WebinarLanding() {
     <>
       <Appbar />
       <SideNavbar />
-      <section className="webinarLanding">
+      <section className="webinar-Landing">
         <WebinarForm />
         <WebinarDetails />
         <WebinarContent />
