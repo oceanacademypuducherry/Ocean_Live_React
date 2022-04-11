@@ -1,0 +1,250 @@
+@import "../../../Scss/ScssMixins.scss";
+
+$teal: #005c79;
+
+.WebinarView {
+  padding-top: 210px;
+  width: 100%;
+  @include flex(center, center, row, wrap);
+  gap: 100px;
+  @extend %cardDesign;
+}
+
+%cardDesign {
+  .WebinarView-Card {
+    margin: 10px 20px;
+    width: 320px;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 100px 1px rgba(0, 0, 0, 0.179);
+    z-index: 1;
+    transition: all 0.2s;
+    @include flex(center, center, column, nowrap);
+
+    &:hover .divider {
+      fill: rgb(0, 156, 0) !important;
+    }
+
+    &:hover .circle {
+      visibility: visible;
+      opacity: 1;
+      border: 2px solid #b8d600;
+      top: 10%;
+      right: -10%;
+    }
+
+    &:hover .square {
+      visibility: visible;
+      opacity: 1;
+      border: 2px solid #f9be5b;
+      top: 25%;
+      left: -10%;
+    }
+
+    &:hover .triangle {
+      visibility: visible;
+      opacity: 1;
+      stroke: #00e1ff;
+      stroke-width: 1px;
+      bottom: 28%;
+      right: -13%;
+    }
+
+    .top {
+      padding: 20px;
+      box-sizing: border-box;
+      .image {
+        &:hover .avatarCircle {
+          animation: rotate 1s infinite;
+        }
+
+        .avatarCircle {
+          position: absolute;
+          top: -20%;
+          left: 50%;
+          transform: translate(-50%, 0%);
+        }
+
+        .profile {
+          border-radius: 50%;
+          position: absolute;
+          top: -16%;
+          left: 50%;
+          height: 115px;
+          width: 115px;
+          background-size: cover;
+          transform: translate(-50%, 0%);
+          animation: rotate 1s infinite;
+        }
+      }
+
+      .description {
+        text-align: center;
+        .name {
+          margin: 0px 0px;
+          font-size: 30px;
+          font-variant-caps: all-petite-caps;
+          color: $teal;
+        }
+        .designation {
+          margin: 0px;
+          font-size: 14px;
+        }
+      }
+      .WebinarView-Row {
+        margin: 15px 0px;
+        width: 100%;
+        @include flex(space-around, center, row, nowrap);
+
+        .dateAndTime {
+          width: 130px;
+          @include flex(center, start, column, nowrap);
+          p {
+            @include flex(center, center, row, nowrap);
+            span {
+              @include flex(center, center, row, nowrap);
+              margin-right: 5px;
+            }
+          }
+        }
+        .divider {
+          height: 106px;
+          width: 6px;
+          fill: #00c2ff;
+        }
+        .price {
+          color: #005c79;
+          width: 130px;
+          text-align: center;
+          font-size: 25px;
+        }
+      }
+    }
+
+    .bottom {
+      @include flex(center, center, column, nowrap);
+      background-color: #fdfdfd;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 100px;
+        background-color: #00c3ff16;
+        width: 100%;
+        transform: rotate(-20deg) scale(1.5);
+        z-index: 0;
+        bottom: -60%;
+      }
+      .topic {
+        font-size: 25px;
+        margin: 0px 0px;
+        color: $teal;
+        font-variant-caps: all-petite-caps;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .btn {
+        height: 40px;
+        width: calc(100% - 100px);
+        border-radius: 5px;
+        background-color: $teal;
+        color: aliceblue;
+        margin: 20px 0px;
+        cursor: pointer;
+        position: relative;
+        @include flex(center, center, column, nowrap);
+
+        &:hover::before {
+          width: 100%;
+        }
+
+        span {
+          z-index: 1;
+          position: relative;
+        }
+
+        &::before {
+          content: "";
+          left: 0%;
+          position: absolute;
+          height: 100%;
+          width: 0%;
+          background-color: rgb(0, 164, 22);
+          z-index: 0;
+          transition: all 0.5s;
+        }
+      }
+    }
+    @extend %circle;
+    @extend %triangle;
+    @extend %square;
+  }
+}
+
+%circle {
+  .circle {
+    visibility: hidden;
+    // opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #b8d600;
+    transition: all 1s;
+  }
+}
+
+%triangle {
+  .triangle {
+    visibility: hidden;
+    // opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    bottom: 33%;
+    right: 10%;
+    transition: all 1s;
+    fill: transparent;
+    width: 30px;
+    height: 30px;
+    stroke: #00e1ff;
+    stroke-width: 0.5px;
+  }
+}
+
+%square {
+  .square {
+    visibility: hidden;
+    // opacity: 0;
+    transition: visibility 0s, opacity 0.4s linear;
+    position: absolute;
+    z-index: -1;
+    top: 25%;
+    left: 10%;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #f9be5b;
+    transition: all 0.5s;
+  }
+}
+
+@keyframes rotate {
+  from {
+  }
+  to {
+    transform: rotate(360deg) translate(-50%, 0%);
+  }
+}
+
+@import "./Responsive.scss";

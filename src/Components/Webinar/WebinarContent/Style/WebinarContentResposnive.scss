@@ -1,13 +1,50 @@
 @media only screen and (max-width: 1200px) {
-  .webinarContent {
-    overflow: hidden;
+  .webinar-Content {
+    // overflow: hidden;
+
+    .heading {
+      font-size: 22px;
+      text-align: center;
+    }
     .webinarRow {
-      background-color: aqual;
       @include flex(center, center, row, wrap);
-      .left {
+      .webinarLeft {
         position: relative;
         top: 0px;
+        video {
+          margin: 0%;
+          width: 100%;
+          background-color: rgba(128, 128, 128, 0.395);
+        }
       }
+
+      .webinarRight {
+        width: 100%;
+        .learn {
+          
+          font-size: 20px;
+          text-align: center;
+        }
+
+        .dropDown {
+          width: auto;
+          .dropDown-Row {
+            span {
+              &:nth-child(1) {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .circleMain {
+      display: none;
+    }
+
+    .squareMain {
+      display: none;
     }
   }
 }

@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { Test } from "./Components/Testing/Test";
 import axios from "axios";
 // import { OALoaders } from "./Components/Loaders/OALoader/OALoader";
 // import "react-app-polyfill/ie9";

@@ -1,0 +1,40 @@
+@media only screen and (max-width: 600px) {
+  .onlineCourses-title {
+    margin-top: 100px;
+    font-size: 30px;
+  }
+
+  .onlineCourses {
+    margin: 0px 0px;
+  }
+
+  .onlineCourses > .onlineCourses-card > .onlineCourses-content > .topic {
+    font-size: 20px;
+  }
+
+  .onlineCourses > .onlineCourses-card > .onlineCourses-content > .description {
+    font-size: 15px;
+  }
+
+  .onlineCourses > .onlineCourses-card {
+    margin: 40px 20px;
+  }
+
+  .onlineCourses
+    > .onlineCourses-card
+    > .onlineCourses-content
+    > div:nth-of-type(1)
+    > p {
+    font-size: 15px;
+  }
+
+  .onlineCourses
+    > .onlineCourses-card
+    > .onlineCourses-content
+    > div:nth-of-type(1)
+    > p
+    > span
+    > .online-icons {
+    font-size: large;
+  }
+}

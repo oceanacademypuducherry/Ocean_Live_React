@@ -6,9 +6,7 @@ import { closeSideNavbar } from "../../Functions/SidebarFunction";
 import { OALoaders } from "../../Loaders/OALoader/OALoader";
 import "./Style/OnlineCourses.scss";
 import { MdLockClock } from "react-icons/md";
-// import { ImCalendar } from "react-icons/im";
 import { FaRegCalendarAlt } from "react-icons/fa";
-// import { PageTitlebar } from "../../LoggedInScreens/PageTitlebar/PageTitlebar";
 import { Link } from "react-router-dom";
 import axios from "../../../index";
 
@@ -41,13 +39,16 @@ export function OnlineCourses() {
         {allCourse.map((course, index) => {
           return (
             <div key={index} className="onlineCourses-card">
-              <div
-                style={{ backgroundImage: `url(${course.courseImage})` }}
-              ></div>
+              <div className="image">
+                <img src={course.courseImage} alt="" />
+              </div>
               <div className="onlineCourses-content">
-                <p>{course.courseName} Full Package Course</p>
-                <p>
-                  <s>Trainer Thamizharasan</s>
+                <p className="topic">{course.courseName} Full Package Course</p>
+                <p className="description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+                  tempora quasi officia, itaque dolore omnis eveniet, laudantium
+                  non temporibus nihil hic distinctio molestias consectetur
+                  numquam quae earum dicta delectus. Consectetur?
                 </p>
                 <div>
                   <p>
@@ -80,6 +81,7 @@ export function OnlineCourses() {
           );
         })}
       </div>
+      <br /> <br />
       <Footer />
     </>
   );

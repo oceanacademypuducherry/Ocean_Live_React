@@ -1,130 +1,107 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Style/WebinarContentStyle.scss";
-import Video from "../../Videos/coding.mp4";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Video from "../../Videos/production ID_4974883.mp4";
 import { BiChevronDown } from "react-icons/bi";
 
 export function WebinarContent() {
+  useEffect(() => {
+    document.querySelector(".video").play();
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
   return (
-    <section className="webinarContent">
+    <section
+      className="webinar-Content"
+      data-aos="fade-up"
+      data-aos-duration="500"
+    >
       <p className="heading">Watch The Preview For This Webinar</p>
 
       <section className="webinarRow">
-        <section className="left">
+        <section className="webinarLeft">
           <video
+            // playsInline
             controls={false}
             className="video"
             loop={true}
             autoPlay={true}
             muted={true}
-            // width={200}
           >
-            <source src={Video} type="video/ogg" />
+            <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </section>
 
-        <section className="right">
+        <section className="webinarRight">
           <p className="learn">What You'll Learn</p>
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Courses Overview</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Courses Overview</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Lorem ipsum dolor sit amet</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Courses dolor sit amet</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Courses Overview</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span> Courses dolor amet</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Courses Courses dolor sit amet</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Courses dolor sit amet Overview</span>
               <span>
                 <BiChevronDown />
@@ -137,32 +114,22 @@ export function WebinarContent() {
             </div>
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Courses Courses sit amet</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
 
-          <div className="dropdown">
-            <div className="dropdown-Row">
+          <div className="dropDown">
+            <div className="dropDown-Row">
               <span>Courses dolor sit amet</span>
               <span>
                 <BiChevronDown />
               </span>
             </div>
-            {/* <div className="content">
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-              <li>Using PostCSS Plugins</li>
-            </div> */}
           </div>
         </section>
       </section>
