@@ -48,7 +48,10 @@ function App() {
 
       <Routes>
         <Route path="/dashboard" element={<LoggedInLandingPage />}>
-          <Route path="zoom" element={<ZoomSchedule />} />
+          <Route
+            path="/dashboard/schedule/:courseId"
+            element={<ZoomSchedule />}
+          />
           <Route path="/dashboard/allcourses" element={<AllCourses />} />
           {/* <Route path="/dashboard/allcourses" element={<OnlineCourses />} /> */}
           <Route path="/dashboard/mycourses" element={<MyCourseCard />} />

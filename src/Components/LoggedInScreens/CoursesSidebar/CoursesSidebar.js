@@ -9,7 +9,11 @@ export function CoursesSidebar({ purchasedCourse }) {
       <div>
         {purchasedCourse.map((item, key) => {
           return (
-            <Link key={key} className={`route `} to="/dashboard/zoom">
+            <Link
+              key={key}
+              className={`route `}
+              to={"/dashboard/schedule/" + item.course.courseId}
+            >
               {item.course.courseName}
             </Link>
           );
