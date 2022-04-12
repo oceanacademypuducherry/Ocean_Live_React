@@ -1,0 +1,37 @@
+/* mediaquery card mobile responsive */
+
+@media only screen and (max-width: 600px) {
+  .offlineCourses-title {
+    margin-top: 100px;
+    font-size: 30px;
+  }
+
+  /* .offlineCourses > .offlineCourses-card > div:nth-of-type(1) {
+      height: 160px;
+      width: 298px;
+    } */
+
+  .offlineCourses > .offlineCourses-card > .offlineCourses-content > p {
+    /* background-color: aqua; */
+    font-size: medium;
+  }
+
+  .offlineCourses
+    > .offlineCourses-card
+    > .offlineCourses-content
+    > div:nth-of-type(1)
+    > p {
+    /* background-color: aqua; */
+    font-size: small;
+  }
+
+  .offlineCourses
+    > .offlineCourses-card
+    > .offlineCourses-content
+    > div:nth-of-type(1)
+    > p
+    > span
+    > .offline-icons {
+    font-size: large;
+  }
+}
