@@ -43,7 +43,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/loginotp" element={<LoginOTP />} />
         <Route path="/register/:mobileNumber" element={<Register />} />
-        <Route path="/webinar" element={<WebinarLanding />} />
+        <Route path="/webinar/:webinarId" element={<WebinarLanding />} />
         <Route path="/webinarview" element={<WebinarView />} />
       </Routes>
 

@@ -4,7 +4,7 @@ import { IoIosPeople } from "react-icons/io";
 import { BsClockHistory } from "react-icons/bs";
 import { RiMedalLine } from "react-icons/ri";
 
-export function WebinarDetails() {
+export function WebinarDetails({ webinarData }) {
   return (
     <section className="webinarDetails">
       <section className="maxWidth">
@@ -13,7 +13,7 @@ export function WebinarDetails() {
             <span>
               <IoIosPeople />
             </span>
-            <span>103 +</span>
+            <span>{webinarData.enrolledCount} +</span>
           </div>
 
           <p>Students Enrolled</p>
@@ -24,7 +24,7 @@ export function WebinarDetails() {
             <span>
               <BsClockHistory />
             </span>
-            <span>180 Minutes</span>
+            <span>{webinarData.duration} Minutes</span>
           </div>
 
           <p>Master Class</p>

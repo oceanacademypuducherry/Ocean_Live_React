@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import Video from "../../Videos/production ID_4974883.mp4";
 import { BiChevronDown } from "react-icons/bi";
 
-export function WebinarContent() {
+export function WebinarContent({ topics }) {
   useEffect(() => {
     document.querySelector(".video").play();
     AOS.init({
@@ -30,6 +30,7 @@ export function WebinarContent() {
             autoPlay={true}
             muted={true}
           >
+            {/* // TODO: add video url in admin side */}
             <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -37,15 +38,21 @@ export function WebinarContent() {
 
         <section className="webinarRight">
           <p className="learn">What You'll Learn</p>
-          <div className="dropDown">
-            <div className="dropDown-Row">
-              <span>Courses Overview</span>
-              <span>
-                <BiChevronDown />
-              </span>
-            </div>
-          </div>
+          {topics.map((topic, index) => {
+            return (
+              <div key={index} className="dropDown">
+                <div className="dropDown-Row">
+                  <span>{topic.title}</span>
 
+                  <span>
+                    <BiChevronDown />
+                  </span>
+                </div>
+                <span>{topic.subtitle}</span>
+              </div>
+            );
+          })}
+          {/* 
           <div className="dropDown">
             <div className="dropDown-Row">
               <span>Courses Overview</span>
@@ -130,7 +137,7 @@ export function WebinarContent() {
                 <BiChevronDown />
               </span>
             </div>
-          </div>
+          </div> */}
         </section>
       </section>
 
