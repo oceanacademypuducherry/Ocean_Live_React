@@ -36,6 +36,8 @@ export function ZoomSchedule() {
     "Dec",
   ];
   const [allSchedule, setAllSchedule] = useState([]);
+  const [user, setUser] = useState({});
+  const [course, setCourse] = useState([]);
   const param = useParams();
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
@@ -61,8 +63,10 @@ export function ZoomSchedule() {
     axios
       .post("/schedule/view/" + param.courseId, { token: token })
       .then((res) => {
-        console.log(res.data);
-        setAllSchedule(res.data);
+        console.log(res.data.schedules);
+        setAllSchedule(res.data.schedules);
+        setUser(res.data.user);
+        setCourse(res.data.course);
       })
       .catch((error) => {
         console.log(error.message);
@@ -75,12 +79,19 @@ export function ZoomSchedule() {
     <div className="zoomSchedule">
       <PageTitlebar emoji="" title={"Zoom Schedule"} />
       <div className="zoomSchedule-username">
-        Hi &#128522; ijass, you are enrolled in{" "}
-        <span style={{ color: "green", fontWeight: "500" }}>THREE JS</span>{" "}
+        Hi &#128522; {user.firstName}, you are enrolled in{" "}
+        <span style={{ color: "green", fontWeight: "500" }}>
+          {course.courseName}
+        </span>{" "}
         course.
       </div>
 
-      <div className="zoomSchedule-Btn-Row">
+      <div
+        className="zoomSchedule-Btn-Row"
+        onClick={() => {
+          navigate("/dashboard/mycoursemoreinfo/" + course.courseId);
+        }}
+      >
         <div className="zoomSchedule-viewSyllabus">View Syllabus</div>
       </div>
 

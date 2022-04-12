@@ -14,6 +14,7 @@ import axios from "../../../index";
 export function MyCoursesMoreInfo() {
   const [courseInfo, setCourseInfo] = useState({ syllabus: [] });
   const param = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -33,7 +34,12 @@ export function MyCoursesMoreInfo() {
       <div className="myCoursesMoreInfo">
         <div className="myCourse-Topbar">
           <div className="maxWidth">
-            <div className="main-icon">
+            <div
+              className="main-icon"
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
               <IoIosArrowRoundBack className="icon" />
               Online Course
             </div>

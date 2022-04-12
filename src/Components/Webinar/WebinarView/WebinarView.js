@@ -11,6 +11,20 @@ import axios from "../../../index";
 import { useNavigate } from "react-router-dom";
 
 export function WebinarView() {
+  const monthList = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const [allWebinars, setAllWebinars] = useState([]);
   const navigate = useNavigate();
   function getAllWebinars() {
@@ -35,6 +49,15 @@ export function WebinarView() {
       <SideNavbar />
       <section className="WebinarView">
         {allWebinars.map((webinar) => {
+          let startAt = new Date(webinar.startAt);
+
+          let hrs = startAt.getHours();
+          let min = startAt.getMinutes();
+          var ampm = hrs >= 12 ? "PM" : "AM";
+          hrs = hrs % 12;
+          hrs = hrs ? hrs : 12; // the hour '0' should be '12'
+          min = min < 10 ? "0" + min : min;
+          hrs = hrs < 10 ? "0" + hrs : hrs;
           return (
             <section key={webinar._id} className="WebinarView-Card">
               <br /> <br />
@@ -64,13 +87,18 @@ export function WebinarView() {
                       <span>
                         <BsCalendar2Check />
                       </span>
-                      <span>07 Jun 2022</span>
+                      <span>
+                        {startAt.getDate()} {monthList[startAt.getMonth()]}{" "}
+                        {startAt.getFullYear()}
+                      </span>
                     </p>
                     <p>
                       <span>
                         <CgSandClock />
                       </span>
-                      <span>12:00 PM</span>
+                      <span>
+                        {hrs}:{min} {ampm}
+                      </span>
                     </p>
                   </div>
                   <svg className="divider" viewBox="0 0 6 106">

@@ -7,11 +7,12 @@ import { WebinarContent } from "../../Webinar/WebinarContent/WebinarContent";
 import { WebinarMentor } from "../WebinarMentor/WebinarMentor";
 import { Footer } from "../../Footer/Footer";
 import "./Style/WebinarLandingStyle.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "../../../index";
 
 export function WebinarLanding() {
   const param = useParams();
+  const navigate = useNavigate();
   const [coutDown, setCounDown] = useState({
     days: 0,
     hours: 0,
@@ -56,15 +57,15 @@ export function WebinarLanding() {
       .then((res) => {
         console.log(res.data);
         setWebinarData(res.data);
+        timer(res.data.startAt);
       })
       .catch((error) => {
         console.log(error.message);
       });
   }
 
-  // ! working woth timer
-  function timer() {
-    let webinarDate = new Date("2022-04-20T00:00:00.000Z");
+  function timer(webinarStartDate) {
+    let webinarDate = new Date(webinarStartDate);
 
     var timestamp = webinarDate.getTime() - Date.now();
 
@@ -73,8 +74,7 @@ export function WebinarLanding() {
     function component(timestamp, calculate) {
       return Math.floor(timestamp / calculate);
     }
-
-    setInterval(function () {
+    let timeCondition = () => {
       // execute code each second
       timestamp--; // decrement timestamp with one second each second
       let days = component(timestamp, 24 * 60 * 60), // calculate days from timestamp
@@ -86,13 +86,20 @@ export function WebinarLanding() {
         hours: hours,
         minutes: minutes,
         seconds: seconds,
-      }); // display: ;
-    }, 1000);
+      });
+      if (days < 0 && hours < 0 && minutes < 0 && seconds < 0) {
+        clearInterval(timerFunction);
+        navigate("/webinarview");
+        return;
+      }
+      // display: ;
+    };
+
+    const timerFunction = setInterval(timeCondition, 1000);
   }
 
   useEffect(() => {
     getWebinarData();
-    timer();
   }, [param.webinarId]);
 
   return (

@@ -36,8 +36,11 @@ export function EditProfile() {
     }
   }
   function submit() {
+    let dateOfBirth = new Date(userData.dateOfBirth).toISOString();
+    let userInfo = userData;
+    userInfo.dateOfBirth = dateOfBirth;
     axios
-      .patch("user/", userData)
+      .patch("user/", userInfo)
       .then((res) => {
         console.log(res.data);
         navigate(-1);
@@ -53,7 +56,7 @@ export function EditProfile() {
       .then((res) => {
         let resData = res.data;
         resData["token"] = sessionUser;
-        let date = new Date();
+        let date = new Date(res.data.dateOfBirth);
         resData.dateOfBirth = `${date.getFullYear()}-${
           date.getMonth() + 1 > 9
             ? date.getMonth() + 1
