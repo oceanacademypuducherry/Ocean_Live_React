@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Style/OnlineViewDetailStyle.css";
-import { Appbar } from "../../Appbar/Appbar";
+import "./Style/OnlineViewDetailStyle.scss";
 import { SideNavbar } from "../../SideNavbar/SideNavbar";
 import { closeSideNavbar } from "../../Functions/SidebarFunction";
 import { AiOutlineClockCircle, AiOutlineVideoCamera } from "react-icons/ai";
@@ -8,7 +7,7 @@ import { VscCalendar } from "react-icons/vsc";
 import { RiTimerFlashLine } from "react-icons/ri";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { BiCaretDownCircle } from "react-icons/bi";
-import Flutter from "../../Image/courses/Flutter.png";
+import { AppbarCombo } from "../../AppbarCombo/AppbarCombo";
 // thamizh added file
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "../../../index";
@@ -66,7 +65,7 @@ export function OnlineViewDetail() {
   }, []);
   return (
     <>
-      <Appbar />
+      <AppbarCombo />
       <SideNavbar />
       <div className="OnlineViewDetail" onClick={closeSideNavbar}>
         <div className="viewDetails-topbar">
@@ -110,7 +109,7 @@ export function OnlineViewDetail() {
                       <span>
                         <AiOutlineClockCircle />
                       </span>
-                      12:00 AM
+
                       <select
                         name="batchTime"
                         value={courseBuyingInfo.batchTime}
@@ -127,7 +126,7 @@ export function OnlineViewDetail() {
                       <span>
                         <VscCalendar />
                       </span>
-                      Nov 22
+
                       <select
                         name="batchType"
                         value={courseBuyingInfo.batchType}
@@ -142,15 +141,15 @@ export function OnlineViewDetail() {
                         <RiTimerFlashLine />
                       </span>
                       {courseInfo.duration} Hrs
-                      <textarea
+                      {/* <textarea
                         name="query"
                         value={courseBuyingInfo.query}
                         onChange={onchangeHandler}
-                      ></textarea>
+                      ></textarea> */}
                     </p>
                   </div>
                   <div className="topbar-Card-price-col">
-                    $ {courseInfo.price}
+                    ₹ {courseInfo.price}
                   </div>
                 </div>
                 <div

@@ -1,12 +1,11 @@
 @import "../../../Scss/ScssMixins.scss";
 
 .coverImg {
-  background-color: aliceblue;
   width: 100%;
   background-image: url("../../../Image/cover.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.8;
+  opacity: 0.9;
 
   .bgClr {
     background-color: rgba(0, 156, 204, 0.89);
@@ -64,7 +63,6 @@
           position: relative;
           max-width: 600px;
           @include flex(center, center, row, nowrap);
-          // background-color: aliceblue;
 
           .video {
             @include flex(center, center, row, nowrap);

@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import "./Style/ContactUsStyle.scss";
 import cryptoJS from "crypto-js";
 import axios from "axios";
+import { AppbarCombo } from "../AppbarCombo/AppbarCombo";
 import { closeSideNavbar } from "../Functions/SidebarFunction";
 import { Titlebar } from "../Titlebar/Titlebar";
-import { Appbar } from "../Appbar/Appbar";
 import { SideNavbar } from "../SideNavbar/SideNavbar";
 import { BsPhone } from "react-icons/bs";
 import { MdOutlineMail } from "react-icons/md";
@@ -17,6 +17,13 @@ export function ContactUs() {
     randomB: 0,
     sumValue: "",
   });
+
+  let doc = document;
+  let enquiryForInput = doc.getElementsByName("enquiryFor")[0];
+  let fullName = doc.getElementsByName("fullName")[0];
+  let mobileNumber = doc.getElementsByName("mobileNumber")[0];
+  let email = doc.getElementsByName("email")[0];
+  let query = doc.getElementsByName("query")[0];
 
   useEffect(() => {
     const a = Math.floor(Math.random() * 10);
@@ -61,6 +68,8 @@ export function ContactUs() {
         reset();
       } else {
         console.log("wrong calculation");
+        // let calcInput = doc.getElementsByName("sum")[0];
+        // console.log(calcInput);
         setRobot({
           randomA: Math.floor(Math.random() * 10),
           randomB: Math.floor(Math.random() * 10),
@@ -69,6 +78,26 @@ export function ContactUs() {
       }
     } else {
       console.log("fill values");
+
+      form.enquiryFor === ""
+        ? (enquiryForInput.style.border = "1px solid red")
+        : (enquiryForInput.style.border = "1px solid rgba(0, 0, 0, 0.349)");
+
+      form.fullName === ""
+        ? (fullName.style.border = "1px solid red")
+        : (fullName.style.border = "1px solid rgba(0, 0, 0, 0.349)");
+
+      form.mobileNumber === ""
+        ? (mobileNumber.style.border = "1px solid red")
+        : (mobileNumber.style.border = "1px solid rgba(0, 0, 0, 0.349)");
+
+      form.email === ""
+        ? (email.style.border = "1px solid red")
+        : (email.style.border = "1px solid rgba(0, 0, 0, 0.349)");
+
+      form.query === ""
+        ? (query.style.border = "1px solid red")
+        : (query.style.border = "1px solid rgba(0, 0, 0, 0.349)");
     }
   };
 
@@ -100,7 +129,7 @@ export function ContactUs() {
 
   return (
     <>
-      <Appbar />
+      <AppbarCombo />
       <SideNavbar />
       <Titlebar title="CONTACT US" />
       <div className="contactUs" onClick={closeSideNavbar}>

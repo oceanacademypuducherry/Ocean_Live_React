@@ -26,7 +26,6 @@ export function Appbar() {
           // style={isSelect}
           id="courses"
           className="textDecoration"
-          // to="/onlinecourses"
         >
           Courses <span>&nbsp; &#x25BC;</span>
           <div>

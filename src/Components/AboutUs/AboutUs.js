@@ -3,18 +3,17 @@ import "./Style/AboutStyle.scss";
 import { SideNavbar } from "../SideNavbar/SideNavbar";
 import { closeSideNavbar } from "../Functions/SidebarFunction";
 import { Titlebar } from "../Titlebar/Titlebar";
-import { Appbar } from "../Appbar/Appbar";
 import { Footer } from "../Footer/Footer";
 import { OALoaders } from "../Loaders/OALoader/OALoader";
 import Team from "../Image/team.png";
+import axios from "../../index";
 import { FiFacebook } from "react-icons/fi";
+import { AppbarCombo } from "../AppbarCombo/AppbarCombo";
 import {
   AiOutlineGooglePlus,
   AiFillLinkedin,
   AiOutlineTwitter,
 } from "react-icons/ai";
-
-import axios from "../../index";
 
 export function AboutUs() {
   const [allMentors, setAllMentors] = useState([]);
@@ -33,7 +32,7 @@ export function AboutUs() {
   return (
     <>
       <SideNavbar />
-      <Appbar />
+      <AppbarCombo />
       <Titlebar title="ABOUT US" />
       <div className="about" onClick={closeSideNavbar}>
         <div className="content">

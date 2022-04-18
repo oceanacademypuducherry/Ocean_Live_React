@@ -1,5 +1,5 @@
 import React from "react";
-import { Appbar } from "../Appbar/Appbar";
+import { AppbarCombo } from ".././AppbarCombo/AppbarCombo";
 import { SideNavbar } from "../SideNavbar/SideNavbar";
 import { closeSideNavbar } from "../Functions/SidebarFunction";
 import "./Style/CareerStyle.scss";
@@ -9,7 +9,7 @@ export function Career() {
   return (
     <>
       <SideNavbar />
-      <Appbar />
+      <AppbarCombo />
       <div onClick={closeSideNavbar} className="career">
         <div className="career-row">
           <div className="career-div-left">
