@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Style/LoginStyle.scss";
 import "react-phone-number-input/style.css";
 import { countryCode } from "../CountryCode/CountryCode";
-import { Appbar } from "../Appbar/Appbar";
+import { AppbarCombo } from "../AppbarCombo/AppbarCombo";
 import { SideNavbar } from "../SideNavbar/SideNavbar";
 import { Link, useNavigate } from "react-router-dom";
 import { authentication } from "../Firebase/FirebaseConfig";
 import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
-// import axios from "../../index";
 
 export function Login() {
   const navigate = useNavigate();
@@ -61,7 +60,7 @@ export function Login() {
 
   return (
     <>
-      <Appbar />
+      <AppbarCombo />
       <SideNavbar />
 
       <div className="login">

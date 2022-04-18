@@ -1,9 +1,16 @@
-.HomeLandingPage {
-  margin-top: 100px;
-}
+// .HomeLandingPage {
+//   margin-top: 100px;
+// }
 
-@media only screen and (max-width: 950px) {
-  .HomeLandingPage {
-    margin-top: 80px;
-  }
+// @media only screen and (max-width: 950px) {
+//   .HomeLandingPage {
+//     margin-top: 80px;
+//   }
+// }
+
+.appbar-Alert {
+  background-color: aqua;
+  position: sticky;
+  top: 0%;
+  z-index: 99;
 }

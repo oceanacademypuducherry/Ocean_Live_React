@@ -10,7 +10,6 @@
   background-color: rgba(245, 245, 245, 0.938);
   box-shadow: 2px 2px 30px 1px rgba(9, 140, 241, 0.322);
   height: 100px;
-  position: fixed;
   top: 0%;
   z-index: 99;
   width: 100%;
@@ -48,10 +47,10 @@
   height: 100%;
   border-bottom: 5px solid transparent;
   transition: all 0.2s;
+  // background-color: aqua;
 
   &:hover {
     color: rgba(6, 176, 255, 0.993) !important;
-    // border-bottom: 5px inset rgba(0, 247, 255, 0.993) !important;
   }
 
   &:hover div:nth-of-type(1) {
@@ -183,20 +182,23 @@
 
 @media only screen and (max-width: 1200px) {
   .appbar {
-    // background-color: aqua;
     height: auto;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
+    box-sizing: border-box;
+
     .logoPortion {
       padding: 15px 15px 15px 0px;
       margin: auto;
       width: 100%;
     }
+
     .routingPortion {
       margin: auto;
       #courses {
+        height: 50px;
         div {
           &:nth-of-type(1) {
-            top: 45px;
+            top: 52px;
           }
         }
       }
@@ -211,11 +213,9 @@
     .logoPortion {
       padding: 15px;
       margin: auto auto auto 0px;
-
       width: auto;
       img {
         width: 200px;
-        // background-color: aqua;
       }
     }
 
@@ -224,11 +224,12 @@
       display: none;
       flex-wrap: nowrap;
     }
+
     .menuBtn {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: auto 30px auto auto;
+      margin: auto 20px auto auto;
     }
   }
 }

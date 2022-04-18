@@ -4,9 +4,9 @@ import "aos/dist/aos.css";
 import "./Style/ServicesStyle.scss";
 import { Titlebar } from "../Titlebar/Titlebar";
 import { Footer } from "../Footer/Footer";
-import { Appbar } from "../Appbar/Appbar";
 import { SideNavbar } from "../SideNavbar/SideNavbar";
 import { closeSideNavbar } from "../Functions/SidebarFunction";
+import { AppbarCombo } from "../AppbarCombo/AppbarCombo";
 import Image from "../Image/team.png";
 import careerOriented from "../Image/services_svg/career_oriented.svg";
 import corporateTraining from "../Image/services_svg/corporate_training.svg";
@@ -21,7 +21,7 @@ export function Services() {
   }, []);
   return (
     <>
-      <Appbar />
+      <AppbarCombo />
       <SideNavbar />
       <Titlebar title="SERVICES" />
       <div className="services" onClick={closeSideNavbar}>
