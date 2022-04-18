@@ -20,12 +20,11 @@ export function WebinarLanding() {
     seconds: 0,
   });
   const [webinarData, setWebinarData] = useState({
-    _id: "6253c35a442597d84a7dd57f",
-    title: "Web Development",
-    subtitle: "trikes for web development",
-    bannerImage:
-      "https://analyticsinsight.b-cdn.net/wp-content/uploads/2020/11/Artificial-Intelligence-5.jpg",
-    course: "React",
+    _id: "",
+    title: "",
+    subtitle: "",
+    bannerImage: "",
+    course: "",
     enrolledCount: 100,
     duration: 60,
     isFree: true,
@@ -41,7 +40,7 @@ export function WebinarLanding() {
         subtitle: "",
       },
     ],
-    startAt: "2022-04-20T00:00:00.000Z",
+    startAt: new Date().toISOString(),
     mentor: {
       mentorName: "",
       designation: "",
@@ -66,11 +65,8 @@ export function WebinarLanding() {
 
   function timer(webinarStartDate) {
     let webinarDate = new Date(webinarStartDate);
-
     var timestamp = webinarDate.getTime() - Date.now();
-
     timestamp /= 1000; // from ms to seconds
-
     function component(timestamp, calculate) {
       return Math.floor(timestamp / calculate);
     }
@@ -92,7 +88,6 @@ export function WebinarLanding() {
         navigate("/webinarview");
         return;
       }
-      // display: ;
     };
 
     const timerFunction = setInterval(timeCondition, 1000);
