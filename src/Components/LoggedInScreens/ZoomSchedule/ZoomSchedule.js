@@ -42,17 +42,23 @@ export function ZoomSchedule() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  function isJoin(scheduleId) {
+  function isJoin(schedule) {
     // make isJoin dynamicly
     axios
       .post("/schedule/isJoin/", {
         token: token,
-        scheduleId: scheduleId,
+        scheduleId: schedule._id,
         isJoin: true,
       })
       .then((res) => {
         console.log(res.data);
-        navigate("/dashboard/zoompage");
+        // ! our custom zoom page
+        // navigate("/dashboard/zoompage");
+        if (schedule.zoomLink === "") {
+          alert("its completed");
+        } else {
+          window.open(schedule.zoomLink);
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -122,7 +128,7 @@ export function ZoomSchedule() {
                 <div
                   className="zoomSchedule-Card-Right-Div2"
                   onClick={() => {
-                    isJoin(schedule._id);
+                    isJoin(schedule);
                   }}
                 >
                   <TiVideo className="zoomSchedule-Card-Right-Div2-icons" />
