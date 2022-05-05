@@ -4,11 +4,14 @@ import "./Style/EditProfile.scss";
 import { LoggedInAppbar } from "../LoggedInAppbar/LoggedInAppbar";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import firebaseStorage from "../../../firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 export function EditProfile() {
   const navigate = useNavigate();
   const [isMale, setIsMale] = useState(true);
   const [purchaseList, setPurchaseList] = useState([]);
+  const [uploadPercent, setUploadPercent] = useState("Upload");
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -20,12 +23,16 @@ export function EditProfile() {
     state: "",
     country: "",
     mobileNumber: "",
-    profilePicture: "",
-    skils: "",
+    profilePicture:
+      "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png",
+    skills: "",
   });
   function onchangeHandler(e) {
-    const { name, value } = e.target;
-    if (name === "dateOfBirth") {
+    const { name, value, type, files } = e.target;
+    if (type === "file") {
+      setUserData({ ...userData, profilePicture: "" });
+      uploadImage(files[0]);
+    } else if (name === "dateOfBirth") {
       console.log(value, typeof value);
       let date = new Date();
       console.log(date.toUTCString());
@@ -80,6 +87,40 @@ export function EditProfile() {
         console.log(error.message);
       });
   }
+  function fileUpload() {
+    const fileInp = document.querySelector("#profile-inp");
+    fileInp.type = "file";
+    fileInp.accept = "image/*";
+    fileInp.style.display = "none";
+    fileInp.click();
+  }
+
+  function uploadImage(img) {
+    const storageRef = ref(firebaseStorage, "user/" + img.name);
+    const uploadTask = uploadBytesResumable(storageRef, img);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploadPercent(progress.toFixed(0) + "%");
+        // console.log("Upload is " + progress.toFixed(0) + "% done");
+        // console.log(snapshot.state);
+      },
+      (error) => {
+        console.log(error);
+        // Handle unsuccessful uploads
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          // console.log("File available at", downloadURL);
+          setUserData({ ...userData, profilePicture: downloadURL });
+        });
+      }
+    );
+  }
   useEffect(() => {
     let sessionUser = localStorage.getItem("token");
     getUserData(sessionUser);
@@ -96,7 +137,19 @@ export function EditProfile() {
 
         <div className="editProfile-content">
           <div className="editProfile-division1">
-            <div className="profile-circle"></div>
+            <div className="profile-circle" onClick={fileUpload}>
+              <input
+                type="hidden"
+                id="profile-inp"
+                name="profilePicture"
+                onChange={onchangeHandler}
+              />
+              {userData.profilePicture !== "" ? (
+                <img src={userData.profilePicture} alt="" />
+              ) : (
+                <div className="upload">{uploadPercent}</div>
+              )}
+            </div>
 
             <div className="editProfile-card">
               <p>Courses Enrolled</p>

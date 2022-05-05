@@ -3,10 +3,13 @@ import { Appbar } from "../Appbar/Appbar";
 import axios from "../../index";
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import firebaseStorage from "../../firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 export function Register() {
   const param = useParams();
   const navigate = useNavigate();
+  const [uploadPercent, setUploadPercent] = useState("Upload");
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -19,7 +22,7 @@ export function Register() {
     country: "india",
     mobileNumber: param.mobileNumber,
     profilePicture: "",
-    skils: [],
+    skills: [],
   });
 
   function onchangeHandler(e) {
@@ -51,6 +54,39 @@ export function Register() {
       });
   }
 
+  function fileUpload() {
+    const fileInp = document.querySelector("#profile-inp");
+    fileInp.type = "file";
+    fileInp.accept = "image/*";
+    fileInp.click();
+  }
+
+  function uploadImage(img) {
+    const storageRef = ref(firebaseStorage, "user/" + img.name);
+    const uploadTask = uploadBytesResumable(storageRef, img);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploadPercent(progress + "%");
+        // console.log("Upload is " + progress.toFixed(0) + "% done");
+        // console.log(snapshot.state);
+      },
+      (error) => {
+        console.log(error);
+        // Handle unsuccessful uploads
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          // console.log("File available at", downloadURL);
+          setUserData({ ...userData, profilePicture: downloadURL });
+        });
+      }
+    );
+  }
   return (
     <>
       <Appbar />
