@@ -21,7 +21,6 @@ export function UpcomingCourses() {
       .then((res) => {
         setAllCourse(res.data);
         setBool(false);
-        console.log(res.data, "---courses data");
       })
       .catch((error) => {
         console.log(error.message);

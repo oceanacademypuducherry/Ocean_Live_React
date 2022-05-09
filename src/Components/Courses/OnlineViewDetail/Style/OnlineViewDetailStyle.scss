@@ -1,8 +1,8 @@
-.OnlineViewDetail {
-  // margin-top: 0px !important;
-  /* height: 100vh; */
-  /* background-color: whitesmoke; */
-}
+// .OnlineViewDetail {
+//   // margin-top: 0px !important;
+//   /* height: 100vh; */
+//   /* background-color: whitesmoke; */
+// }
 
 /* background color appbar css open */
 
@@ -244,6 +244,7 @@
 }
 
 .viewDetails-Details {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   /* padding: 10px;
@@ -251,6 +252,7 @@
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.411);
 }
 
 .viewDetails-Details:hover {
@@ -277,9 +279,9 @@
   align-items: center;
 }
 
-.viewDetails-Details > p:nth-child(2) {
-  /* display: none; */
-}
+// .viewDetails-Details > p:nth-child(2) {
+//   /* display: none; */
+// }
 
 .course-details {
   /* background-color: antiquewhite; */

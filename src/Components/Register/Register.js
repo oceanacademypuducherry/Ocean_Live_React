@@ -41,26 +41,26 @@ export function Register() {
   }
 
   async function submit() {
-    // axios
-    //   .post("user/create", userData)
-    //   .then((res) => {
-    //     // navigate('/class_room')
-    //     return res.data;
-    //   })
-    //   .then(async (res) => {
-    //     await axios
-    //       .post("user/login", { mobileNumber: res.mobileNumber })
-    //       .then((res) => {
-    //         localStorage.setItem("token", res.data.token);
-    //         navigate("/dashboard/mycourses");
-    //       })
-    //       .catch((error) => {
-    //         console.log(error.message);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.message);
-    //   });
+    axios
+      .post("user/create", userData)
+      .then((res) => {
+        // navigate('/class_room')
+        return res.data;
+      })
+      .then(async (res) => {
+        await axios
+          .post("user/login", { mobileNumber: res.mobileNumber })
+          .then((res) => {
+            localStorage.setItem("token", res.data.token);
+            navigate("/dashboard/mycourses");
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
     console.log(userData);
   }
 

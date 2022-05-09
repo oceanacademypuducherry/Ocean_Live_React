@@ -15,6 +15,7 @@ export function MyCoursesMoreInfo() {
   const [courseInfo, setCourseInfo] = useState({ syllabus: [] });
   const param = useParams();
   const navigate = useNavigate();
+  const [isExpand, setIsExpand] = useState(0);
 
   useEffect(() => {
     axios
@@ -45,7 +46,7 @@ export function MyCoursesMoreInfo() {
             </div>
             <br />
             <h1>{courseInfo.courseName} Certificate Development Course</h1>
-            <p>Tutor Name : Thamizharasan</p>
+
             <div className="myCourse-Third-Row">
               <p>
                 <span>
@@ -72,36 +73,37 @@ export function MyCoursesMoreInfo() {
               <p>{courseInfo.description}</p>
               <br />
               <h2>Table Of Content</h2>
-              <div className="viewDetails-Details">
-                <div className="viewDetails-Details-row">
-                  <p>INTRODUCTION</p>
-                  <p>
-                    <BiCaretDownCircle style={{ fontSize: "25px" }} />
-                  </p>
-                </div>
-                <div className="viewDetails-Details-row-content">
-                  {courseInfo.syllabus.map((topic, index) => {
-                    return <p key={index}>{topic}</p>;
-                  })}
-                  {/* <p>History</p>
-                  <p>Installation</p>
-                  <p>Routing</p>
-                  <p>URL Building</p>
-                  <p>HTTPS Methods</p>
-                  <p>Templates</p>
-                  <p>Request Qbject</p>
-                  <p>Sending Form Data to Template</p>
-                  <p>Cookies</p>
-                  <p>Session</p>
-                  <p>Redirection</p>
-                  <p>Flask-Mail</p>
-                  <p>SQL Alchemy</p>
-                  <p>File uploading</p>
-                  <p>DB Conectivity</p>
-                  <p>Live Project</p>
-                  <p>Deployment</p> */}
-                </div>
-              </div>
+              {courseInfo.syllabus.map((syllabus, index) => {
+                return (
+                  <div key={index} className="viewDetails-Details">
+                    <div
+                      className="viewDetails-Details-row"
+                      onClick={() => {
+                        if (isExpand === index + 1) {
+                          setIsExpand(0);
+                        } else {
+                          setIsExpand(index + 1);
+                        }
+                      }}
+                    >
+                      <p>{syllabus.title}</p>
+                      <p>
+                        <BiCaretDownCircle style={{ fontSize: "25px" }} />
+                      </p>
+                    </div>
+                    <div
+                      className="viewDetails-Details-row-content"
+                      style={{
+                        display: index + 1 === isExpand ? "block" : "none",
+                      }}
+                    >
+                      {syllabus.topics.map((topic, index) => {
+                        return <p key={index}>{topic}</p>;
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import "./Style/JourneyStyle.css";
 import Certificate from "../../Image/certificate.svg";
+import st from "./images/st.png";
+import fs from "./images/ws2.png";
+import ws2 from "./images/ws.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -36,7 +39,7 @@ export function Journey() {
           data-aos-easing="ease-in-sine"
           data-aos-duration="500"
         >
-          <img src={Certificate} alt="" width={70} />
+          <img src={fs} alt="" width={70} />
           <h2>50+ Free seminars</h2>
           <p>
             Inspired by our way of teaching, many students from different states
@@ -52,7 +55,7 @@ export function Journey() {
           data-aos-easing="ease-in-sine"
           data-aos-duration="500"
         >
-          <img src={Certificate} alt="" width={70} />
+          <img src={st} alt="" width={70} />
           <h2>5500+ Students trained</h2>
           <p>
             As a prominent institude in Puducherry, we have successfully trained
@@ -68,7 +71,7 @@ export function Journey() {
           data-aos-easing="ease-in-sine"
           data-aos-duration="500"
         >
-          <img src={Certificate} alt="" width={70} />
+          <img src={ws2} alt="" width={70} />
           <h2>6 International Workshop</h2>
           <p>
             As a workshop conducted by Ocean Academy is in a class all by

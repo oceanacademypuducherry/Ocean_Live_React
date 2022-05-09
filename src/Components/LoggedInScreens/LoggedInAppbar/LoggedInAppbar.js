@@ -28,7 +28,7 @@ export function LoggedInAppbar() {
     state: "",
     country: "",
     mobileNumber: "",
-    profilePicture: "",
+    profilePicture: sessionStorage.getItem("user"),
     skills: [],
   });
 
@@ -53,10 +53,12 @@ export function LoggedInAppbar() {
 
   async function getUserData() {
     const token = localStorage.getItem("token");
+
     await axios
       .post("user", { token: token })
       .then((res) => {
         setUserInfo(res.data);
+        sessionStorage.setItem("user", res.data.profilePicture);
       })
       .catch((error) => {
         console.log(error.message);
@@ -108,7 +110,7 @@ export function LoggedInAppbar() {
                   {userInfo.firstName.substring(0, 1)}
                 </div>
                 <div className="loggedInAppbar-Dropdown-Right">
-                  <p>{userInfo.firstName + userInfo.lastName}</p>
+                  <p>{userInfo.firstName + " " + userInfo.lastName}</p>
                   <p>{userInfo.email}</p>
                 </div>
               </div>
