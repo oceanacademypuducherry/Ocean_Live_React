@@ -1,16 +1,16 @@
 import React from "react";
 import "./Style/FloatingActionButton.scss";
 import { Link } from "react-router-dom";
-import { HiOutlineViewGridAdd } from "react-icons/hi";
+import { FaTerminal } from "react-icons/fa";
 
 export function FloatingActionButton() {
   return (
     <a
-      href="https://complier-713ed.web.app/"
-      target="_blank"
+      href={"https://oa-compiller.web.app/"}
+      target="blank"
       className="floatingActionButton"
     >
-      <HiOutlineViewGridAdd className="icon" />
+      <FaTerminal className="icon" />
     </a>
   );
 }

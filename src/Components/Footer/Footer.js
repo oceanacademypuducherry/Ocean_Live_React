@@ -37,7 +37,12 @@ export function Footer() {
                 placeholder="Enter Your Email"
                 required
               />
-              <div className="subBtn center">Subscribe</div>
+              <div
+                className="subBtn center"
+                style={{ color: "rgb(0, 174, 255)" }}
+              >
+                Subscribe
+              </div>
             </div>
             <div
               data-aos="fade-up"

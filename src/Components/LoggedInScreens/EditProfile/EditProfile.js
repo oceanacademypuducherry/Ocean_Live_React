@@ -130,9 +130,13 @@ export function EditProfile() {
     <>
       <LoggedInAppbar />
       <div className="editProfile">
-        <div className="editProfile-Back-Btn">
-          <IoIosArrowRoundBack className="notification-back-icon" /> Edit
-          Profile
+        <div
+          className="editProfile-Back-Btn"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <IoIosArrowRoundBack className="notification-back-icon" /> Back
         </div>
 
         <div className="editProfile-content">

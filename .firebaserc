@@ -1,5 +1,15 @@
 {
   "projects": {
-    "default": "oceanlivereact"
+    "default": "oceanlivereact",
+    "live_user": "oceanlivereact"
+  },
+  "targets": {
+    "oceanlivereact": {
+      "hosting": {
+        "public": [
+          "oceanlivereact"
+        ]
+      }
+    }
   }
 }

@@ -7,7 +7,7 @@
 }
 
 .offlineDialog {
-  margin-top: 100px;
+  // margin-top: 100px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -15,10 +15,10 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.199);
-  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.447);
+  backdrop-filter: blur(5px);
   z-index: 99;
-  border-radius: 10px;
+  // border-radius: 10px;
   display: none;
   .card {
     color: aliceblue;
@@ -26,13 +26,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
-    background-color: white;
+    background-color: rgb(222, 242, 248);
     max-width: 800px;
     padding: 0px 0px 0px 0px;
     border-radius: 10px;
-    z-index: 2;
+    overflow: hidden;
+    z-index: 3;
     filter: drop-shadow(0 0 50px rgba(5, 178, 246, 0.192));
-    box-shadow: 2px 2px 100px 0px rgba(0, 0, 0, 0.363);
+    // box-shadow: 2px 2px 100px 0px rgba(0, 0, 0, 0.363);
     .closeBtn {
       height: 60px;
       padding: 0px 15px;

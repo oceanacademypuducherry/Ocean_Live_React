@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { openSideNavbar } from "../Functions/SidebarFunction";
 import { isSelect } from "../Functions/RouterDomActiveFunction";
 import "./Style/AppbarStyle.scss";
 import Logo from "../Image/logo.svg";
 import { IoMenuOutline } from "react-icons/io5";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 export function Appbar() {
+  const navigate = useNavigate();
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  function logoutLogin() {
+    if (token) {
+      localStorage.removeItem("token");
+      setToken(undefined);
+      navigate("/");
+    } else {
+      navigate("/login");
+    }
+  }
   return (
     <div className="appbar">
-      <div className="logoPortion">
+      <div className="logoPortion" onClick={() => navigate("/")}>
         <img src={Logo} alt="" />
       </div>
       <div className="routingPortion">
@@ -43,12 +55,17 @@ export function Appbar() {
         <NavLink style={isSelect} className="textDecoration" to="/career">
           Career
         </NavLink>
-        {/* <Link to="/dashboard/mycourses/" className="loginBtn center">
-          <span>Class Room</span>
-        </Link> */}
-        <Link to="/login" className="loginBtn center">
-          <span>Login</span>
-        </Link>
+        {token && (
+          <div
+            onClick={() => navigate("/dashboard/mycourses/")}
+            className="loginBtn center"
+          >
+            <span>Class Room</span>
+          </div>
+        )}
+        <div onClick={logoutLogin} className="loginBtn center">
+          {token ? <span>Logout</span> : <span>Login</span>}
+        </div>
       </div>
       <div className="menuBtn" onClick={openSideNavbar}>
         <IoMenuOutline

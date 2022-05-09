@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import "./Style/HowItWorksStyle.css";
-import OfflineMode from "../../Image/offline_lesson.gif";
-import OnlineMode from "../../Image/online_lesson.gif";
+import offline from "./images/offline.jpg";
+import online from "./images/online.jpg";
+import recordedVideo from "./images/video.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -40,7 +41,7 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
             className="col"
-            src={OfflineMode}
+            src={online}
             alt=""
             width={400}
           />
@@ -51,7 +52,7 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
           >
-            Offline Classroom Training
+            Online Training
           </h4>
           <p
             data-aos="fade-up"
@@ -75,7 +76,7 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
             className="col"
-            src={OnlineMode}
+            src={offline}
             alt=""
             width={400}
           />
@@ -102,7 +103,7 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
             className="col"
-            src={OnlineMode}
+            src={recordedVideo}
             alt=""
             width={400}
           />
@@ -113,7 +114,7 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
           >
-            Offline Classroom Training
+            Recorded Video
           </h4>
           <p
             data-aos="fade-up"

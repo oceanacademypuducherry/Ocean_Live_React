@@ -2,7 +2,7 @@ import React from "react";
 import "./Style/OfflineDialogStyle.scss";
 import offlineDialog from "../../../Image/offlineDialog .svg";
 import { IoCloseOutline } from "react-icons/io5";
-import { BiMailSend } from "react-icons/bi";
+import { HiDownload } from "react-icons/hi";
 
 export function OfflineDialog(props) {
   const closeDialog = () => {
@@ -19,18 +19,25 @@ export function OfflineDialog(props) {
           <img src={offlineDialog} alt="" />
 
           <div className="col">
-            <input type="text" placeholder="Name" />
-            <input type="text" placeholder="Mobile Number" />
-            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="Name" required />
+            <input type="text" placeholder="Mobile Number" required />
+            <input type="email" placeholder="Email" required />
             <br /> <br />
             <div className="btn">
               <div className="left"></div>
               <div className="right"></div>
               <div className="top"></div>
               <div className="bottom"></div>
-              <div className="btnContent">
-                <BiMailSend className="icon" />
-                <p>Send to Mail</p>
+              <div
+                className="btnContent"
+                onClick={() => {
+                  // console.log(props.downloadLink);
+                  window.open(props.downloadLink);
+                  // window.location.href = props.downloadLink;
+                }}
+              >
+                <HiDownload className="icon" />
+                <p>Download Pdf</p>
               </div>
             </div>
           </div>

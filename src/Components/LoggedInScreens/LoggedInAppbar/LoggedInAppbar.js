@@ -29,7 +29,7 @@ export function LoggedInAppbar() {
     country: "",
     mobileNumber: "",
     profilePicture: "",
-    skils: [],
+    skills: [],
   });
 
   let menuOnClick = () => {
@@ -100,10 +100,13 @@ export function LoggedInAppbar() {
 
         <div id="loggedInAppbar-Profile">
           <div className="loggedInAppbar-Profile-Circle">
-            {userInfo.firstName.substring(0, 1)}
+            <img src={userInfo.profilePicture} alt="" />
+
             <div className="loggedInAppbar-Dropdown">
               <div className="loggedInAppbar-Dropdown-Row">
-                <div className="loggedInAppbar-Dropdown-Left-Circle">I</div>
+                <div className="loggedInAppbar-Dropdown-Left-Circle">
+                  {userInfo.firstName.substring(0, 1)}
+                </div>
                 <div className="loggedInAppbar-Dropdown-Right">
                   <p>{userInfo.firstName + userInfo.lastName}</p>
                   <p>{userInfo.email}</p>
