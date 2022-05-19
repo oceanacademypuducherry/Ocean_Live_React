@@ -61,12 +61,11 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
           >
-            With the institute based in Puducherry, we provide an excellent
-            infrastructure for trainees and our phenomenal training methods
-            ensure a solid foundation of the programming knowledge. Training is
-            conducted in batches. Job seekers and professionals who are up to
-            enhance their skills can choose batches of flexible timings for
-            their training.
+            Long-distance learning is possible with our online training method.
+            It is just as effective as conventional offline training but allows
+            for more flexibility, easy access to resources, and equal trainer
+            support. It is possible to conduct the training using a low-speed
+            internet connection.
           </p>
         </div>
         <div className="col">
@@ -88,12 +87,13 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
           >
-            With the institute based in Puducherry, we provide an excellent
-            infrastructure for trainees and our phenomenal training methods
-            ensure a solid foundation of the programming knowledge. Training is
-            conducted in batches. Job seekers and professionals who are up to
-            enhance their skills can choose batches of flexible timings for
-            their training.
+            Our training takes place in batches at our Puducherry-based
+            institute, and our phenomenal training methods offer a solid
+            foundation of programming edge. We provide an excellent
+            infrastructure for trainees, and our training methods provide a
+            solid foundation of programming expertise. For job seekers and
+            professionals looking to enhance their skills, batches of flexible
+            training times are available.
           </p>
         </div>
         <div className="col">
@@ -114,7 +114,7 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
           >
-            Recorded Video
+            Video Course
           </h4>
           <p
             data-aos="fade-up"
@@ -123,12 +123,10 @@ export function HowItWorks() {
             data-aos-easing="ease-in-sine"
             data-aos-duration="500"
           >
-            With the institute based in Puducherry, we provide an excellent
-            infrastructure for trainees and our phenomenal training methods
-            ensure a solid foundation of the programming knowledge. Training is
-            conducted in batches. Job seekers and professionals who are up to
-            enhance their skills can choose batches of flexible timings for
-            their training.
+            Our online video courses give best leverage to flexible learning in
+            their own learning phase. Enrolled candidates can access the High
+            quality pre-recorded courses from anywhere, anytime with their
+            flexible time and phase.
           </p>
         </div>
       </div>

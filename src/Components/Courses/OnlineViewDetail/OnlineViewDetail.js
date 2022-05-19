@@ -167,37 +167,39 @@ export function OnlineViewDetail() {
               </p>
               <br />
               <h2>Table Of Content</h2>
-              {courseInfo.syllabus.map((syllabus, index) => {
-                return (
-                  <div key={index} className="viewDetails-Details">
-                    <div
-                      className="viewDetails-Details-row"
-                      onClick={() => {
-                        if (isExpand === index + 1) {
-                          setIsExpand(0);
-                        } else {
-                          setIsExpand(index + 1);
-                        }
-                      }}
-                    >
-                      <p>{syllabus.title}</p>
-                      <p>
-                        <BiCaretDownCircle style={{ fontSize: "25px" }} />
-                      </p>
+              {courseInfo.syllabus &&
+                courseInfo.syllabus.map((syllabus, index) => {
+                  return (
+                    <div key={index} className="viewDetails-Details">
+                      <div
+                        className="viewDetails-Details-row"
+                        onClick={() => {
+                          if (isExpand === index + 1) {
+                            setIsExpand(0);
+                          } else {
+                            setIsExpand(index + 1);
+                          }
+                        }}
+                      >
+                        <p>{syllabus.title}</p>
+                        <p>
+                          <BiCaretDownCircle style={{ fontSize: "25px" }} />
+                        </p>
+                      </div>
+                      <div
+                        className="viewDetails-Details-row-content"
+                        style={{
+                          display: index + 1 === isExpand ? "block" : "none",
+                        }}
+                      >
+                        {syllabus.topics &&
+                          syllabus.topics.map((topic, index) => {
+                            return <p key={index}>{topic}</p>;
+                          })}
+                      </div>
                     </div>
-                    <div
-                      className="viewDetails-Details-row-content"
-                      style={{
-                        display: index + 1 === isExpand ? "block" : "none",
-                      }}
-                    >
-                      {syllabus.topics.map((topic, index) => {
-                        return <p key={index}>{topic}</p>;
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
             {/* <div
             style={{ width: "100px", height: "100px", backgroundColor: "red" }}
