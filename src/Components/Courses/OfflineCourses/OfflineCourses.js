@@ -51,11 +51,7 @@ export function OfflineCourses() {
                 <p className="title">
                   {course.courseName} Full package Courses
                 </p>
-                <p className="subTitle">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                  rem molestiae doloribus adipisci in blanditiis possimus
-                  praesentium.
-                </p>
+                <p className="subTitle">{course.description}</p>
               </div>
               <div
                 className="offlineCourses-View-Btn"

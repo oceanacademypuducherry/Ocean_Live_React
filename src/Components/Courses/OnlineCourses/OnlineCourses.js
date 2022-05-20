@@ -44,12 +44,7 @@ export function OnlineCourses() {
               </div>
               <div className="onlineCourses-content">
                 <p className="topic">{course.courseName} Full Package Course</p>
-                <p className="description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  tempora quasi officia, itaque dolore omnis eveniet, laudantium
-                  non temporibus nihil hic distinctio molestias consectetur
-                  numquam quae earum dicta delectus. Consectetur?
-                </p>
+                <p className="description">{course.description}</p>
                 <div>
                   <p>
                     <span>
