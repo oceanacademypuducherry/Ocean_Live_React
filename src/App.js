@@ -59,6 +59,7 @@ function App() {
           <Route path="/dashboard/mycourses" element={<MyCourseCard />} />
         </Route>
         <Route path="/dashboard/notification" element={<Notification />} />
+
         <Route path="/dashboard/editprofile" element={<EditProfile />} />
         <Route
           path="/dashboard/viewdetails/:courseId"

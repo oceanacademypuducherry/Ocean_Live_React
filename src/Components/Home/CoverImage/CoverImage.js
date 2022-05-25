@@ -5,8 +5,11 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { AiOutlinePauseCircle } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 
 export function CoverImage() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.querySelector("#play").style.display = "none";
     AOS.init({
@@ -52,7 +55,14 @@ export function CoverImage() {
               Upskill yourself through practice-oriented training, learn
               in-demand skills, and expand your career opportunities.
             </p>
-            <div className="enrollNowBtn">Enroll Now</div>
+            <div
+              className="enrollNowBtn"
+              onClick={() => {
+                navigate("/onlinecourses/");
+              }}
+            >
+              Enroll Now
+            </div>
           </div>
           <div className="col">
             <div className="video">

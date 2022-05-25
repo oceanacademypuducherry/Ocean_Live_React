@@ -6,8 +6,10 @@ import { OALoaders } from "../../Loaders/OALoader/OALoader";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "../../../index";
+import { useNavigate } from "react-router-dom";
 
 export function UpcomingCourses() {
+  const navigate = useNavigate();
   const [allCourse, setAllCourse] = useState([]);
   const [bool, setBool] = useState(true);
   useEffect(() => {
@@ -19,7 +21,6 @@ export function UpcomingCourses() {
       .then((res) => {
         setAllCourse(res.data);
         setBool(false);
-        console.log(res.data, "---courses data");
       })
       .catch((error) => {
         console.log(error.message);
@@ -75,7 +76,15 @@ export function UpcomingCourses() {
                     <p>{data.courseName}</p>
                     <p>{data.description}</p>
                   </div>
-                  <div className="btn">Get More Details</div>
+                  <div
+                    className="btn"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      navigate("/onlinecourses/viewdetails/" + data.courseId);
+                    }}
+                  >
+                    Get More Details
+                  </div>
                 </div>
               </div>
             );
@@ -112,7 +121,14 @@ export function UpcomingCourses() {
                   <p>{data.courseName}</p>
                   <p>{data.description}</p>
                 </div>
-                <div className="btn">Get More Details</div>
+                <div
+                  className="btn"
+                  onClick={() => {
+                    navigate("/onlinecourses/viewdetails/" + data.courseId);
+                  }}
+                >
+                  Get More Details
+                </div>
               </div>
             </div>
           );

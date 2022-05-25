@@ -28,8 +28,8 @@ export function LoggedInAppbar() {
     state: "",
     country: "",
     mobileNumber: "",
-    profilePicture: "",
-    skils: [],
+    profilePicture: sessionStorage.getItem("user"),
+    skills: [],
   });
 
   let menuOnClick = () => {
@@ -53,10 +53,12 @@ export function LoggedInAppbar() {
 
   async function getUserData() {
     const token = localStorage.getItem("token");
+
     await axios
       .post("user", { token: token })
       .then((res) => {
         setUserInfo(res.data);
+        sessionStorage.setItem("user", res.data.profilePicture);
       })
       .catch((error) => {
         console.log(error.message);
@@ -100,12 +102,15 @@ export function LoggedInAppbar() {
 
         <div id="loggedInAppbar-Profile">
           <div className="loggedInAppbar-Profile-Circle">
-            {userInfo.firstName.substring(0, 1)}
+            <img src={userInfo.profilePicture} alt="" />
+
             <div className="loggedInAppbar-Dropdown">
               <div className="loggedInAppbar-Dropdown-Row">
-                <div className="loggedInAppbar-Dropdown-Left-Circle">I</div>
+                <div className="loggedInAppbar-Dropdown-Left-Circle">
+                  {userInfo.firstName.substring(0, 1)}
+                </div>
                 <div className="loggedInAppbar-Dropdown-Right">
-                  <p>{userInfo.firstName + userInfo.lastName}</p>
+                  <p>{userInfo.firstName + " " + userInfo.lastName}</p>
                   <p>{userInfo.email}</p>
                 </div>
               </div>

@@ -155,7 +155,7 @@ export function ContactUs() {
               Bank, Saram, Puducherry-605013.
             </p>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d62456.736835733216!2d79.8133805!3d11.936647399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1642996147156!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.467596030159!2d79.81791191744384!3d11.942093500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53616c1e43a73f%3A0xf3758f2502e74f5b!2sOcean%20Academy%20Software%20Training%20Division!5e0!3m2!1sen!2sin!4v1651832744372!5m2!1sen!2sin"
               allowfullscreen=""
               loading="lazy"
               title="map"

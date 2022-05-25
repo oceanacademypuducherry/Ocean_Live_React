@@ -14,7 +14,7 @@ import Tcs from "../../Image/company_images/TCS.png";
 export function StudentPlacement() {
   return (
     <div className="studentPlacement">
-      <h1>Our Students got placement</h1>
+      <h1>Our Students Work At</h1>
       <p>
         We not only enlighten students with our knowledge but also help develop
         their career. Our students have grabbed placed in various firms and

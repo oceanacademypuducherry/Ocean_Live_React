@@ -46,7 +46,6 @@ export function WebinarAlert() {
     axios
       .get("/webinar/notification")
       .then((res) => {
-        console.log(res.data);
         setWebinarData(res.data);
         timer(res.data.startAt);
       })

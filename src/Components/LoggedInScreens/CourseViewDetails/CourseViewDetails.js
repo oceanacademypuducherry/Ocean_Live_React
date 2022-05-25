@@ -20,6 +20,7 @@ export function CourseViewDetails() {
   const [courseInfo, setCourseInfo] = useState({ syllabus: [] });
   const param = useParams();
   const navigate = useNavigate();
+  const [isExpand, setIsExpand] = useState(0);
   const [courseBuyingInfo, setCourseBuyingInfo] = useState({
     batchTime: "9-10",
     batchType: "week-days",
@@ -35,8 +36,9 @@ export function CourseViewDetails() {
       .post("purchased/" + param.courseId, courseBuyingInfo)
       .then((res) => {
         if (res.data.error) {
-          alert("You need to login first");
-          navigate("/login");
+          console.log(res.data.error);
+          alert(res.data.error);
+          navigate("/dashboard/mycourses");
         } else {
           console.log(res.data);
           navigate("/dashboard/mycourses");
@@ -46,15 +48,6 @@ export function CourseViewDetails() {
         alert(error.message);
       });
   }
-
-  const closeContent = () => {
-    let doc = document;
-    let p = doc.querySelectorAll(".viewDetails-Details-row-content > p");
-    for (const i of p) {
-      // i.style.tra
-      console.log((i.style.display = "none"));
-    }
-  };
 
   useEffect(() => {
     axios
@@ -82,9 +75,7 @@ export function CourseViewDetails() {
               </div>
               <br />
               <h1>{courseInfo.courseName} Certificate Development Course</h1>
-              <p>
-                <s>Tutor Name : Thamizharasan</s>
-              </p>
+
               <div className="topbar-Content-Row">
                 <p>
                   <span>
@@ -179,36 +170,39 @@ export function CourseViewDetails() {
               </p>
               <br />
               <h2>Table Of Content</h2>
-              <div className="viewDetails-Details">
-                <div className="viewDetails-Details-row" onClick={closeContent}>
-                  <p>INTRODUCTION</p>
-                  <p>
-                    <BiCaretDownCircle style={{ fontSize: "25px" }} />
-                  </p>
-                </div>
-                <div className="viewDetails-Details-row-content">
-                  {courseInfo.syllabus.map((topic, index) => {
-                    return <p key={index}>{topic}</p>;
-                  })}
-                  {/* <p>History</p>
-                  <p>Installation</p>
-                  <p>Routing</p>
-                  <p>URL Building</p>
-                  <p>HTTPS Methods</p>
-                  <p>Templates</p>
-                  <p>Request Qbject</p>
-                  <p>Sending Form Data to Template</p>
-                  <p>Cookies</p>
-                  <p>Session</p>
-                  <p>Redirection</p>
-                  <p>Flask-Mail</p>
-                  <p>SQL Alchemy</p>
-                  <p>File uploading</p>
-                  <p>DB Conectivity</p>
-                  <p>Live Project</p>
-                  <p>Deployment</p> */}
-                </div>
-              </div>
+              {courseInfo.syllabus &&
+                courseInfo.syllabus.map((syllabus, index) => {
+                  return (
+                    <div key={index} className="viewDetails-Details">
+                      <div
+                        className="viewDetails-Details-row"
+                        onClick={() => {
+                          if (isExpand === index + 1) {
+                            setIsExpand(0);
+                          } else {
+                            setIsExpand(index + 1);
+                          }
+                        }}
+                      >
+                        <p>{syllabus.title}</p>
+                        <p>
+                          <BiCaretDownCircle style={{ fontSize: "25px" }} />
+                        </p>
+                      </div>
+                      <div
+                        className="viewDetails-Details-row-content"
+                        style={{
+                          display: index + 1 === isExpand ? "block" : "none",
+                        }}
+                      >
+                        {syllabus.topics &&
+                          syllabus.topics.map((topic, index) => {
+                            return <p key={index}>{topic}</p>;
+                          })}
+                      </div>
+                    </div>
+                  );
+                })}
             </div>
             {/* <div
             style={{ width: "100px", height: "100px", backgroundColor: "red" }}
