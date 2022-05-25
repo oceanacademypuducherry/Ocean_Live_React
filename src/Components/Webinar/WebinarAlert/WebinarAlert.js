@@ -12,10 +12,7 @@ export function WebinarAlert() {
     minutes: 0,
     seconds: 0,
   });
-  const [webinarData, setWebinarData] = useState({
-    course: "",
-    startAt: new Date().toISOString(),
-  });
+  const [webinarData, setWebinarData] = useState(null);
   function timer(webinarStartDate) {
     let webinarDate = new Date(webinarStartDate);
     var timestamp = webinarDate.getTime() - Date.now();
@@ -61,54 +58,56 @@ export function WebinarAlert() {
     getWebinarData();
   }, []);
   return (
-    <section className="webinarAlert">
-      <section className="center">
-        <div className="time">
-          <span>
-            {" "}
-            {coutDown.days > 9 ? coutDown.days : `0${coutDown.days}`}
-          </span>
-          <span>:</span>
-          <span>
-            {" "}
-            {coutDown.hours > 9 ? coutDown.hours : `0${coutDown.hours}`}
-          </span>
-          <span>:</span>
-          <span>
-            {" "}
-            {coutDown.minutes > 9 ? coutDown.minutes : `0${coutDown.minutes}`}
-          </span>
-          <span>:</span>
-          <span>
-            {" "}
-            {coutDown.seconds > 9 ? coutDown.seconds : `0${coutDown.seconds}`}
-          </span>
-        </div>
+    webinarData && (
+      <section className="webinarAlert">
+        <section className="center">
+          <div className="time">
+            <span>
+              {" "}
+              {coutDown.days > 9 ? coutDown.days : `0${coutDown.days}`}
+            </span>
+            <span>:</span>
+            <span>
+              {" "}
+              {coutDown.hours > 9 ? coutDown.hours : `0${coutDown.hours}`}
+            </span>
+            <span>:</span>
+            <span>
+              {" "}
+              {coutDown.minutes > 9 ? coutDown.minutes : `0${coutDown.minutes}`}
+            </span>
+            <span>:</span>
+            <span>
+              {" "}
+              {coutDown.seconds > 9 ? coutDown.seconds : `0${coutDown.seconds}`}
+            </span>
+          </div>
 
-        <div className="courseTitle">
-          <span>{webinarData.course}</span> value based webinar Now
-        </div>
+          <div className="courseTitle">
+            <span>{webinarData.course}</span> value based webinar Now
+          </div>
 
-        <div
-          className="join-Btn"
-          onClick={() => {
-            navigate("/webinar/" + webinarData._id);
-          }}
-        >
-          Join
-        </div>
-        <div
-          className="upcomimg-Btn"
-          onClick={() => {
-            navigate("/webinarview");
-          }}
-        >
-          Upcoming
+          <div
+            className="join-Btn"
+            onClick={() => {
+              navigate("/webinar/" + webinarData._id);
+            }}
+          >
+            Join
+          </div>
+          <div
+            className="upcomimg-Btn"
+            onClick={() => {
+              navigate("/webinarview");
+            }}
+          >
+            Upcoming
+          </div>
+        </section>
+        <div className="close">
+          <VscClose />
         </div>
       </section>
-      <div className="close">
-        <VscClose />
-      </div>
-    </section>
+    )
   );
 }
